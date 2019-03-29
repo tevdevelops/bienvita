@@ -1,0 +1,68 @@
+
+
+{% if section.settings.footer_bottom_enable %}
+
+<div class="footer-bottom pb-25 pt-25 gray-bg-2" id="footer-bottom-{{ section.id }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-6">
+        <div class="payment-img f-left">
+          <a href="{{ section.settings.payment_logo_url }}">
+            <img alt="payment" src="{% if section.settings.payment_logo %}{{ section.settings.payment_logo | img_url: 'large' }}{% else %}http:\/\/via.placeholder.com\/364x42{% endif %}">
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 .d-none .d-sm-block .d-none .d-sm-block footer-mobile-hide-2">
+        <div class="main-menu footer-menu">
+          <nav>
+            <ul>
+
+              <li><a href="/pages/about">About</a></li>
+
+              <li><a href="/pages/returns">Returns</a></li>
+
+              <li><a href="/pages/terms-of-service">Terms</a></li>
+
+              <li><a href="/pages/contact">Contact</a></li>
+
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+
+      <div class="col-md-3 col-6">
+        <div class="social-icon" style="text-align: right;">
+          <ul>
+            <li>
+              <a href="#" class="facebook"><i class="ion-social-facebook"></i></a>
+            </li>
+
+            <li>
+              <a href="#" class="twitter"><i class="ion-social-twitter"></i></a>
+            </li>
+
+            <li>
+              <a href="#" class="instagram"><i class="ion-social-instagram-outline"></i></a>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+
+<style>
+
+
+  #footer-bottom-{{ section.id }}.gray-bg-2 {
+    background: {{ section.settings.footer_bottom_bg_color }};
+  }
+
+
+</style>

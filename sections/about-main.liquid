@@ -1,0 +1,130 @@
+{% if section.settings.about_main_enable %}
+
+<div class="about-us-area" id="about-us-area-{{ section.id }}">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-6 col-md-7 d-flex align-items-center">
+        <div class="overview-content-2">
+          <h2>{{ section.settings.about_title }}</h2>
+          <p class="peragraph-blog">{{ section.settings.about_description }}</p>
+          <p>{{ section.settings.about_description_2 }}</p>
+          <div class="overview-btn mt-45">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-5">
+        <div class="overview-img text-center">
+          <a href="{{ section.settings.about_img_url }}">
+            <img src="{% if section.settings.about_img %}{{ section.settings.about_img | img_url: 'master' }}{% else %}http:\/\/via.placeholder.com\/1920x1275{% endif %}" alt="banner">
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+{% endif %}
+
+
+<style>
+
+ #about-us-area-{{ section.id }}.about-us-area{
+    padding-top:{{ section.settings.section_padding_top }}px;
+  }
+
+ #about-us-area-{{ section.id }}.about-us-area{
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  }
+
+
+</style>
+
+{% schema %}
+  {
+    "name": "About Main",
+    "settings": [
+        {
+          "type": "header",
+          "content": "Section Padding"
+        },
+        {
+          "type": "text",
+          "id": "section_padding_top",
+          "label": "Section Padding Top",
+          "default": "80" ,
+          "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+          "type": "text",
+          "id": "section_padding_bottom",
+          "label": "Section Padding Bottom",
+          "default": "80" ,
+          "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+          "type": "checkbox",
+          "id": "about_main_enable",
+          "label": "About Main Area Enable",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "About Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "about_img",
+          "label": "About Image",
+          "info": "Image Size 1920 X 1275"
+        },
+        {
+          "type": "url",
+          "id": "about_img_url",
+          "label": "URL"
+        },
+		{
+            "type": "header",
+            "content": "About Content"
+        },
+        {
+          "type": "text",
+          "id": "about_title",
+          "label": "About Title",
+          "default": "Welcome To <span>BienVita's</span> Store !",
+		        "info": "Use Of <span>"
+        },
+        {
+          "type": "textarea",
+          "id": "about_description",
+          "label": "About Description 1"
+        },
+        {
+          "type": "textarea",
+          "id": "about_description_2",
+          "label": "About Description 2"
+        },
+        {
+          "type": "text",
+          "id": "about_button_title",
+          "label": "About Button Title",
+          "default": "Shop now!"
+        },
+        {
+          "type": "url",
+          "id": "about_button_url",
+          "label": "URL"
+        }
+
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

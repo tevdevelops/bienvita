@@ -1,0 +1,62 @@
+<!-- header start -->
+<header class="header-area clearfix">
+
+{% include 'header-bottom' %}
+
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+	  {
+        "type": "header",
+        "content": "Header Top"
+      },
+	  {
+		"type": "text",
+		"id": "top_menu_title",
+		"label": "Menu Title",
+		"default": "My Account"
+	  },
+	  {
+		"type": "link_list",
+		"id": "header_top_menu",
+		"label": "Select Menu"
+	  },
+	  {
+        "type": "header",
+        "content": "Header Bottom"
+      },
+      {
+        "type": "header",
+        "content": "logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Upload Logo",
+		"info": "Recommended Size: 132 x 42px"
+      }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

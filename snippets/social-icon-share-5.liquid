@@ -1,0 +1,22 @@
+
+
+  {% if template contains 'article' or template contains 'blog' %}
+  {% capture permalinkURL %}{{ shop.url }}{{ article.url }}{% endcapture %}
+  {% capture shareTitle %}{{ article.title | url_param_escape }}{% endcapture %}
+
+  {% elsif template contains 'product' %}
+  {% capture permalinkURL %}{{ shop.url }}{{ product.url }}{% endcapture %}
+  {% capture shareTitle %}{{ product.title | url_param_escape }}{% endcapture %}
+
+  {% elsif template == 'password' %}
+  {% capture permalinkURL %}{{ shop.url }}{% endcapture %}
+  {% capture shareTitle %}{% unless shop.description == blank %}{{ shop.description | url_param_escape }}{% else %}{{ shop.name | url_param_escape }}{% endunless %}{% endcapture %}
+
+  {% endif %}
+
+  <li><a class="tweet" target="_blank" href="//twitter.com/share?text={{ shareTitle }}&amp;url={{ permalinkURL }};source=webclient" title="Share on Twitter" tabindex="0"><i class="ion-social-twitter"></i>Tweet</a></li>
+  <li><a class="share" target="_blank" href="//www.facebook.com/sharer.php?u={{ permalinkURL }}" title="Share on Facebook" tabindex="0"><i class="ion-social-facebook"></i>Share</a></li>
+  <li><a class="google" target="_blank" href="//www.google.com/share?url={{ permalinkURL }}" title="Share on Google+" tabindex="0"><i class="ion-social-googleplus-outline"></i>Google+</a></li>
+  {% if product.featured_image or article.image  %}
+  <li><a class="pinterest" target="_blank" href="//pinterest.com/pin/create/button/?url={{ permalinkURL }}&amp;media=http:{% if template contains 'product' %}{{ product | img_url: '1024x1024' }}{% else %}{{ article | img_url: '1024x1024' }}{% endif %}&amp;description={{ shareTitle }}" title="Share on Instagram" tabindex="0"><i class="ion-social-pinterest"></i>Pinterest</a></li>
+  {% endif %}

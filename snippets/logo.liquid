@@ -1,0 +1,12 @@
+<div class="logo">
+
+  {% if section.settings.logo %}
+  <a href="/">
+    <img alt="{{ shop.name }}" src="{% if section.settings.logo %}{{ section.settings.logo | img_url: 'master' }}{% endif %}">
+  </a>
+  {% else %}
+<a href="/">{{ shop.name }}</a>
+{% endif %}
+
+
+</div>

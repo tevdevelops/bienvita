@@ -1,0 +1,268 @@
+
+
+
+
+<div class="contact-us" id="contact-us-{{ section.id }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+
+      </div>
+      <div class="col-8">
+        <div class="contact-page-title mb-40">
+          <h1>{{ section.settings.contact_title }}</h1>
+        </div>
+      </div>
+      <div class="col-2">
+
+      </div>
+    </div>
+    <div class="row">
+      <!-- <div class="col-lg-4">
+        <ul class="contact-tab-list nav">
+          <li><a class="active" href="#contact-address" data-toggle="tab">{{ section.settings.contact_us_title }}</a></li>
+          <li><a  href="#contact-form-tab" data-toggle="tab">{{ section.settings.contact_form_title }}</a></li>
+        </ul>
+      </div> -->
+      <div class="col-2">
+
+      </div>
+      <div class="col-lg-8 col-md-8">
+        <div class="tab-content tab-content-contact">
+
+          <div id="" class="tab-pane fade row d-flex active show" style="margin-bottom:60px;">
+            <div class="col-lg-4 col-md-4">
+              <div class="contact-information">
+                <h4>{{ section.settings.address_title }}</h4>
+                <p>{{ section.settings.address_description }}</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+              <div class="contact-information contact-mrg">
+                <h4>{{ section.settings.phone_title }}</h4>
+                <p>
+                  <a href="tel:01234567890">{{ section.settings.phone_description }}</a>
+                  <a href="tel:01234567891">{{ section.settings.phone_description_2 }}</a>
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+              <div class="contact-information contact-mrg">
+                <h4>{{ section.settings.web_title }}</h4>
+                <p>
+                  <a href="mailto:info@example.com">{{ section.settings.web_description }}</a>
+                  <a href="#">{{ section.settings.web_description_2 }}</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div id="" class="tab-pane fade row d-flex active show">
+            <div class="col">
+              {% include 'contact-form' %}
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="col-2">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<style>
+
+ #contact-us-{{ section.id }}.contact-us{
+    padding-top:{{ section.settings.section_padding_top }}px;
+  }
+
+ #contact-us-{{ section.id }}.contact-us{
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  }
+
+
+</style>
+
+
+{% schema %}
+  {
+    "name": "Contact Template",
+    "settings": [
+		{
+        "type": "header",
+        "content": "Section Padding"
+      },
+      {
+        "type": "text",
+        "id": "section_padding_top",
+        "label": "Section Padding Top",
+        "default": "70" ,
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "text",
+        "id": "section_padding_bottom",
+        "label": "Section Padding Bottom",
+        "default": "55" ,
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+        {
+          "type": "header",
+          "content": "Heading Tittle"
+        },
+        {
+          "type": "text",
+          "id": "contact_title",
+          "label": "Contact Title",
+          "default": "Hi, Howdy <br> Let’s Connect us",
+		  "info": "Use of <br>"
+        },
+        {
+          "type": "header",
+          "content": "Contact Us"
+        },
+        {
+          "type": "text",
+          "id": "contact_us_title",
+          "label": "Contact Title",
+          "default": "Contact us"
+        },
+        {
+          "type": "header",
+          "content": "Address"
+        },
+        {
+          "type": "text",
+          "id": "address_title",
+          "label": "Address Title",
+          "default": "Address"
+        },
+        {
+          "type": "text",
+          "id": "address_description",
+          "label": "Address Description",
+          "default": "You address will be here Lorem Ipsum text"
+        },
+        {
+          "type": "header",
+          "content": "Phone"
+        },
+        {
+          "type": "text",
+          "id": "phone_title",
+          "label": "Phone Title",
+          "default": "Phone"
+        },
+        {
+          "type": "text",
+          "id": "phone_description",
+          "label": "Phone Description 1",
+          "default": "01234 567 890"
+        },
+        {
+          "type": "text",
+          "id": "phone_description_2",
+          "label": "Phone Description 2",
+          "default": "01234 567 891"
+        },
+        {
+          "type": "header",
+          "content": "Web"
+        },
+        {
+          "type": "text",
+          "id": "web_title",
+          "label": "Web Title",
+          "default": "Web"
+        },
+        {
+          "type": "text",
+          "id": "web_description",
+          "label": "Web Description 1",
+          "default": "info@example.com"
+        },
+        {
+          "type": "text",
+          "id": "web_description_2",
+          "label": "Web Description 2",
+          "default": "www.example.com"
+        },
+        {
+          "type": "header",
+          "content": "Contact Form"
+        },
+        {
+          "type": "text",
+          "id": "contact_form_title",
+          "label": "Contact Form Title",
+          "default": "Leave us a message"
+        },
+        {
+          "type": "text",
+          "id": "name_placeholder",
+          "label": "Name",
+          "default": "Name"
+        },
+        {
+          "type": "text",
+          "id": "email_placeholder",
+          "label": "Email",
+          "default": "Email"
+        },
+        {
+          "type": "text",
+          "id": "subject_placeholder",
+          "label": "Subject",
+          "default": "Subject"
+        },
+        {
+          "type": "text",
+          "id": "massage_placehoder",
+          "label": "Massage",
+          "default": "Message"
+        },
+        {
+          "type": "header",
+          "content": "Store Location"
+        },
+        {
+          "type": "text",
+          "id": "our_location_title",
+          "label": "Our Location Title",
+          "default": "Our location"
+        },
+        {
+          "type": "image_picker",
+          "id": "map_icon",
+          "label": "Map Icon",
+          "info": "Recommended Size: 95 x 95px"
+        },
+        {
+          "type": "text",
+          "id": "api_key",
+          "label": "API Key",
+          "info": "AIzaSyBmGmeot5jcjdaJTvfCmQPfzeoG_pABeWo",
+          "default": "AIzaSyBmGmeot5jcjdaJTvfCmQPfzeoG_pABeWo"
+        },
+        {
+          "type": "text",
+          "id": "latlong",
+          "label": "Latitude longitude",
+          "info": "40.709896, -73.995481",
+          "default": "40.709896, -73.995481"
+        }
+
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

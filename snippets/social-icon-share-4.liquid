@@ -1,0 +1,11 @@
+
+
+{% if block.settings.social_icon_1_name != '' %}
+  <a href="{{ block.settings.socila_icon_1_link }}" class="action-plus facebook"><i class="ion-social-{{ block.settings.social_icon_1_name }}"></i></a>
+{% endif %}
+{% if block.settings.social_icon_2_name != '' %}
+  <a href="{{ block.settings.socila_icon_2_link }}" class="action-heart twitter"><i class="ion-social-{{ block.settings.social_icon_2_name }}"></i></a>
+{% endif %}
+{% if block.settings.social_icon_3_name != '' %}
+  <a href="{{ block.settings.socila_icon_3_link }}" class="action-cart instagram"><i class="ion-social-{{ block.settings.social_icon_3_name }}"></i></a>
+{% endif %}

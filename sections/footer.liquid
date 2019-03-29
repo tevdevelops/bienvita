@@ -1,0 +1,281 @@
+
+
+
+<footer class="footer-area pt-55 gray-bg-3" id="footer-area-{{ section.id }}">
+  
+ {% include 'footer-top' %}
+ {% include 'footer-bottom' %}
+  
+</footer>
+
+
+
+<style>
+#footer-area-{{ section.id }}.gray-bg-3 {
+    background: {{ section.settings.footer_top_bg_color }};
+}
+
+</style> 
+
+
+
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+	  {
+        "type": "header",
+        "content": "Footer Bgcolor"
+      }, 
+      {
+        "type": "color",
+        "id": "footer_top_bg_color",
+        "label": "Background Color",
+        "default": "#f6f7f7"
+      },
+	  {
+		"type": "header",
+		"content": "Footer Top"
+	  },
+	  {
+        "type": "checkbox",
+        "id": "footer_top_enable",
+        "label": "Footer Top Enable",
+        "default": true
+      },
+	  {
+		"type": "header",
+		"content": "Footer Bottom"
+	  }, 
+      {
+        "type": "color",
+        "id": "footer_bottom_bg_color",
+        "label": "Background Color",
+        "default": "#e7e8e8"
+      },
+	  {
+        "type": "checkbox",
+        "id": "footer_bottom_enable",
+        "label": "Footer Bottom",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "copy_right",
+        "label": "Copy Right Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "payment_logo",
+        "label": "Payment Logo",
+        "info": "Recommended Size: 364 x 42px"
+      },
+      {
+        "type": "url",
+        "id": "payment_logo_url",
+        "label": "URL"
+      }
+	],
+	"blocks": [
+		{
+          "type": "contact_information",
+          "name": "Information",
+          "settings": [
+				  {
+					"type": "text",
+					"id": "footer_info_coloum",
+					"label": "Footer Info Coloum Control",
+					"default": "4",
+                    "info": "Follow Bootstrap Column"
+				  },
+                  {
+                      "type": "text",
+                      "id": "contact_title",
+                      "label": "Contact Title",
+					  "default": "About Us"
+                  },
+			      {
+                      "type": "textarea",
+                      "id": "contact_description",
+                      "label": "Contact Description",
+                      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididun"
+			     },
+                 {
+                    "type": "header",
+                    "content": "Contact Address"
+                 },
+			     {
+                      "type": "textarea",
+                      "id": "address_title",
+                      "label": "Address Title",
+                      "default": "Address: 123 Main Street, Anytown, CA 12345 - USA."
+			     },
+			     {
+                      "type": "textarea",
+                      "id": "phone_number",
+                      "label": "Phone Number",
+                      "default": "Telephone: (012) 800 456 789-987"
+			     },
+			     {
+                      "type": "textarea",
+                      "id": "email",
+                      "label": "Email",
+                      "default": "Email: yourmail@example.com"
+			     },
+				  {
+                    "type": "header",
+                    "content": "Icon With Link"
+                  },
+                  {
+                    "type": "text",
+                    "id": "social_icon_1_name",
+                    "label": "Social Icon Name",
+                    "default": "facebook",
+                    "info": "Ionicons Icon [See Icon](http:\/\/ionicons.com\/)"
+                  },
+                  {
+                    "type": "url",
+                    "id": "socila_icon_1_link",
+                    "label": "Link"
+                  },
+                  {
+                    "type": "header",
+                    "content": "Icon With Link"
+                  },
+                  {
+                    "type": "text",
+                    "id": "social_icon_2_name",
+                    "label": "Social Icon Name",
+                    "default": "twitter",
+                    "info": "Ionicons Icon [See Icon](http:\/\/ionicons.com\/)"
+                  },
+                  {
+                    "type": "url",
+                    "id": "socila_icon_2_link",
+                    "label": "Link"
+                  },
+                  {
+                    "type": "header",
+                    "content": "Icon With Link"
+                  },
+                  {
+                    "type": "text",
+                    "id": "social_icon_3_name",
+                    "label": "Social Icon Name",
+                    "default": "instagram-outline",
+                    "info": "Ionicons Icon [See Icon](http:\/\/ionicons.com\/)"
+                  },
+                  {
+                    "type": "url",
+                    "id": "socila_icon_3_link",
+                    "label": "Link"
+                  },
+                  {
+                    "type": "header",
+                    "content": "Icon With Link"
+                  },
+                  {
+                    "type": "text",
+                    "id": "social_icon_4_name",
+                    "label": "Social Icon Name",
+                    "default": "googleplus-outline",
+                    "info": "Ionicons Icon [See Icon](http:\/\/ionicons.com\/)"
+                  },
+                  {
+                    "type": "url",
+                    "id": "socila_icon_4_link",
+                    "label": "Link"
+                  },
+                  {
+                    "type": "header",
+                    "content": "Icon With Link"
+                  },
+                  {
+                    "type": "text",
+                    "id": "social_icon_5_name",
+                    "label": "Social Icon Name",
+                    "default": "rss",
+                    "info": "Ionicons Icon [See Icon](http:\/\/ionicons.com\/)"
+                  },
+                  {
+                    "type": "url",
+                    "id": "socila_icon_5_link",
+                    "label": "Link"
+                  },
+                  {
+                    "type": "header",
+                    "content": "Icon With Link"
+                  },
+                  {
+                    "type": "text",
+                    "id": "social_icon_6_name",
+                    "label": "Social Icon Name",
+                    "default": "dribbble-outline",
+                    "info": "Ionicons Icon [See Icon](http:\/\/ionicons.com\/)"
+                  },
+                  {
+                    "type": "url",
+                    "id": "socila_icon_6_link",
+                    "label": "Link"
+                  }
+            ]
+      	},
+		{
+			"type": "footer_menu",
+			"name": "Menu",
+			"settings": [
+				  {
+					"type": "text",
+					"id": "footer_menu_coloum",
+					"label": "Menu Coloum Control",
+					"default": "2",
+                    "info": "Follow Bootstrap Column"
+				  },
+                  {
+                      "type": "text",
+                      "id": "footer_menu_title",
+                      "label": "Menu Title",
+					  "default": "Information"
+                  },
+                  {
+                      "type": "link_list",
+                      "id": "footer_menu_handle",
+                      "label": "Select Menu"
+                  }
+				]
+		},
+		{
+			"type": "newslatter_area",
+			"name": "Newslatter Area",
+			"settings": [
+				  {
+					"type": "text",
+					"id": "footer_newslatter_coloum",
+					"label": "Newslatter Coloum Control",
+					"default": "4",
+                    "info": "Follow Bootstrap Column"
+				  },
+                  {
+                      "type": "text",
+                      "id": "footer_newslatter_title",
+                      "label": "Newlatter Title",
+					  "default": "Join Our Newsletter Now"
+                  },
+                  {
+                      "type": "text",
+                      "id": "footer_newslatter_description",
+                      "label": "Newlatter Description",
+					  "default": "Get E-mail updates about our latest shop and special offers."
+                  }
+				]
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

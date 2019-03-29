@@ -1,0 +1,139 @@
+<div class='about-products'>
+  <button class="dummy-menu"><svg class="icon icon--menu"><use xlink:href="#icon-menu"></use></svg></button>
+  <div class="content">
+    <div class="grid">
+
+      {% for block in section.blocks %}
+      <div class="grid__item">
+        <div class="product">
+          <div class="product__bg"></div>
+          <img class="product__img" src="{% if block.settings.product_img %}{{ block.settings.product_img | img_url: 'master' }}{% else %}http:\/\/via.placeholder.com\/620x620{% endif %}" alt="img 01"/>
+          <h2 class="product__title">{{block.settings.product_title}}</h2>
+          <h3 class="product__subtitle">{{block.settings.product_subtitle}}</h3>
+          <p class="product__description">{{block.settings.product_description}}</p>
+          <div class="product__price">${{block.settings.product_price}}</div>
+          <div class="product__link">{{block.settings.product_button_url}}</div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+
+<style >
+  .details__bg--down, .product__bg {
+    background-color: {{ section.settings.bg_color }};
+  }
+</style>
+
+{{ 'main.js' | asset_url | script_tag }}
+
+{% schema %}
+  {
+    "name": "About Products",
+    "settings": [
+		{
+            "type": "header",
+            "content": "Section Margin"
+        },
+        {
+            "type": "text",
+            "id": "section_margin_top",
+            "label": "Section Margin Top",
+            "default": "0" ,
+            "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+            "type": "text",
+            "id": "section_margin_bottom",
+            "label": "Section Margin Bottom",
+            "default": "0" ,
+            "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+		{
+            "type": "header",
+            "content": "Grid Wraper Margin"
+        },
+        {
+            "type": "text",
+            "id": "section_margin_top_2",
+            "label": "Section Margin Top",
+            "default": "-75" ,
+            "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background Color",
+            "default": "#d9d9d9"
+
+        }
+	],
+	"blocks":[
+      {
+         "type": "product",
+         "name": "Product",
+         "settings": [
+			{
+				"type": "image_picker",
+				"id": "product_img",
+				"label": "Image",
+				"info": "Recommended Size: 800 x 535px"
+		    },
+			{
+                "type": "header",
+                "content": "Product Content"
+            },
+            {
+              "type": "text",
+              "id": "product_title",
+              "label": "Product Title",
+              "default": "Product Name"
+            },
+            {
+              "type": "text",
+              "id": "product_subtitle",
+              "label": "Product Subtitle",
+              "default": "Start Fresh"
+            },
+            {
+              "type": "text",
+              "id": "product_price",
+              "label": "Price",
+              "info": "Don't add the $",
+              "default": "45"
+            },
+            {
+              "type": "textarea",
+              "id": "product_description",
+              "label": "Description"
+            },
+            {
+              "type": "text",
+              "id": "product_button",
+              "label": "Button",
+              "default": "View Product"
+            },
+            {
+              "type": "url",
+              "id": "product_button_url",
+              "label": "URL"
+            }
+        ]
+       }
+    ],
+    "presets":[
+        {
+            "name": "Media Content",
+            "category": "6. Media"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

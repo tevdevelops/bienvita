@@ -1,0 +1,7 @@
+
+
+{% if section.settings.banner_img_enable %}
+<div class="banner-area pb-30">
+  <a href="{{ section.settings.banner_img_url }}"><img alt="banner" src="{% if section.settings.banner_img %}{{ section.settings.banner_img | img_url: 'master' }}{% else %}http:\/\/via.placeholder.com\/870x255{% endif %}"></a>
+</div>
+{% endif %}

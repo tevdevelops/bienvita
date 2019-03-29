@@ -1,0 +1,115 @@
+<div class="shop-sidebar-wrapper gray-bg-7 shop-sidebar-mrg">
+
+
+  {% if section.settings.category_enable %}
+
+  <div class="shop-widget">
+    <h4 class="shop-sidebar-title">{{ settings.category_title }}</h4>
+    <div class="shop-catigory">
+      
+      
+      <ul id="faq">
+         {% assign category_list_limit = settings.category_list_limit_handle %}
+        {% for category in collections limit: category_list_limit %}
+        <li class="{% if collection and collection.handle == category.handle %}active{% endif %}"> <a data-toggle="collapse" data-parent="#faq" href="#shop-catigory-{{ category.title | handle }}">{{ category.title }} <i class="ion-ios-arrow-down"></i></a>
+          <ul id="shop-catigory-{{ category.title | handle }}" class="panel-collapse collapse {% if forloop.first == true %}show{% endif %}">
+            {% assign product_limit = settings.product_limit_handle %}
+            {% for product in collection.products limit: product_limit %}
+            <li><a href="{{ product.url }}">{{ product.title }}</a></li>
+            {% endfor %}
+            
+          </ul>
+        </li>
+         {% endfor %}
+      </ul>
+      
+      
+    </div>
+  </div>
+  
+  {% endif %}
+
+  {% if section.settings.brand_enable %}
+  <div class="shop-widget mt-40 shop-sidebar-border pt-35">
+    <h4 class="shop-sidebar-title">{{ settings.brand_title }}</h4>
+    <div class="sidebar-list-style mt-20">
+      <ul>
+        {% assign vendor_list_limit = settings.vendor_list_limit_handle  %}
+        {% for vendor in shop.vendors limit: vendor_list_limit %}
+        <li class="{% if collection.current_vendor == vendor %}active{% endif %}"><a href="{{ vendor | url_for_vendor }}">{{ vendor }}</a></li>
+        {% endfor %} 
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if section.settings.color_enable %}
+  <div class="shop-widget mt-40 shop-sidebar-border pt-35">
+    <h4 class="shop-sidebar-title">{{ settings.color_title }}</h4>
+    <div class="sidebar-list-style mt-20">
+      <ul>
+        {% assign tags = settings.color_picker | replace: ', ', ',' |  replace: ', ', ',' | split: ',' %}
+        {% assign color_list_limit = settings.color_list_limit_handle %}
+        {% for tag-2 in tags limit:color_list_limit %}
+        {% assign tag = tag-2 | strip %}
+        {% if collection.all_tags contains tag %}
+        <li class="{% if current_tags contains tag %}active{% endif %}"><a href="/collections/all/{{ tag | handle }}">{{ tag }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+  
+  
+  {% if section.settings.product_type_enable %}
+  <div class="shop-widget mt-40 shop-sidebar-border pt-35">
+    <h4 class="shop-sidebar-title">{{ settings.product_type }}</h4>
+    <div class="sidebar-list-style mt-20">
+      <ul>
+        {% assign producyt_type_limit = settings.producyt_type_limit_handle  %}
+        {% for type in shop.types limit: producyt_type_limit %}
+        {% if type != '' %}
+        <li class="{% if collection.current_type == type %}active{% endif %}"><a href="{{ type | url_for_type }}">{{ type }}</a></li>
+        {% endif %}
+        {% endfor %} 
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+
+
+  {% if section.settings.size_enable %}
+  <div class="shop-widget mt-40 shop-sidebar-border pt-35">
+    <h4 class="shop-sidebar-title">{{ settings.size_title }}</h4>
+    <div class="sidebar-list-style mt-20">
+      <ul>
+        {% assign tags = settings.size_picker | replace: ', ', ',' | replace: ', ', ',' | split: ','  %}
+        {% assign size_list_limit = settings.size_list_limit_handle %}
+        {% for tag-2 in tags limit:size_list_limit %}
+        {% assign tag = tag-2 | strip %}
+        {% if collection.all_tags contains tag %}
+        <li {% if current_tags contains tag %}class="active"{% endif %}><a href="/collections/all/{{ tag | handle }}">{{ tag }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if section.settings.tag_enable %}
+  <div class="shop-widget mt-40 shop-sidebar-border pt-35">
+    <h4 class="shop-sidebar-title">{{ settings.tag_title }}</h4>
+    <div class="shop-tags mt-25">
+      <ul>
+        {% assign collection_tag_limit = settings.collection_tag_limit_handle %}
+        {% for tag in collection.tags limit: collection_tag_limit %}
+        <li class="{% if current_tags contains tag %}active{% endif %}"><a href="/collections/all/{{ tag | handle }}">{{ tag }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+
+
+</div>

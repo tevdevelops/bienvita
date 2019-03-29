@@ -1,0 +1,213 @@
+{% if section.settings.about_grid_enable %}
+
+<div class="grid">
+					<div class="grid__item">
+						<div class="product">
+							<div class="product__bg"></div>
+							<img class="product__img" src="img/1.png" alt="img 01"/>
+							<h2 class="product__title">Marble Dream</h2>
+							<h3 class="product__subtitle">Constantin Frecker</h3>
+							<p class="product__description">Hashtag cred air plant drinking vinegar. Leggings yuccie chambray pop-up tousled hell of. Portland wolf mumblecore, synth cold-pressed polaroid poke cardigan gochujang farm-to-table photo booth.</p>
+							<div class="product__price">$129</div>
+						</div>
+					</div>
+					<div class="grid__item">
+						<div class="product">
+							<div class="product__bg"></div>
+							<img class="product__img" src="img/2.png" alt="img 02"/>
+							<h2 class="product__title">Space Fantasy</h2>
+							<h3 class="product__subtitle">Danica Green</h3>
+							<p class="product__description">Man bun banjo pop-up meh hammock. Skateboard hammock tousled retro, etsy taiyaki narwhal gentrify fixie food truck microdosing sustainable dreamcatcher.</p>
+							<div class="product__price">$199</div>
+						</div>
+					</div>
+					<div class="grid__item">
+						<div class="product">
+							<div class="product__bg"></div>
+							<img class="product__img" src="img/3.png" alt="img 03"/>
+							<h2 class="product__title">Mighty Eighties</h2>
+							<h3 class="product__subtitle">Elizabeth Smith</h3>
+							<p class="product__description">Air plant affogato microdosing banjo, palo santo squid craft beer vexillologist chambray everyday carry cronut aesthetic intelligentsia. </p>
+							<div class="product__price">$159</div>
+						</div>
+					</div>
+					<div class="grid__item">
+						<div class="product">
+							<div class="product__bg"></div>
+							<img class="product__img" src="img/4.png" alt="img 04"/>
+							<h2 class="product__title">Diamond Crafter</h2>
+							<h3 class="product__subtitle">Fred House</h3>
+							<p class="product__description">Crucifix shoreditch tumblr heirloom irony tbh gastropub migas sartorial mustache direct trade plaid readymade ramps hammock.</p>
+							<div class="product__price">$199</div>
+						</div>
+					</div>
+					<div class="grid__item">
+						<div class="product">
+							<div class="product__bg"></div>
+							<img class="product__img" src="img/5.png" alt="img 05"/>
+							<h2 class="product__title">Disco Fever</h2>
+							<h3 class="product__subtitle">Alice Muller</h3>
+							<p class="product__description">Single-origin coffee air plant kitsch paleo iPhone vegan cold-pressed slow-carb cornhole dreamcatcher palo santo salvia lo-fi. </p>
+							<div class="product__price">$99</div>
+						</div>
+					</div>
+					<div class="grid__item">
+						<div class="product">
+							<div class="product__bg"></div>
+							<img class="product__img" src="img/6.png" alt="img 06"/>
+							<h2 class="product__title">Little Boxes</h2>
+							<h3 class="product__subtitle">Xavier Brighton</h3>
+							<p class="product__description">Drinking vinegar lumbersexual 90's flexitarian. Live-edge man bun air plant XOXO. Master cleanse vaporware keffiyeh.</p>
+							<div class="product__price">$299</div>
+						</div>
+					</div>
+					<div class="grid__item">
+						<div class="product">
+							<div class="product__bg"></div>
+							<img class="product__img" src="img/7.png" alt="img 07"/>
+							<h2 class="product__title">Fractal Love</h2>
+							<h3 class="product__subtitle">Walter Perry</h3>
+							<p class="product__description">Leggings green juice DIY, flannel tattooed selvage plaid yr sartorial chia. Scenester you probably haven't heard of them locavore.</p>
+							<div class="product__price">$129</div>
+						</div>
+					</div>
+					<div class="grid__item">
+						<div class="product">
+							<div class="product__bg"></div>
+							<img class="product__img" src="img/8.png" alt="img 08"/>
+							<h2 class="product__title">Liquidia</h2>
+							<h3 class="product__subtitle">Lidia Greenwood</h3>
+							<p class="product__description">Helvetica la croix readymade, butcher viral pitchfork chillwave pork belly vaporware blue bottle iceland semiotics subway tile irony.</p>
+							<div class="product__price">$249</div>
+						</div>
+					</div>
+					<div class="grid__item">
+						<div class="product">
+							<div class="product__bg"></div>
+							<img class="product__img" src="img/9.png" alt="img 09"/>
+							<h2 class="product__title">The Buzz</h2>
+							<h3 class="product__subtitle">Sarah Grand</h3>
+							<p class="product__description">Celiac distillery man braid venmo, selfies you probably haven't heard of them tote bag forage fanny pack activated charcoal kale chips lo-fi before they sold out.</p>
+							<div class="product__price">$399</div>
+						</div>
+					</div>
+					<div class="grid__item">
+						<div class="product">
+							<div class="product__bg"></div>
+							<img class="product__img" src="img/10.png" alt="img 10"/>
+							<h2 class="product__title">Sweet Escape</h2>
+							<h3 class="product__subtitle">Peter Gradia</h3>
+							<p class="product__description">Mumblecore bespoke blog raw denim, authentic VHS sustainable +1 freegan neutra small batch paleo. Schlitz chicharrones pork belly palo santo.</p>
+							<div class="product__price">$199</div>
+						</div>
+					</div>
+				</div>
+
+{% endif %}
+
+
+<style>
+
+ #about-us-area-{{ section.id }}.about-us-area{
+    padding-top:{{ section.settings.section_padding_top }}px;
+  }
+
+ #about-us-area-{{ section.id }}.about-us-area{
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  }
+
+
+</style>
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "About Grid",
+    "settings": [
+        {
+          "type": "header",
+          "content": "Section Padding"
+        },
+        {
+          "type": "text",
+          "id": "section_padding_top",
+          "label": "Section Padding Top",
+          "default": "80" ,
+          "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+          "type": "text",
+          "id": "section_padding_bottom",
+          "label": "Section Padding Bottom",
+          "default": "80" ,
+          "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+          "type": "checkbox",
+          "id": "about_main_enable",
+          "label": "About Main Area Enable",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "About Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "about_img",
+          "label": "About Image",
+          "info": "Image Size 1920 X 1275"
+        },
+        {
+          "type": "url",
+          "id": "about_img_url",
+          "label": "URL"
+        },
+		{
+            "type": "header",
+            "content": "About Content"
+        },
+        {
+          "type": "text",
+          "id": "about_title",
+          "label": "About Title",
+          "default": "Welcome To <span>Phuler</span> Store !",
+		  "info": "Use Of <span>"
+        },
+        {
+          "type": "textarea",
+          "id": "about_description",
+          "label": "About Description 1",
+          "default": "Phuler Shop is a premium HTML template designed and develoved from the ground up with the sole purpose of helping you create an astonishing, the beautiful and user friendly website that will boost your product’s sales."
+        },
+        {
+          "type": "textarea",
+          "id": "about_description_2",
+          "label": "About Description 2",
+          "default": "The theme design package provides a complete Magento theme set for your online store according to your desired theme. This includes all Magento themes that are required for your online store's successful implementation."
+        },
+        {
+          "type": "text",
+          "id": "about_button_title",
+          "label": "About Button Title",
+          "default": "Shop now!"
+        },
+        {
+          "type": "url",
+          "id": "about_button_url",
+          "label": "URL"
+        }
+
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,61 @@
+{% assign itemStyle = '' %}{% if cart.item_count == 0 %}{% assign itemStyle = ' style="display:none;"' %}{% endif %}
+{% assign itemEmpty = '' %}{% if cart.item_count == 0 %}{% assign itemEmpty = ' style="display:block;"' %}{% endif %}
+
+
+
+
+<div class="header-cart">
+  <a href="#">
+    <div class="cart-icon">
+      <i class="ion-ios-cart"></i>
+      <!-- <span class="count-style bigcounter">{{ cart.item_count }}</span> -->
+    </div>
+    <!-- <div class="cart-text">
+      <span class="digit">My Cart</span>
+      <span class="shopping-cart__total">{{ cart.total_price | money }}</span>
+    </div> -->
+  </a>
+  <div class="shopping-cart-content">
+
+    <ul>
+      <li {{ itemEmpty }} class="cart-dropdown cart-empty-title">
+        <h2>{{ 'cart.general.empty' | t }}</h2>
+      </li>
+      <li {{ itemStyle }} class="cart-dropdown mini-cart">
+
+        <ul class="cart-items">
+          {% for item in cart.items %}
+          <li class="single-shopping-cart">
+            <div class="shopping-cart-img">
+              <a href="{{ cart.item_url }}"><img alt="" src="{{ item | img_url : 'small' }}"></a>
+            </div>
+            <div class="shopping-cart-title">
+              <h4><a href="{{ item.url }}">{{ item.title }}</a></h4>
+              <h6>Qty: {{ item.quantity }}</h6>
+              <span>{{ item.price | money }}</span>
+            </div>
+            <div class="shopping-cart-delete">
+              <a href="javascript:void(0);" onclick="Shopify.removeItem({{ item.variant.id }})" title="Remove this item"><i class="ion ion-close"></i></a>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+
+
+        <div class="shopping-cart-total">
+          <h4>Total : <span class="shop-total shopping-cart__total">{{ cart.total_price | money }}</span></h4>
+        </div>
+        <div class="shopping-cart-btn">
+          <a href="/cart">view cart</a>
+          <a href="/checkout">checkout</a>
+        </div>
+      </li>
+
+    </ul>
+
+
+  </div>
+
+
+
+</div>

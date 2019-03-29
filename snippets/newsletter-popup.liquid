@@ -1,0 +1,34 @@
+<div id="one-time-newsletter" class="popup_wrapper popup_newsletter">
+  <div class="newsletter_popup_inner">
+    <span class="popup_off"><i class="fa fa-times"></i></span>
+    <div class="subscribe_area">
+      <h2>{{ settings.newletter_popup_title }}</h2>
+      <p>{{ settings.newsletter_text }}</p>
+      <div class="form-group subscribe-form-group">          
+        <form action="{{ settings.newsletter_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+          <input type="email" class="form-control subscribe-form" id="mail" value="{% if customer %}{{ customer.email }}{% endif %}" name="EMAIL" placeholder="{{ 'general.newsletter_form.newsletter_email'| t }}">
+          <button type="submit" class="newsletter-btn" id="subscribe">{{ settings.newsletter_button_name }}</button>
+        </form>
+      </div>
+    </div>
+  </div>			
+</div>
+{% if settings.one_day_popup_enable %}
+{{ 'newsletter-js.js' | asset_url | script_tag }}
+<script type="text/javascript">
+  $(function () {
+    $('#one-time-newsletter').firstVisitPopup({
+      cookieName : 'index'
+    });
+  });
+</script>
+{% else %}
+<script type="text/javascript">
+  setTimeout(function() {
+    $('.popup_wrapper').css({"opacity": "1", "visibility": "visible"});
+    $('.popup_off').click(function(){
+      $(".popup_wrapper").fadeOut(200);
+    })
+  }, 1800);	 
+</script>
+{% endif %}

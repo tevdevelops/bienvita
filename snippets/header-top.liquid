@@ -1,0 +1,36 @@
+
+
+<div class="header-top">
+  <div class="container">
+    <div class="border-bottom-1">
+      <div class="row">
+        
+        
+        <div class="col-lg-4 col-md-4 col-12">
+          <div class="welcome-area">
+            {% if shop.customer_accounts_enabled and customer %}
+            <p>Welcome To our shop <a href="/account">{{ customer.name }}</a></p>
+            {% else %}
+            <p>Welcome To our shop!</p>
+            {% endif %}
+          </div>
+        </div>
+        
+        
+        <div class="col-lg-8 col-md-8 col-12">
+          <div class="account-curr-lang-wrap f-right">
+            <ul>
+              
+              
+              {% include 'header-top-menu' %}
+              {% include 'currency-picker' %}
+              
+            
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

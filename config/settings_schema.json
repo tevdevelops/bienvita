@@ -1,0 +1,1358 @@
+[
+  {
+    "name": "theme_info",
+    "logo": "https:\/\/cdn.shopify.com\/s\/files\/1\/0021\/5570\/8489\/files\/logo_compact.png?v=1533555475",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Phuler"
+      },
+      {
+        "type": "paragraph",
+        "content": "v1.0.1"
+      },
+      {
+        "type": "paragraph",
+        "content": "Theme settings allow designers to provide an easy way for any user to customize the look and feel of their shop without having to delve into HTML or CSS code. Please see our [help page on theme settings](http:\/\/docs.shopify.com\/themes\/theme-templates\/settings) to learn more about how you can make the theme customizable."
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Theme colors"
+      },
+      {
+        "type": "color",
+        "id": "theme_color",
+        "label": "Theme Color",
+        "default": "#24bddf"
+      }
+    ]
+  },
+  {
+    "name": "Google Analytics",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Google Analytics"
+      },
+      {
+        "type": "checkbox",
+        "id": "google_analytic_enable",
+        "label": "Enable Google Analytics",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "google_tracking_id",
+        "label": "Tracking Id",
+        "default": "UA-91020528-1",
+        "info": "Get Tracking Id [here](https:\/\/analytics.google.com\/)"
+      }
+    ]
+  },
+  {
+    "name": "Top Bar Notification",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Top Bar Notification"
+      },
+      {
+        "type": "checkbox",
+        "id": "topbar_notification_enable",
+        "label": "Top Bar Notification",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "notification_text",
+        "label": "Notification Text",
+        "default": "All Featured Product 50% off"
+      },
+      {
+        "type": "text",
+        "id": "notification_button_name",
+        "label": "Button Name",
+        "default": "Buy Now"
+      },
+      {
+        "type": "url",
+        "id": "notification_button_url",
+        "label": "Button Link"
+      },
+      {
+        "type": "image_picker",
+        "id": "notification_bg_image",
+        "label": "BG Image"
+      },
+      {
+        "type": "color",
+        "id": "notification_text_color",
+        "label": "Notification Text Color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "topbar_color_1",
+        "label": "BG Gradiant Color One",
+        "default": "#f3f3f3"
+      },
+      {
+        "type": "color",
+        "id": "topbar_color_2",
+        "label": "BG Gradiant Color Two",
+        "default": "#666666"
+      },
+      {
+        "type": "text",
+        "id": "notification_overlay_rgb_color",
+        "label": "Overlay RGB Color",
+        "info": "Ex: R, G, B [See Color](https:\/\/www.w3schools.com\/colors\/colors_picker.asp)",
+        "default": "0, 0, 0"
+      },
+      {
+        "type": "range",
+        "id": "notification_overlay_opacity",
+        "min": 0,
+        "max": 1,
+        "step": 0.1,
+        "label": "Overlay Color Opacity",
+        "default": 0.6
+      },
+      {
+        "type": "header",
+        "content": "Shop Button"
+      },
+      {
+        "type": "color",
+        "id": "notificaction_button_bg_color",
+        "label": "Button BG Color",
+        "default": "#666666"
+      },
+      {
+        "type": "color",
+        "id": "notificaction_button_border_color",
+        "label": "Button Border",
+        "default": "#666666"
+      },
+      {
+        "type": "color",
+        "id": "notificaction_button_color",
+        "label": "Button Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "notificaction_button_hover_bg_color",
+        "label": "Button Hover BG Color",
+        "default": "#999"
+      },
+      {
+        "type": "color",
+        "id": "notificaction_button_hover_border_color",
+        "label": "Button Hover Border Color",
+        "default": "#999"
+      },
+      {
+        "type": "color",
+        "id": "notificaction_button_hover_color",
+        "label": "Button Hover Text Color",
+        "default": "#fff"
+      },
+      {
+        "type": "header",
+        "content": "Close Button"
+      },
+      {
+        "type": "color",
+        "id": "notificaction_close_button_bg_color",
+        "label": "Button BG Color"
+      },
+      {
+        "type": "color",
+        "id": "notificaction_close_button_border_color",
+        "label": "Button Border",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "notificaction_close_button_color",
+        "label": "Button Color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "notificaction_close_button_hover_bg_color",
+        "label": "Button Hover BG Color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "notificaction_close_button_hover_border_color",
+        "label": "Button Hover Border Color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "notificaction_close_button_hover_color",
+        "label": "Button Hover Color",
+        "default": "#232323"
+      }
+    ]
+  },
+  {
+    "name": "Preloader",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Preloader Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_preloader",
+        "label": "Preloader Enable",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "preloader_style",
+        "label": "Preloader Style",
+        "options": [
+          {
+            "value": "Style_1",
+            "label": "Style 1"
+          },
+          {
+            "value": "Style_2",
+            "label": "Style 2"
+          },
+          {
+            "value": "Style_3",
+            "label": "Style 3"
+          },
+          {
+            "value": "Style_4",
+            "label": "Style 4"
+          },
+          {
+            "value": "Style_5",
+            "label": "Style 5"
+          },
+          {
+            "value": "Style_6",
+            "label": "Style 6"
+          },
+          {
+            "value": "Style_7",
+            "label": "Style 7"
+          },
+          {
+            "value": "Style_8",
+            "label": "Style 8"
+          },
+          {
+            "value": "Style_9",
+            "label": "Style 9"
+          },
+          {
+            "value": "Style_10",
+            "label": "Style 10"
+          },
+          {
+            "value": "Style_11",
+            "label": "Style 11"
+          },
+          {
+            "value": "Style_12",
+            "label": "Style 12"
+          },
+          {
+            "value": "Style_13",
+            "label": "Style 13"
+          },
+          {
+            "value": "Style_14",
+            "label": "Style 14"
+          },
+          {
+            "value": "Style_15",
+            "label": "Style 15"
+          },
+          {
+            "value": "Style_16",
+            "label": "Style 16"
+          },
+          {
+            "value": "Style_17",
+            "label": "Style 17"
+          },
+          {
+            "value": "Style_18",
+            "label": "Style 18"
+          },
+          {
+            "value": "Style_19",
+            "label": "Style 19"
+          }
+        ],
+        "default": "Style_15"
+      },
+      {
+        "type": "color",
+        "id": "preloader_bg",
+        "label": "Preloader Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "preloader_color",
+        "label": "Effect Color",
+        "default": "#FF7F00"
+      },
+      {
+        "type": "paragraph",
+        "content": "Border color and border width need to be ( Style 3, Style 4, Style 17, Style 18, Style 20 )"
+      },
+      {
+        "type": "paragraph",
+        "content": "When you would use border color when Effect color to be transparent"
+      },
+      {
+        "type": "color",
+        "id": "preloader_border_color",
+        "label": "Border Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "preloader_border_width",
+        "label": "Border Width",
+        "default": "4px"
+      }
+    ]
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Favicon"
+      },
+      {
+        "type": "checkbox",
+        "id": "favicon_enable",
+        "label": "Use custom icon"
+      },
+      {
+        "type": "image",
+        "id": "favicon.png",
+        "label": "Icon",
+        "max-width": 32,
+        "max-height": 32,
+        "info": "32 x 32px .png required"
+      }
+    ]
+  },
+  {
+    "name": "Breadcrumb Banner",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "breadcrumb_banner_enable",
+        "label": "Show Breadcrumb Banner",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "breadcrumb_banner_image_enable",
+        "label": "Breadcrumb Banner Image Enable",
+        "default": false
+      },
+      {
+        "type": "image_picker",
+        "id": "breadcrumb_banner_image",
+        "label": "Breadcrumb Banner Image",
+        "info": "Default Image Size: 1479px X 211px"
+      },
+      {
+        "type": "color",
+        "id": "breadcrumb_banner_bg",
+        "label": "Banner Banner BG Color",
+        "default": "#f6f6f6"
+      },
+      {
+        "type": "color",
+        "id": "breadcrumb_banner_overlay_color",
+        "label": "Banner Overlay Color",
+        "default": "#f6f6f6"
+      },
+      {
+        "type": "range",
+        "id": "breadcrumb_banner_opacity",
+        "min": 0,
+        "max": 1,
+        "step": 0.1,
+        "label": "Banner Overlay Color Opacity",
+        "default": 0.6
+      },
+      {
+        "type": "color",
+        "id": "breadcurmb_title_color",
+        "label": "Breadcrumb Title Color",
+        "default": "#666666"
+      },
+      {
+        "type": "color",
+        "id": "breadcurmb_page_title_color",
+        "label": "Breadcrumb Page Title Color",
+        "default": "#666666"
+      },
+      {
+        "type": "color",
+        "id": "active_breadcurmb_page_title_color",
+        "label": "Active Breadcrumb Page Title Color",
+        "default": "#999999"
+      }
+    ]
+  },
+  {
+    "name": "Newsletter",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Newsletter"
+      },
+      {
+        "type": "textarea",
+        "id": "newsletter_action",
+        "label": "MailChimp form action URL",
+        "info": "[Where do I find my MailChimp form action URL?](http:\/\/docs.shopify.com\/support\/configuration\/store-customization\/where-do-i-get-my-mailchimp-form-action)"
+      },
+      {
+        "type": "text",
+        "id": "email_placeholder",
+        "label": "Email Placeholer",
+        "default": "Your email address"
+      },
+      {
+        "type": "text",
+        "id": "button_name",
+        "label": "Button Name",
+        "default": "Subscribe"
+      },
+      {
+        "type": "header",
+        "content": "Newsletter Popup"
+      },
+      {
+        "type": "checkbox",
+        "id": "newsletter_popup_enable",
+        "label": "Newsletter Popup Enable",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "one_day_popup_enable",
+        "label": "Show Popup one time for per day",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "newletter_popup_title",
+        "label": "Newsletter Popup Title",
+        "default": "Newletter"
+      },
+      {
+        "type": "textarea",
+        "id": "newsletter_text",
+        "label": "Newsletter Description",
+        "default": "Join over 1,000 people who get free and fresh content delivered automatically each time we publish"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_button_name",
+        "label": "Newsletter Popup Button Name",
+        "default": "Subscribe"
+      },
+      {
+        "type": "image_picker",
+        "id": "newsletter_img",
+        "label": "Newsletter BG Image"
+      },
+      {
+        "type": "color",
+        "id": "newsletter_overlay_color",
+        "label": "Overlay Color",
+        "default": "#000"
+      },
+      {
+        "type": "range",
+        "id": "newsletter_overlay_opacicty",
+        "min": 0,
+        "max": 1,
+        "step": 0.1,
+        "label": "Overlay Color Opacity",
+        "default": 0.6
+      },
+      {
+        "type": "color",
+        "id": "popup_newsletter_title_color",
+        "label": "Title Color",
+        "default": "#434343"
+      },
+      {
+        "type": "color",
+        "id": "popup_newsletter_description_color",
+        "label": "Description Color",
+        "default": "#999"
+      },
+      {
+        "type": "color",
+        "id": "input_fild_color",
+        "label": "Input Fild\/Text Color",
+        "default": "#ddd"
+      },
+      {
+        "type": "color",
+        "id": "newsletter_button_bg_color",
+        "label": "Button BG Color",
+        "default": "#EC552C"
+      },
+      {
+        "type": "color",
+        "id": "newsletter_button_color",
+        "label": "Button Color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "close_icon_color",
+        "label": "Close Icon Color",
+        "default": "#EC552C"
+      }
+    ]
+  },
+  {
+    "name": "Custom Text",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Popup Cart"
+      },
+      {
+        "type": "text",
+        "id": "successfull_note",
+        "label": "Successfull Note",
+        "default": "Added to cart successfully!"
+      },
+      {
+        "type": "text",
+        "id": "view_cart_button2",
+        "label": "Cart Button",
+        "default": "View Cart"
+      }
+    ]
+  },
+  {
+    "name": "Currency",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "To offer multiple currencies on your online store, you must first [edit your store's currency formatting](https:\/\/help.shopify.com\/manual\/using-themes\/troubleshooting\/help-script-find-money-formats)."
+      },
+      {
+        "type": "paragraph",
+        "content": "Use the Country's ISO [Currency Code](http:\/\/www.xe.com\/iso4217.php)."
+      },
+      {
+        "type": "textarea",
+        "id": "supported_currencies",
+        "label": "Supported currencies",
+        "default": "USD, USD - US Dollar | EUR, EUR - Euro | GBP, GBP - British Pound",
+        "info": "Ex: USD, USD - US Dollar | EUR, EUR - Euro | GBP, GBP - British Pound | INR, INR - Indian Rupee"
+      }
+    ]
+  },
+  {
+    "name": "Cart page",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Enable cart notes"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_vendor_enable",
+        "label": "Show product vendor"
+      },
+      {
+        "type": "select",
+        "id": "ajax_cart_method",
+        "label": "Cart type",
+        "options": [
+          {
+            "value": "drawer",
+            "label": "Drawer"
+          },
+          {
+            "value": "page",
+            "label": "Page"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Wishlist",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Wishlist"
+      },
+      {
+        "type": "text",
+        "id": "wishlist_empty_title",
+        "label": "Wishlist Empty Title",
+        "default": "Your wishlist is currently empty!"
+      },
+      {
+        "type": "text",
+        "id": "login_request_title",
+        "label": "Login Request Title",
+        "default": "Please login your account"
+      }
+    ]
+  },
+  {
+    "name": "Ajax Search",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "ajax_search_enable",
+        "label": "Show Ajax Search",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Product Quickview",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "product_quickview_description_enable",
+        "label": "Show Short Description",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "qv_add_to_cart",
+        "label": "Add To Cart Button Tilte",
+        "default": "Add To Cart"
+      },
+      {
+        "type": "text",
+        "id": "qv_added",
+        "label": "Added Button Title",
+        "default": "Added"
+      },
+      {
+        "type": "text",
+        "id": "qv_wait",
+        "label": "Wait Button Title",
+        "default": "Wait..."
+      },
+      {
+        "type": "text",
+        "id": "qv_limit_product",
+        "label": "Limit Button Title",
+        "default": "limit products"
+      }
+    ]
+  },
+  {
+    "name": "Product Option",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Sticker"
+      },
+      {
+        "type": "color",
+        "id": "discount_bg_color",
+        "label": "Discount Background Color",
+        "default": "#f25961"
+      },
+      {
+        "type": "color",
+        "id": "discount_text_color",
+        "label": "Discount Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Hilight Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "hilight_img",
+        "label": "Image",
+        "info": "Recommended Size: 250 x 150px"
+      }
+    ]
+  },
+  {
+    "name": "Collection Sidebar",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Filter Area"
+      },
+      {
+        "type": "text",
+        "id": "category_title",
+        "label": "Category Title",
+        "default": "Shop By Categories"
+      },
+      {
+        "type": "select",
+        "id": "category_list_limit_handle",
+        "label": "How Many Category Tag Show",
+        "options": [
+          {
+            "label": "3",
+            "value": "3"
+          },
+          {
+            "label": "4",
+            "value": "4"
+          },
+          {
+            "label": "5",
+            "value": "5"
+          },
+          {
+            "label": "7",
+            "value": "7"
+          }
+        ],
+        "default": "5"
+      },
+      {
+        "type": "select",
+        "id": "product_limit_handle",
+        "label": "How Many Product Show",
+        "options": [
+          {
+            "label": "3",
+            "value": "3"
+          },
+          {
+            "label": "4",
+            "value": "4"
+          },
+          {
+            "label": "5",
+            "value": "5"
+          },
+          {
+            "label": "7",
+            "value": "7"
+          }
+        ],
+        "default": "5"
+      },
+      {
+        "type": "text",
+        "id": "color_title",
+        "label": "Color Title",
+        "default": "By Color"
+      },
+      {
+        "type": "select",
+        "id": "color_list_limit_handle",
+        "label": "How Many Color Tag Show",
+        "options": [
+          {
+            "label": "3",
+            "value": "3"
+          },
+          {
+            "label": "4",
+            "value": "4"
+          },
+          {
+            "label": "5",
+            "value": "5"
+          },
+          {
+            "label": "7",
+            "value": "7"
+          },
+          {
+            "label": "8",
+            "value": "8"
+          },
+          {
+            "label": "9",
+            "value": "9"
+          },
+          {
+            "label": "10",
+            "value": "10"
+          }
+        ],
+        "default": "5"
+      },
+      {
+        "type": "textarea",
+        "id": "color_picker",
+        "label": "Chose Your Color",
+        "info": "e.g white, green, blue"
+      },
+      {
+        "type": "text",
+        "id": "brand_title",
+        "label": "Brand Title",
+        "default": "By Brand"
+      },
+      {
+        "type": "select",
+        "id": "vendor_list_limit_handle",
+        "label": "How Many Brand Tag Show",
+        "options": [
+          {
+            "label": "3",
+            "value": "3"
+          },
+          {
+            "label": "4",
+            "value": "4"
+          },
+          {
+            "label": "5",
+            "value": "5"
+          },
+          {
+            "label": "7",
+            "value": "7"
+          }
+        ],
+        "default": "5"
+      },
+      {
+        "type": "text",
+        "id": "product_type",
+        "label": "Product Type",
+        "default": "By Type"
+      },
+      {
+        "type": "select",
+        "id": "producyt_type_limit_handle",
+        "label": "How Many Product type Show",
+        "options": [
+          {
+            "label": "3",
+            "value": "3"
+          },
+          {
+            "label": "4",
+            "value": "4"
+          },
+          {
+            "label": "5",
+            "value": "5"
+          },
+          {
+            "label": "7",
+            "value": "7"
+          }
+        ],
+        "default": "5"
+      },
+      {
+        "type": "text",
+        "id": "size_title",
+        "label": "Size Title",
+        "default": "By Size"
+      },
+      {
+        "type": "select",
+        "id": "size_list_limit_handle",
+        "label": "How Many Size Tag Show",
+        "options": [
+          {
+            "label": "3",
+            "value": "3"
+          },
+          {
+            "label": "4",
+            "value": "4"
+          },
+          {
+            "label": "5",
+            "value": "5"
+          },
+          {
+            "label": "7",
+            "value": "7"
+          }
+        ],
+        "default": "5"
+      },
+      {
+        "type": "textarea",
+        "id": "size_picker",
+        "label": "Chose Your Size",
+        "info": "e.g L, M, X"
+      },
+      {
+        "type": "header",
+        "content": "Tag Area"
+      },
+      {
+        "type": "text",
+        "id": "tag_title",
+        "label": "Tag Title",
+        "default": "Popular Tags"
+      },
+      {
+        "type": "select",
+        "id": "collection_tag_limit_handle",
+        "label": "How Many Collection Tag Show",
+        "options": [
+          {
+            "label": "3",
+            "value": "3"
+          },
+          {
+            "label": "4",
+            "value": "4"
+          },
+          {
+            "label": "5",
+            "value": "5"
+          },
+          {
+            "label": "7",
+            "value": "7"
+          },
+          {
+            "label": "8",
+            "value": "8"
+          },
+          {
+            "label": "9",
+            "value": "9"
+          },
+          {
+            "label": "10",
+            "value": "10"
+          },
+          {
+            "label": "11",
+            "value": "11"
+          },
+          {
+            "label": "12",
+            "value": "12"
+          },
+          {
+            "label": "13",
+            "value": "13"
+          },
+          {
+            "label": "14",
+            "value": "14"
+          },
+          {
+            "label": "15",
+            "value": "15"
+          },
+          {
+            "label": "16",
+            "value": "16"
+          }
+        ],
+        "default": "15"
+      }
+    ]
+  },
+  {
+    "name": "Blog\/Article Sidebar",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "author_img",
+        "label": "Comment User Image",
+        "info": "Recommended Size: 95 x 95px"
+      },
+      {
+        "type": "text",
+        "id": "author_title",
+        "label": "Author Title",
+        "default": "Kathy Gibson"
+      },
+      {
+        "type": "url",
+        "id": "author_title_url",
+        "label": "URL"
+      },
+      {
+        "type": "text",
+        "id": "author_description",
+        "label": "Author Description",
+        "default": "Head of Director, SEO"
+      },
+      {
+        "type": "text",
+        "id": "latest_blog_title",
+        "label": "Latest Blog Title",
+        "default": "Recent post"
+      },
+      {
+        "type": "select",
+        "id": "latest_post_limit",
+        "label": "How Many Latest Post Show",
+        "options": [
+          {
+            "label": "3",
+            "value": "3"
+          },
+          {
+            "label": "4",
+            "value": "4"
+          },
+          {
+            "label": "5",
+            "value": "5"
+          },
+          {
+            "label": "6",
+            "value": "6"
+          },
+          {
+            "label": "7",
+            "value": "7"
+          },
+          {
+            "label": "8",
+            "value": "8"
+          },
+          {
+            "label": "9",
+            "value": "9"
+          },
+          {
+            "label": "10",
+            "value": "10"
+          },
+          {
+            "label": "11",
+            "value": "11"
+          },
+          {
+            "label": "12",
+            "value": "12"
+          }
+        ],
+        "default": "8"
+      },
+      {
+        "type": "text",
+        "id": "blog_arcive_title",
+        "label": "Blog Arcive Title",
+        "default": "Blog Archive"
+      },
+      {
+        "type": "text",
+        "id": "instagram_title",
+        "label": "Instagram Title",
+        "default": "instagram"
+      },
+      {
+        "type": "text",
+        "id": "instafeed_user_id",
+        "label": "Instagram Usere ID",
+        "default": "6667588161"
+      },
+      {
+        "type": "select",
+        "id": "instafeed_limit",
+        "label": "How Instafeed Show",
+        "options": [
+          {
+            "label": "3",
+            "value": "3"
+          },
+          {
+            "label": "4",
+            "value": "4"
+          },
+          {
+            "label": "5",
+            "value": "5"
+          },
+          {
+            "label": "6",
+            "value": "6"
+          },
+          {
+            "label": "7",
+            "value": "7"
+          },
+          {
+            "label": "8",
+            "value": "8"
+          },
+          {
+            "label": "9",
+            "value": "9"
+          },
+          {
+            "label": "10",
+            "value": "10"
+          },
+          {
+            "label": "11",
+            "value": "11"
+          },
+          {
+            "label": "12",
+            "value": "12"
+          },
+          {
+            "label": "13",
+            "value": "13"
+          },
+          {
+            "label": "14",
+            "value": "14"
+          },
+          {
+            "label": "15",
+            "value": "15"
+          },
+          {
+            "label": "16",
+            "value": "16"
+          },
+          {
+            "label": "17",
+            "value": "17"
+          },
+          {
+            "label": "18",
+            "value": "18"
+          }
+        ],
+        "default": "6"
+      },
+      {
+        "type": "text",
+        "id": "instafeed_access_token",
+        "label": "Instagram Access Token",
+        "default": "6667588161.1677ed0.705c7b82e16f42b2898cd19e737dc53e"
+      },
+      {
+        "type": "text",
+        "id": "follow_us_title",
+        "label": "Follow Us Title",
+        "default": "follow us "
+      },
+      {
+        "type": "header",
+        "content": "Icon With Link"
+      },
+      {
+        "type": "text",
+        "id": "social_icon_1_name",
+        "label": "Social Icon Name",
+        "default": "instagram",
+        "info": "Ionicons Icon [See Icon](http:\/\/ionicons.com\/)"
+      },
+      {
+        "type": "url",
+        "id": "socila_icon_1_link",
+        "label": "Link"
+      },
+      {
+        "type": "header",
+        "content": "Icon With Link"
+      },
+      {
+        "type": "text",
+        "id": "social_icon_2_name",
+        "label": "Social Icon Name",
+        "default": "skype",
+        "info": "Ionicons Icon [See Icon](http:\/\/ionicons.com\/)"
+      },
+      {
+        "type": "url",
+        "id": "socila_icon_2_link",
+        "label": "Link"
+      },
+      {
+        "type": "header",
+        "content": "Icon With Link"
+      },
+      {
+        "type": "text",
+        "id": "social_icon_3_name",
+        "label": "Social Icon Name",
+        "default": "twitter",
+        "info": "Ionicons Icon [See Icon](http:\/\/ionicons.com\/)"
+      },
+      {
+        "type": "url",
+        "id": "socila_icon_3_link",
+        "label": "Link"
+      },
+      {
+        "type": "header",
+        "content": "Icon With Link"
+      },
+      {
+        "type": "text",
+        "id": "social_icon_4_name",
+        "label": "Social Icon Name",
+        "default": "facebook",
+        "info": "Ionicons Icon [See Icon](http:\/\/ionicons.com\/)"
+      },
+      {
+        "type": "url",
+        "id": "socila_icon_4_link",
+        "label": "Link"
+      },
+      {
+        "type": "text",
+        "id": "blog_tag_title",
+        "label": "Blog Tag Title",
+        "default": "tags"
+      },
+      {
+        "type": "select",
+        "id": "blog_limit_handle",
+        "label": "How Many Tag Show",
+        "options": [
+          {
+            "label": "3",
+            "value": "3"
+          },
+          {
+            "label": "4",
+            "value": "4"
+          },
+          {
+            "label": "5",
+            "value": "5"
+          },
+          {
+            "label": "6",
+            "value": "6"
+          },
+          {
+            "label": "7",
+            "value": "7"
+          },
+          {
+            "label": "8",
+            "value": "8"
+          },
+          {
+            "label": "9",
+            "value": "9"
+          },
+          {
+            "label": "10",
+            "value": "10"
+          },
+          {
+            "label": "11",
+            "value": "11"
+          },
+          {
+            "label": "12",
+            "value": "12"
+          },
+          {
+            "label": "13",
+            "value": "13"
+          },
+          {
+            "label": "14",
+            "value": "14"
+          },
+          {
+            "label": "15",
+            "value": "15"
+          },
+          {
+            "label": "16",
+            "value": "16"
+          },
+          {
+            "label": "17",
+            "value": "17"
+          },
+          {
+            "label": "18",
+            "value": "18"
+          }
+        ],
+        "default": "12"
+      }
+    ]
+  },
+  {
+    "name": "404 Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Section Padding"
+      },
+      {
+        "type": "text",
+        "id": "section_padding_top",
+        "label": "Section Padding Top",
+        "default": "70",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "text",
+        "id": "section_padding_bottom",
+        "label": "Section Padding Bottom",
+        "default": "70",
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "image_picker",
+        "id": "opps_404",
+        "label": "404 Image",
+        "info": "Default Image Size: 800px X 600px"
+      },
+      {
+        "type": "text",
+        "id": "heading_404_sub_title",
+        "label": "404 SubTitle",
+        "default": "Opps! PAGE NOT BE FOUND"
+      },
+      {
+        "type": "text",
+        "id": "heading_404_description",
+        "label": "404 Description",
+        "default": "Sorry but the page you are looking for does not exist, have been removed, name changed or is temporarily unavailable."
+      },
+      {
+        "type": "text",
+        "id": "button_title",
+        "label": "Button Title",
+        "default": "Back to home page"
+      }
+    ]
+  }
+]

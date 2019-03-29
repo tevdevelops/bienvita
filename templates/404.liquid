@@ -1,0 +1,35 @@
+<!--Error 404 Area Start--> 
+<div class="error-404-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="error-wrapper text-center">
+          <div class="error-text">
+             {% if settings.opps_404 %}
+          <img src="{{ settings.opps_404 | img_url: 'large' }}" alt="" />
+          {% endif %}
+            <h2>{{ settings.heading_404_sub_title }}</h2>
+            <p>{{ settings.heading_404_description }}</p>
+          </div>
+          <div class="error-button">
+            <a href="/">{{ settings.button_title }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Error 404 Area End--> 
+
+
+<style>
+
+  .error-404-area{
+    padding-top:{{ settings.section_padding_top }}px;
+  }
+
+  .error-404-area{
+    padding-bottom:{{ settings.section_padding_bottom }}px;
+  }
+
+</style> 

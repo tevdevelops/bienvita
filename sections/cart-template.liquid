@@ -1,0 +1,236 @@
+
+<div class="cart-main-area" id="cart-main-area-{{ section.id }}">
+  {% if cart.item_count > 0 %}
+  <form  action="/cart" method="post" novalidate enctype="multipart/form-data">
+    <div class="container">
+      <h3 class="page-title">{{ section.settings.section_title }}</h3>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="table-content table-responsive">
+            <table>
+              <thead>
+
+                <tr>
+                  <th>{{ section.settings.product_image }}</th>
+                  <th>{{ section.settings.product_title }}</th>
+                  <th>{{ section.settings.price_title }}</th>
+                  <th>{{ section.settings.quantity_title }}</th>
+                  <th>{{ section.settings.totle_title }}</th>
+                  <th>{{ section.settings.remove_title }}</th>
+                </tr>
+
+              </thead>
+              <tbody>
+
+                {% assign i = 1 %}
+                {% for item in cart.items %}
+                <tr>
+                  <td class="product-thumbnail">
+                    <a href="{{ item.url }}"><img src="{{ item | img_url: 'compact' }}" alt="{{ item.alt }}"></a>
+                  </td>
+                  <td class="product-name"><a href="{{ item.url }}">{{ item.title }}</a></td>
+                  <td class="product-price-cart"><span class="amount">{{ item.price | money }}</span></td>
+                  <td class="product-quantity">
+                    <div class="pro-dec-cart">
+                      <input class="cart-plus-minus-box" type="text" name="updates[]" value="{{ item.quantity }}">
+                    </div>
+                  </td>
+                  <td class="product-subtotal">{{ item.line_price | money }}</td>
+                  <td class="product-remove">
+                    <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0"><i class="fa fa-times"></i></a>
+                  </td>
+                </tr>
+                {% assign i = 1 | plus: 1 %}
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="cart-shiping-update-wrapper">
+                <div class="cart-shiping-update">
+                  <a href="/collections/all">{{ section.settings.continue_shopping_title }}</a>
+                </div>
+                <div class="cart-clear">
+                  <input type="submit" value="{{ section.settings.update_button_title }}" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="offset-lg-8 col-lg-4 col-md-12">
+              <div class="grand-totall">
+                <div class="title-wrap">
+                  <h4 class="cart-bottom-title section-bg-gary-cart">{{ section.settings.total_title }}</h4>
+                </div>
+                <h5>{{ section.settings.subtotal }} <span>{{ cart.total_price | money }}</span></h5>
+                <h4 class="grand-totall-title">{{ section.settings.grand_total }}  <span>{{ cart.total_price | money }}</span></h4>
+                <a href="/checkout">{{ section.settings.checkout_button_title }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  {% else %}
+  <div class="car-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="text-capitalize sub-heading">Cart is Empty</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %} 
+
+</div>
+
+
+
+
+<style>
+ 
+ #cart-main-area-{{ section.id }}.cart-main-area{
+    padding-top:{{ section.settings.section_padding_top }}px;
+  }
+  
+ #cart-main-area-{{ section.id }}.cart-main-area{
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  }
+  
+  
+</style> 
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Cart Template",
+    "settings": [
+	  {
+        "type": "header",
+        "content": "Section Padding"
+      },
+      {
+        "type": "text",
+        "id": "section_padding_top",
+        "label": "Section Padding Top",
+        "default": "60" ,
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "text",
+        "id": "section_padding_bottom",
+        "label": "Section Padding Bottom",
+        "default": "65" ,
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+	  {
+        "type": "header",
+        "content": "Section Title"
+      },
+	  {
+		"type": "text",
+		"id": "section_title",
+		"label": "Title",
+		"default": "Your cart items"
+	  },
+      {
+        "type": "header",
+        "content": "Table Heading"
+      },
+      {
+        "type": "text",
+        "id": "product_image",
+        "label": "Product Image Title",
+        "default": "Image"
+      },
+      {
+        "type": "text",
+        "id": "product_title",
+        "label": "Product Title",
+        "default": "Product Name"
+      },
+      {
+        "type": "text",
+        "id": "price_title",
+        "label": "Price Title",
+        "default": "Until Price"
+      },
+      {
+        "type": "text",
+        "id": "quantity_title",
+        "label": "Quentity Title",
+        "default": "Qty"
+      },
+      {
+        "type": "text",
+        "id": "totle_title",
+        "label": "Total Title",
+        "default": "Subtotal"
+      },
+      {
+        "type": "text",
+        "id": "remove_title",
+        "label": "Remove Title",
+        "default": "Delete"
+      },
+      {
+        "type": "header",
+        "content": "Table Bottom"
+      },
+      {
+        "type": "text",
+        "id": "continue_shopping_title",
+        "label": "Continue Shopping Button",
+        "default": "Continue Shopping"
+      },
+      {
+        "type": "text",
+        "id": "update_button_title",
+        "label": "Update Cart Button",
+        "default": "Update Shopping Cart"
+      },
+      {
+        "type": "header",
+        "content": "Total"
+      },
+      {
+        "type": "text",
+        "id": "total_title",
+        "label": "Total Title",
+        "default": "Cart Total"
+      },
+      {
+        "type": "text",
+        "id": "subtotal",
+        "label": "Subtotal Title",
+        "default": "Total products"
+      },
+      {
+        "type": "text",
+        "id": "grand_total",
+        "label": "Total",
+        "default": "Grand Total"
+      },
+      {
+        "type": "text",
+        "id": "checkout_button_title",
+        "label": "Checkout Button Title",
+        "default": "Proceed to Checkout"
+      }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

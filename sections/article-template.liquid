@@ -1,0 +1,306 @@
+
+
+<!-- blog-area start -->
+<div class="blog-area" id="blog-area-{{ section.id }}">
+  <div class="container">
+    <div class="row {% if section.settings.blog_sidebar_position == 'left_sidebar_handle' %}flex-row-reverse{% endif %}">
+      
+      <div class="{% if section.settings.blog_sidebar_position == 'no_sidebar' %} col-lg-12 {% else %} col-lg-9{% endif %}">
+        <div class="blog-details-wrapper">
+          
+          
+          <div class="single-blog-wrapper">
+            <div class="blog-gallery-slider mb-30">
+              <a href="#"><img alt="blog-image" src="{{ article | img_url : 'master' }}"></a>
+            </div>
+            <div class="blog-content">
+              <h2>{{ article.title }}</h2>
+              <div class="blog-date-categori">
+                <ul>
+                  <li>{{ article.published_at | date: "%b, %d , %y" }}</li>
+                  <li>{{ article.author }}</li>
+                </ul>
+              </div>
+            </div>
+         {{ article.content }}
+            
+            <div class="blog-dec-tags-social">
+              <div class="blog-dec-tags">
+                <ul>
+                   {% for tag in article.tags limit: 3 %}
+                  <li><a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a></li>
+              {% endfor %}
+                </ul>
+              </div>
+              <div class="blog-dec-social">
+                <span>share :</span>
+                <ul>
+                  {% include 'blog-share' %}
+                  
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+                {% if comment and comment.created_at %}
+        <div id="comments" class="comment-success mt-20">
+          <p class="note form-success">
+            {% if blog.comments_modareted? %}
+            {{ 'blogs.comments.success_moderated' | t }}            
+            {% else %}
+            {{ 'blogs.comments.success' | t }}
+            {% endif %}
+          </p>
+        </div>
+        {% endif %}
+        {% if article.comments.size > 0 %}
+          {% assign comment_post_limit = section.settings.comment_post_limit_handle %}
+          {% paginate article.comments by comment_post_limit %}
+          <div class="blog-comment-wrapper mt-55">
+            <h4 class="blog-dec-title">{{ section.settings.article_comment_title }}</h4>
+             {% for comment in article.comments %}
+            <div class="single-comment-wrapper mt-35">
+              <div class="blog-comment-img">
+                <img src="{% if section.settings.user %}{{ section.settings.user | img_url: 'smaill' }}{% else %}http:\/\/via.placeholder.com\/95x95{% endif %}" alt="{{ article.user.alt }}">
+              </div>
+              <div class="blog-comment-content">
+                <h4>{{ comment.author }}</h4>
+                <span>{{ article.published_at | date: " %b  %d ,%Y" }}</span>
+                <p>{{ comment.content }}</p>
+              </div>
+            </div>
+              {% endfor %}
+          </div>
+          
+          {% if paginate.pages > 1 %}
+          <div class="pagination-total-pages  mt-20">
+            {% include 'pagination' %}
+          </div>
+          {% endif %}
+          {% endpaginate %}
+          
+          {% endif %}
+          
+           {% form 'new_comment', article %}
+          <div class="blog-reply-wrapper mt-50">
+            
+            <h4 class="blog-dec-title">{{ section.settings.article_form_title }}</h4>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="leave-form">
+                    <input placeholder="{{ section.settings.name_placeholder }}" type="text" name="comment[author]" id="commentAuthor" value="{{ form.author }}">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="leave-form">
+                     <input placeholder="{{ section.settings.email_placeholder_2 }}" type="email" name="comment[email]" id="commentEmail" value="{{ form.email }}">
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="text-leave">
+                    <textarea  cols="30" rows="10" {% if form.errors contains 'body' %}error{% endif %} placeholder="{{ section.settings.massage_placehoder }}" name="comment[body]" id="commentBody">{{ form.body }}</textarea>
+                    <input type="submit" value="SEND MASSAGE">
+                  </div>
+                </div>
+              </div>
+          </div>
+           {% endform %}
+          
+          
+        </div>
+      </div>
+      
+       {% unless section.settings.blog_sidebar_position == 'no_sidebar' %}
+      <div class="col-lg-3">
+        {% include 'blog-sidebar' %}
+      </div>
+      {% endunless %}
+    </div>
+  </div>
+</div>
+<!-- blog-area end -->
+
+
+
+<style>
+ 
+ #blog-area-{{ section.id }}.blog-area{
+    padding-top:{{ section.settings.section_padding_top }}px;
+  }
+  
+ #blog-area-{{ section.id }}.blog-area{
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  }
+  
+  
+</style> 
+
+
+
+
+{% schema %}
+  {
+    "name": "Article Template",
+    "settings": [
+	  {
+        "type": "header",
+        "content": "Section Padding"
+      },
+      {
+        "type": "text",
+        "id": "section_padding_top",
+        "label": "Section Padding Top",
+        "default": "75" ,
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "text",
+        "id": "section_padding_bottom",
+        "label": "Section Padding Bottom",
+        "default": "75" ,
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+	  {
+		"type": "header",
+		"content": "Collection Sidebar"
+	  },
+      {
+        "type": "radio",
+        "id": "blog_sidebar_position",
+        "label": "Sidebar Position",
+        "options": [
+          {
+            "label": "Left",
+            "value": "left_sidebar_handle"
+          },
+          {
+            "label": "Right",
+            "value": "right_sidebar_handle"
+          },
+          {
+            "label": "Without Sidebar",
+            "value": "no_sidebar"
+          }
+        ],
+        "default": "left_sidebar_handle"
+      },
+      {
+        "type": "header",
+        "content": "Comment area"
+      },
+      {
+        "type": "text",
+        "id": "article_comment_title",
+        "label": "Article Comment Title",
+        "default": "COMMENTS"
+      },
+      {
+        "type": "image_picker",
+        "id": "user",
+        "label": "Comment User Image",
+        "info": "Recommended Size: 95 x 95px"
+      },
+      {
+        "type": "select",
+        "id": "comment_post_limit_handle",
+        "label": "Comment Post Limit",
+        "options": [
+          {
+            "label": "2 Comments",
+            "value": "2"
+          },
+          {
+            "label": "3 Comments",
+            "value": "3"
+          },
+          {
+            "label": "5 Comments",
+            "value": "5"
+          }
+        ],
+        "default": "2"
+      },
+      {
+        "type": "header",
+        "content": "Leave a Comment"
+      },
+      {
+        "type": "text",
+        "id": "article_form_title",
+        "label": "Article Form Title",
+        "default": "POST A COMMENT"
+      },
+      {
+        "type": "text",
+        "id": "name_placeholder",
+        "label": "Input Field Name Placeholder",
+        "default": "Your Name"
+      },
+      {
+        "type": "text",
+        "id": "email_placeholder_2",
+        "label": "Input Field Email Placeholder",
+        "default": "Your Email"
+      },
+      {
+        "type": "text",
+        "id": "massage_placehoder",
+        "label": "Input Field Massage Placeholder",
+        "default": "Your Massage"
+      },
+	  {
+		"type": "paragraph",
+		"content": "Sidebar Widget/List"
+	  },
+	  {
+		"type": "checkbox",
+		"id": "search_enable",
+		"label": "Show Search",
+		"default": true
+	  },
+	  {
+		"type": "checkbox",
+		"id": "blog_author_enable",
+		"label": "Show Blog Author",
+		"default": true
+	  },
+	  {
+		"type": "checkbox",
+		"id": "latest_post_enable",
+		"label": "Show Latest Blog",
+		"default": true
+	  },
+	  {
+		"type": "checkbox",
+		"id": "blog_arcive_enable",
+		"label": "Show Archive",
+		"default": true
+	  },
+	  {
+		"type": "checkbox",
+		"id": "instagram_enable",
+		"label": "Show instagram",
+		"default": true
+	  },
+	  {
+		"type": "checkbox",
+		"id": "follow_us_enable",
+		"label": "Show Follow Us",
+		"default": true
+	  },
+	  {
+		"type": "checkbox",
+		"id": "blog_tag_enable",
+		"label": "Show Tag",
+		"default": true
+	  }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

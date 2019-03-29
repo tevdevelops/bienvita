@@ -1,0 +1,70 @@
+<div class="register-area pt-80 pb-80 login-form-section">
+  <div class="container">
+    <div class="row">
+      <div class="offset-lg-2 col-lg-8 col-md-12 col-12">
+        
+        <div class="note form-success" id="ResetSuccess" style="display: none;">
+          {{ 'customer.recover_password.success' | t }}
+        </div>
+
+        <div id="CustomerLoginForm" class="login">
+          {% form 'customer_login' %}
+
+          {{ form.errors | default_errors }}
+
+          <div class="login-form-container">
+            <div class="login-text login-title mb-30">
+              <h2>{{ 'customer.login.title' | t }}</h2>
+              <p>{{ settings.login_sub_text }}</p>
+            </div>
+            <div class="login-form">
+              <input type="email" name="customer[email]" id="CustomerEmail" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'customer.login.email' | t }}" autocorrect="off" autocapitalize="off" autofocus>
+              {% if form.password_needed %}
+              <input type="password" value="" name="customer[password]" id="CustomerPassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.login.password' | t }}">
+              {% endif %}
+              <div class="button-box">
+                <div class="login-toggle-btn">
+                  <button type="submit" class="section-button">{{ 'customer.login.sign_in' | t }}</button>
+                  {% if form.password_needed %}
+                  <a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a>
+                  {% endif %}
+                </div>
+                <div class="create-account-btn">
+                  <a href="/account/register">Create Account</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endform %}
+        </div>
+
+        <div id="RecoverPasswordForm" style="display: none;" class="login">
+          {% form 'recover_customer_password' %}
+
+          {{ form.errors | default_errors }}
+
+          {% if form.posted_successfully? %}
+          {% assign resetPassword = true %}
+          {% endif %}
+
+          <div class="login-form-container">
+            <div class="login-text">
+              <h2>{{ 'customer.recover_password.title' | t }}</h2>
+              <span>{{ 'customer.recover_password.subtext' | t }}</span>
+            </div>
+            <div class="login-form">
+              <input type="email" value="" name="email" id="RecoverEmail" class="input-full" placeholder="{{ 'customer.recover_password.email' | t }}" autocorrect="off" autocapitalize="off">
+              <div class="button-box">
+                <div class="login-toggle-btn">
+                  <button type="submit" class="section-button">{{ 'customer.recover_password.submit' | t }}</button>
+                  <a href="#" id="HideRecoverPasswordLink">{{ 'customer.recover_password.cancel' | t }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endform %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,187 @@
+
+{% if section.settings.team_area_enable %}
+
+<div class="team-area" id="team-area-{{ section.id }}">
+  <div class="container">
+    <div class="text-center mb-40">
+      <h4 class="section-title-about">{{ section.settings.section_title }}</h4>
+    </div>
+    <div class="row">
+      {% for block in section.blocks %}
+      <div class="col-lg-{{ block.settings.team_coloum }} col-md-6 col-sm-6">
+        <div class="team-wrapper mb-30">
+          <div class="team-img">
+            <a href="{{ block.settings.team_image_url }}">
+              <img src="{% if block.settings.team_image %}{{ block.settings.team_image | img_url: 'large' }}{% else %}http:\/\/via.placeholder.com\/390x450{% endif %}" alt="team-img">
+            </a>
+            <div class="team-action">
+              {% include 'social-icon-share-4' %}
+            </div>
+          </div>
+          <div class="team-content text-center">
+            <h4>{{ block.settings.member_title }}</h4>
+            <span>{{ block.settings.member_position }}</span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+
+
+{% endif %}
+
+
+
+<style>
+ 
+ #team-area-{{ section.id }}.team-area{
+    padding-top:{{ section.settings.section_padding_top }}px;
+  }
+  
+ #team-area-{{ section.id }}.team-area{
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  }
+  
+  
+</style> 
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Team Area",
+    "settings": [
+	  {
+        "type": "header",
+        "content": "Section Padding"
+      },
+      {
+        "type": "text",
+        "id": "section_padding_top",
+        "label": "Section Padding Top",
+        "default": "75" ,
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "text",
+        "id": "section_padding_bottom",
+        "label": "Section Padding Bottom",
+        "default": "50" ,
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "checkbox",
+        "id": "team_area_enable",
+        "label": "Team Area Enable",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Section Title"
+      },
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Title",
+        "default": "Team Members"
+      }
+	],		
+	"blocks":[
+      {
+         "type": "team",
+         "name": "Team",
+         "settings": [
+			{
+				"type": "text",
+				"id": "team_coloum",
+				"label": "Team Coloum",
+                "default": "3",
+                "info": "Follow Bootstrap Column"
+			},
+			{
+				"type": "image_picker",
+				"id": "team_image",
+				"label": "Image",
+				"info": "Recommended Size: 390 x 450px"
+		    },
+			{
+				"type": "url",
+				"id": "team_image_url",
+				"label": "URL"
+		    },
+            {
+                "type": "text",
+                "id": "member_title",
+                "label": "Member Name",
+                "default": "Mr.Mike Banding"
+            },
+            {
+                "type": "text",
+                "id": "member_position",
+                "label": "Member Position",
+                "default": "Manager "
+            },
+            {
+              "type": "header",
+              "content": "Team Social"
+            },
+            {
+              "type": "text",
+              "id": "social_icon_1_name",
+              "label": "Social Icon Name",
+              "default": "facebook",
+              "info": "Ionicons Icon [See Icon](http:\/\/ionicons.com\/)"
+            },
+            {
+              "type": "url",
+              "id": "socila_icon_1_link",
+              "label": "Link"
+            },
+            {
+              "type": "header",
+              "content": "Icon With Link"
+            },
+            {
+              "type": "text",
+              "id": "social_icon_2_name",
+              "label": "Social Icon Name",
+              "default": "twitter",
+              "info": "Ionicons Icon [See Icon](http:\/\/ionicons.com\/)"
+            },
+            {
+              "type": "url",
+              "id": "socila_icon_2_link",
+              "label": "Link"
+            },
+            {
+              "type": "header",
+              "content": "Icon With Link"
+            },
+            {
+              "type": "text",
+              "id": "social_icon_3_name",
+              "label": "Social Icon Name",
+              "default": "instagram",
+              "info": "Ionicons Icon [See Icon](http:\/\/ionicons.com\/)"
+            },
+            {
+              "type": "url",
+              "id": "socila_icon_3_link",
+              "label": "Link"
+            }
+        ]
+       }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

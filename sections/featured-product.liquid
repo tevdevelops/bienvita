@@ -1,0 +1,186 @@
+
+
+
+
+<div class="product-area" id="product-area-{{ section.id }}">
+  <div class="container">
+    <div class="product-top-bar section-border mb-35">
+      {% include 'section-title' %}
+    </div>
+    <div class="featured-product-active hot-flower owl-carousel product-nav">
+      {% assign collection = collections[section.settings.collection] %}
+      {% for product in collection.products   %}
+      {% include 'product-grid-item' %}
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+
+
+
+<style>
+ 
+ #product-area-{{ section.id }}.product-area{
+    padding-top:{{ section.settings.section_padding_top }}px;
+  }
+  
+ #product-area-{{ section.id }}.product-area{
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  }
+
+  
+  
+</style> 
+
+
+
+<script>
+
+
+
+    /* Best selling active */
+    $('#product-area-{{ section.id }} .featured-product-active').owlCarousel({
+        loop: true,
+        nav: true,
+        autoplay: false,
+        autoplayTimeout: 5000,
+        navText: ['<i class="ion-ios-arrow-back"></i>', '<i class="ion-ios-arrow-forward"></i>'],
+        item: 4,
+        margin: 30,
+        responsive: {
+            0: {
+                items: 1
+            },
+            576: {
+                items: 2
+            },
+            768: {
+                items: 3
+            },
+            992: {
+                items: 3
+            },
+            1100: {
+                items: {{ section.settings.product_coloum }}
+            },
+            1200: {
+                items: {{ section.settings.product_coloum }}
+            }
+        }
+    })
+    
+
+</script>
+
+
+{% schema %}
+  {
+    "name": "Featured Product",
+    "settings": [
+		{
+          "type": "header",
+          "content": "Section Padding"
+        },
+        {
+           "type": "text",
+           "id": "section_padding_top",
+           "label": "Section Padding Top",
+           "default": "70" ,
+           "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+           "type": "text",
+           "id": "section_padding_bottom",
+           "label": "Section Padding Bottom",
+           "default": "70" ,
+           "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+		{
+            "type": "header",
+            "content": "Section Title"
+        },
+        {
+            "type": "text",
+            "id": "section_title",
+            "label": "Section Title",
+            "default": "Hot Flower"
+        },
+		{
+            "type": "header",
+            "content": "Product"
+        },
+        {
+          	"type": "collection",
+         	 "id": "collection",
+          	"label": "select your collection"
+        },
+		{
+            "type": "header",
+            "content": "Product Cursole"
+        },  
+        {
+            "type": "select",
+            "id": "product_coloum",
+            "label": "Product coloum",
+            "options":[
+              {
+                "value":"3",
+                "label": "3 products"
+              },
+              {
+                "value":"4",
+                "label": "4 products"
+              },
+              {
+                "value":"5",
+                "label": "5 products"
+              },
+              {
+                "value":"6",
+                "label": "6 products"
+              },
+              {
+                "value":"7",
+                "label": "7 products"
+              },
+              {
+                "value":"8",
+                "label": "8 products"
+              },
+              {
+                "value":"9",
+                "label": "9 products"
+              },
+              {
+                "value":"10",
+                "label": "10 products"
+              },
+              {
+                "value":"11",
+                "label": "11 products"
+              },
+              {
+                "value":"12",
+                "label": "12 products"
+              }
+
+            ],
+
+            "default": "4"
+        }
+	],
+    "presets":[
+        {
+            "name": "Featured Product",
+            "category": "3. product"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,130 @@
+
+<div class="new-year-offer-area" id="new-year-offer-area-{{ section.id }}">
+  <div class="container">
+    <div class="new-year-offer-wrap bg-img" style="background-image:url({% if section.settings.banner_img %}{{ section.settings.banner_img | img_url: 'master' }}{% else %}http:\/\/via.placeholder.com\/620x300{% endif %});">
+      <div class="new-year-offer-content text-center">
+        <h4>{{ section.settings.banner_subtitle }}</h4>
+        <h3>{{ section.settings.banner_title }}</h3>
+        <a href="{{ section.settings.banner_button_url }}">{{ section.settings.banner_button }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<style>
+ 
+ #new-year-offer-area-{{ section.id }}.new-year-offer-area{
+    padding-top:{{ section.settings.section_padding_top }}px;
+  }
+  
+ #new-year-offer-area-{{ section.id }}.new-year-offer-area{
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  }
+  
+  
+   #new-year-offer-area-{{ section.id }} .new-year-offer-wrap{
+    padding-top:{{ section.settings.section_padding_top_2 }}px;
+  }
+  
+ #new-year-offer-area-{{ section.id }} .new-year-offer-wrap{
+    padding-bottom:{{ section.settings.section_padding_bottom_2 }}px;
+  }
+  
+</style> 
+
+
+
+{% schema %}
+  {
+    "name": "Banner 2",
+    "settings": [
+		{
+          "type": "header",
+          "content": "Section Padding"
+        },
+        {
+           "type": "text",
+           "id": "section_padding_top",
+           "label": "Section Padding Top",
+           "default": "0" ,
+           "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+           "type": "text",
+           "id": "section_padding_bottom",
+           "label": "Section Padding Bottom",
+           "default": "75" ,
+           "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+		{
+          "type": "header",
+          "content": "Content Padding"
+        },
+        {
+           "type": "text",
+           "id": "section_padding_top_2",
+           "label": "Section Padding Top",
+           "default": "70" ,
+           "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+           "type": "text",
+           "id": "section_padding_bottom_2",
+           "label": "Section Padding Bottom",
+           "default": "75" ,
+           "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+          "type": "header",
+          "content": "Banner Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "banner_img",
+          "label": "Image",
+          "info": "Recommended Size: 620 x 300px"
+        },
+        {
+          "type": "header",
+          "content": "Banner Content"
+        },
+        {
+          "type": "text",
+          "id": "banner_subtitle",
+          "label": "Banner SubTitle",
+          "default": "New Year Offer"
+        },
+        {
+          "type": "text",
+          "id": "banner_title",
+          "label": "Banner Title",
+          "default": "Fresh flowers for any special occasion"
+        },
+		{
+          "type": "text",
+          "id": "banner_button",
+          "label": "Button",
+          "default": "Discover now"
+        },
+        {
+          "type": "url",
+          "id": "banner_button_url",
+          "label": "URL"
+        }
+	],
+    "presets":[
+        {
+            "name": "Banner 2",
+            "category": "2. banner"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

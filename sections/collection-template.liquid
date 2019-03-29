@@ -1,0 +1,253 @@
+
+<div class="shop-page-area" id="shop-page-area-{{ section.id }}">
+  <div class="container">
+    <div class="row {% if section.settings.collection_sidebar_position == 'left_sidebar_handle' %}flex-row-reverse{% endif %}">
+      <div class="{% if section.settings.collection_sidebar_position == 'no_sidebar' %} col-lg-12 {% else %}col-lg-9{% endif %}">
+
+          {% assign pagination_limit = section.settings.product_limit_count %}
+        <!-- {% include 'collection-banner' %} -->
+        {% include 'collection-sorting' %}
+        <div class="grid-list-product-wrapper">
+          {% paginate collection.products by pagination_limit %}
+          <div class="product-grid product-view pb-20">
+            <div class="row">
+              {% for product in collection.products %}
+              <div class="product-width col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-30">
+                {% include 'product-list-item' %}
+              </div>
+              {% endfor %}
+
+            </div>
+          </div>
+
+          {% if paginate.pages > 1 %}
+          <div class="pagination-total-pages">
+            {% include 'pagination' %}
+            <div class="total-pages">
+              <p>Showing {{ pagination_limit }} of {{ shop.products_count }} results  </p>
+            </div>
+
+          </div>
+
+            {% endif %}
+          {% endpaginate %}
+
+        </div>
+      </div>
+       {% unless section.settings.collection_sidebar_position == 'no_sidebar' %}
+      <div class="col-lg-3">
+        {% include 'collection-sidebar' %}
+      </div>
+        {% endunless %}
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<style>
+
+ #shop-page-area-{{ section.id }}.shop-page-area{
+    padding-top:{{ section.settings.section_padding_top }}px;
+  }
+
+ #shop-page-area-{{ section.id }}.shop-page-area{
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  }
+
+
+</style>
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Collection Template",
+    "settings": [
+	  {
+        "type": "header",
+        "content": "Section Padding"
+      },
+      {
+        "type": "text",
+        "id": "section_padding_top",
+        "label": "Section Padding Top",
+        "default": "75" ,
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "text",
+        "id": "section_padding_bottom",
+        "label": "Section Padding Bottom",
+        "default": "75" ,
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "header",
+        "content": "Banner Image"
+      },
+	  {
+		"type": "checkbox",
+		"id": "banner_img_enable",
+		"label": "Show Banner Image",
+		"default": true
+	  },
+      {
+        "type": "image_picker",
+        "id": "banner_img",
+        "label": "Image",
+        "info": "Recommended Size: 870 x 255px"
+      },
+      {
+        "type": "url",
+        "id": "banner_img_url",
+        "label": "URL"
+      },
+      {
+        "type": "header",
+        "content": "Product"
+      },
+      {
+        "type": "select",
+        "id": "product_limit_count",
+        "label": "Pagination Limit",
+        "options": [
+          {
+            "label": "6 Product",
+            "value": "6"
+          },
+          {
+            "label": "8 product",
+            "value": "8"
+          },
+          {
+            "label": "9 product",
+            "value": "9"
+          },
+          {
+            "label": "10 product",
+            "value": "10"
+          },
+          {
+            "label": "12 product",
+            "value": "12"
+          },
+          {
+            "label": "15 product",
+            "value": "15"
+          },
+          {
+            "label": "16 product",
+            "value": "16"
+          },
+          {
+            "label": "17 product",
+            "value": "17"
+          },
+          {
+            "label": "18 product",
+            "value": "18"
+          },
+          {
+            "label": "19 product",
+            "value": "19"
+          },
+          {
+            "label": "20 product",
+            "value": "20"
+          },
+          {
+            "label": "21 product",
+            "value": "21"
+          },
+          {
+            "label": "22 product",
+            "value": "23"
+          },
+          {
+            "label": "24 product",
+            "value": "24"
+          }
+        ],
+        "default": "12"
+      },
+	  {
+		"type": "header",
+		"content": "Collection Sidebar"
+	  },
+      {
+        "type": "radio",
+        "id": "collection_sidebar_position",
+        "label": "Sidebar Position",
+        "options": [
+          {
+            "label": "Left",
+            "value": "left_sidebar_handle"
+          },
+          {
+            "label": "Right",
+            "value": "right_sidebar_handle"
+          },
+          {
+            "label": "Without Sidebar",
+            "value": "no_sidebar"
+          }
+        ],
+        "default": "left_sidebar_handle"
+      },
+	  {
+		"type": "paragraph",
+		"content": "Sidebar Widget/List"
+	  },
+	  {
+		"type": "checkbox",
+		"id": "category_enable",
+		"label": "Show Category",
+		"default": true
+	  },
+	  {
+		"type": "checkbox",
+		"id": "color_enable",
+		"label": "Show Color",
+		"default": true
+	  },
+	  {
+		"type": "checkbox",
+		"id": "brand_enable",
+		"label": "Show Brand",
+		"default": true
+	  },
+	  {
+		"type": "checkbox",
+		"id": "product_type_enable",
+		"label": "Show Type",
+		"default": true
+	  },
+	  {
+		"type": "checkbox",
+		"id": "size_enable",
+		"label": "Show Size",
+		"default": true
+	  },
+	  {
+		"type": "checkbox",
+		"id": "tag_enable",
+		"label": "Show Tag",
+		"default": true
+	  }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

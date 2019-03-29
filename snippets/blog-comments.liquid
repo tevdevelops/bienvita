@@ -1,0 +1,21 @@
+<div class="post-comments mb-30" id="blog-comments">
+  <h4 class="blog-section-title border-left mb-30">{{ 'blogs.comments.with_count' | t: count: article.comments_count }}</h4>
+  <!-- single-comments -->
+  {% for comment in article.comments %}
+  <div class="media mt-30">
+    <div class="media-left pr-30">
+      <img class="media-object" src="{{ 'author.jpg' | asset_url }}" alt="#">
+    </div>
+    <div class="media-body">
+      <div class="clearfix">
+        <div class="name-commenter f-left">
+          <h6 class="media-heading">{{ comment.author }}</h6>
+          <p class="mb-10">{{ comment.created_at | date: "%b %d, %Y at %H:%M" }}</p>
+        </div>
+      </div>
+      <p class="mb-0">{{ comment.content }}</p>
+    </div>
+  </div>
+  {% endfor %}
+  <!-- single-comments -->
+</div>

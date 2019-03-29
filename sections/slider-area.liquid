@@ -1,0 +1,160 @@
+
+<div class="slider-area" id="slider-area-{{ section.id }}">
+
+
+  <div class="slider-active owl-dot-style owl-carousel">
+
+    {% for block in section.blocks %}
+    <div class="single-slider pt-175 pb-250 bg-img" style="background-image:url({% if block.settings.slider_img %}{{ block.settings.slider_img | img_url: 'master' }}{% else %}http:\/\/via.placeholder.com\/1950x705{% endif %});">
+      <div class="container">
+        <div class="slider-content slider-animated-1">
+          <h3 class="animated">{{ block.settings.slider_subtitle }}</h3>
+          <h1 class="animated">{{ block.settings.slider_title }}</h1>
+          <h5 class="animated">{{ block.settings.slider_description }}</h5>
+          <div class="slider-btn mt-45">
+            <a class="btn animated" href="{{ block.settings.slider_button_url }}">{{ block.settings.slider_button }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+
+  </div>
+
+
+</div>
+
+
+
+
+<style>
+
+ #slider-area-{{ section.id }}.slider-area{
+    margin-top:{{ section.settings.section_margin_top }}px;
+  }
+
+  #slider-area-{{ section.id }}.slider-area{
+    margin-bottom:{{ section.settings.section_margin_bottom }}px;
+  }
+  .owl-next, .owl-prev {
+    transition: all 0.3s ease-out 0s;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  .owl-next:hover, .owl-prev:hover {
+    box-shadow: none;    
+  }
+
+</style>
+
+
+<script>
+
+
+    /* Slider active */
+    $('#slider-area-{{ section.id }} .slider-active').owlCarousel({
+        loop: true,
+        nav: true,
+        autoplay: true,
+        autoplayTimeout: 6000,
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+        item: 1,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 1
+            },
+            1000: {
+                items: 1
+            }
+        }
+    })
+
+</script>
+
+
+
+{% schema %}
+  {
+    "name": "Slider",
+    "settings": [
+		{
+            "type": "header",
+            "content": "Section Margin"
+        },
+        {
+            "type": "text",
+            "id": "section_margin_top",
+            "label": "Section Margin Top",
+            "default": "0" ,
+            "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+            "type": "text",
+            "id": "section_margin_bottom",
+            "label": "Section Margin Bottom",
+            "default": "0" ,
+            "info": "Defined in pixels. Do not add the 'px' unit."
+        }
+	],
+	"blocks": [
+		{
+          "type": "slider",
+          "name": "Slider",
+          "settings": [
+				{
+                    "type": "image_picker",
+                    "id": "slider_img",
+                    "label": "Image",
+                    "info": "Recommended Size: 1950 x 705px"
+                },
+                {
+                    "type": "text",
+                    "id": "slider_subtitle",
+                    "label": "Slider Subtitle",
+                    "default": "New Arrivals"
+                },
+				{
+                    "type": "text",
+                    "id": "slider_title",
+                    "label": "Slider Title",
+                    "default": "For Mother’s Day!"
+                },
+				{
+                    "type": "textarea",
+                    "id": "slider_description",
+                    "label": "Slider Description",
+                    "default": "Exclusive Offer -10% Off This Week"
+                },
+                {
+                    "type": "text",
+                    "id": "slider_button",
+                    "label": "Button",
+                    "default": "shop Now"
+                },
+                {
+                    "type": "url",
+                    "id": "slider_button_url",
+                    "label": "URL"
+                }
+            ]
+      	}
+	],
+    "presets":[
+        {
+            "name": "Slider",
+            "category": "1. slider"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

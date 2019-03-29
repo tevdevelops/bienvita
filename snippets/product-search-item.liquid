@@ -1,0 +1,121 @@
+{% assign on_sale = false %}
+{% if item.compare_at_price > item.price %}
+{% assign on_sale = true %}
+{% endif %}
+
+
+{% assign on_out = true %}
+{% if item.available %}
+{% assign on_out = false %}
+{% endif %}
+
+{% assign variant = item.selected_or_first_available_variant %}
+{% if item.available %}
+{% assign func = "Shopify.addItem(" | append: variant.id | append: ", 1)" %}
+{% endif %}    
+
+
+
+{% if item.featured_image %}
+
+<div class="product-wrapper">
+  <div class="product-img">
+    <a href="{{ product.url | within: 'collection' }}">
+      <img alt="product_image" src="{{ item.featured_image.src | img_url : 'grande' }}">
+    </a>
+
+    {% if on_sale and settings.discount_percent_enable %}
+    <span>-{{ item.price | times: 100 | divided_by: product.compare_at_price | minus: 100 | abs }}%</span>
+    {% endif %}
+
+    {% if item.description contains '[new_products]' %}      
+    {% assign new_products_first = item.description | split:'[/new_products]' | first %}
+    {% assign new_products_final = new_products_first | split:'[new_products]' | last %} 
+
+    {% comment %}Date calculate{% endcomment %}
+    {% assign date_pub_y = product.published_at | date:'%Y' %}
+    {% assign date_pub_d = product.published_at | date:'%j' %}
+    {% assign date_now_y = 'now' | date:'%Y' %}
+    {% assign date_now_d = 'now' | date:'%j' %}
+    {% assign dates_diff_y = date_now_y | minus: date_pub_y | times: 365 %}
+    {% assign dates_diff_d = date_now_d | minus: date_pub_d %}
+    {% assign dates_diff = dates_diff_y | plus: dates_diff_d %}
+    {% assign new_products_period = new_products_final | plus: 0 %} 
+
+    {% if dates_diff <= new_products_period %}
+    <span>{{ 'products.product.new' | t }}</span>
+    {% endif %}      
+    {% endif %}
+  </div>
+  <div class="product-list-details">
+    <h4>
+      <a href="{{ item.url }}">{{ item.title }}</a>
+    </h4>
+    <div class="product-price-wrapper">
+      {% if on_sale %}
+      <span>{{ item.price | money }}</span>
+      <span class="product-price-old">{{ item.compare_at_price | money }}</span>
+      {% else %}
+      <span>{{ item.price | money }}</span>
+      {% endif %}
+    </div>
+    <p>
+      {% if item.description contains '[short_description]' %}
+      {% assign short_description_first = item.description | split: '[/short_description]' | first %}
+      {% assign short_description_final = short_description_first | split: '[short_description]' | last %}
+      {{ short_description_final }}
+      {% endif %}
+    </p>
+    <div class="shop-list-cart-wishlist">
+
+
+      {% include 'wishlist-button' %}
+
+      {% if item.description contains '[affiliate_link]' %}
+      {% assign affiliate_link_first = item.description | split:'[/affiliate_link]' | first %}
+      {% assign affiliate_link_final = affiliate_link_first | split:'[affiliate_link]' | last %}
+
+      <a class="action-cart" href="{{ affiliate_link_final }}" title="Add To Cart">
+        <i class="icon-handbag"></i>
+      </a>
+
+      {% else %}
+
+      <a href="javascript:void(0);" class="action-btn cart cart-item action-cart" onclick="{{ func }}; return false;" title="{{ 'products.product.add_to_cart' | t }}">
+        <i class="icon-handbag"></i>
+        <i class="icon-settings fa-spin"></i>
+        <i class="fa fa-check"></i>
+        <i class="fa fa-times"></i>
+      </a>
+
+
+      {% endif %}
+
+      <a href="javascript:void(0);" class="action-compare quick-view" onclick="quiqview('{{ item.handle | handleize }}')" data-toggle="modal" data-target="#quickViewModal">
+        <i class="icon-magnifier-add"></i>
+      </a>
+
+
+    </div>
+  </div>
+</div>
+
+{% else %}
+
+<div class="product-wrapper">
+  <div class="product-list-details">
+    <h4>
+      <a href="{{ item.url }}">{{ item.title }}</a>
+    </h4>
+    <p>
+      {% if item.description contains '[short_description]' %}
+      {% assign short_description_first = item.description | split: '[/short_description]' | first %}
+      {% assign short_description_final = short_description_first | split: '[short_description]' | last %}
+      {{ short_description_final | truncatewords: 25 }}
+      {% endif %}
+    </p>
+  </div>
+</div>
+
+
+{% endif %}

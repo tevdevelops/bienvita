@@ -1,0 +1,213 @@
+<div class="blog-sidebar-wrapper sidebar-mrg">
+  
+  {% if section.settings.search_enable %}
+  <div class="blog-widget mb-50">
+    <div class="blog-search">
+      <form action="/search" method="get" role="search" class="news-form">
+        <input type="text" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" class="input-group-field" aria-label="{{ 'general.search.placeholder' | t }}">
+        <button type="submit"><i class="ion-search"></i></button>
+      </form>
+    </div>
+  </div>
+  {% endif %}
+  {% if section.settings.blog_author_enable %}
+  <div class="blog-widget mb-40">
+    <div class="blog-author">
+      <a href="#"><img src="{% if settings.author_img %}{{ settings.author_img | img_url: 'compact' }}{% else %}http:\/\/via.placeholder.com\/95x95{% endif %}" alt="{{ article.user.alt }}"></a>
+      <h4><a href="{{ settings.author_title_url }}">{{ settings.author_title }}</a></h4>
+      <span>{{ settings.author_description }}</span>
+    </div>
+  </div>
+{% endif %}
+  {% if section.settings.latest_post_enable %}
+  <div class="blog-widget mb-45">
+    <h4 class="blog-widget-title mb-25">{{ settings.latest_blog_title }}</h4>
+    <div class="blog-recent-post">
+      {% assign latest_post_limit_handle = settings.latest_post_limit %}
+      {% for article in blogs[blog.handle].articles limit: latest_post_limit_handle %}
+      <div class="recent-post-wrapper mb-25">
+        <div class="recent-post-img">
+          <a href="{{ article.url }}"><img src="{{ article | img_url: "small" }}" alt="post"></a>
+        </div>
+        <div class="recent-post-content">
+          <h4><a href="{{ article.url }}">{{ article.title| truncate: 20 }}</a></h4>
+          <span>{{ article.published_at | date: " %b  %d , %Y" }}</span>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+  {% endif %}
+  {% if section.settings.blog_arcive_enable %}
+  <div class="blog-widget mb-40">
+    <h4 class="blog-widget-title mb-25">{{ settings.blog_arcive_title }}</h4>
+    <div class="blog-arcive">
+        
+  {% capture ddmm %}{{ 'now' | date: "%B %Y" }}{% endcapture %}
+  {% capture month %}{{ 'now' | date: "%B" }}{% endcapture %}
+  {% capture year %}{{ 'now' | date: "%Y" }}{% endcapture %}
+
+  {% case month %}
+  {% when 'January' %}{% assign k = 1 %}
+  {% when 'February' %}{% assign k = 2 %}
+  {% when 'March' %}{% assign k = 3 %}
+  {% when 'April' %}{% assign k = 4 %}
+  {% when 'June' %}{% assign k = 5 %}
+  {% when 'July' %}{% assign k = 6 %}
+  {% when 'August' %}{% assign k = 7 %}
+  {% when 'September' %}{% assign k = 8 %}
+  {% when 'October' %}{% assign k = 9 %}
+  {% when 'November' %}{% assign k = 10 %}
+  {% when 'December' %}{% assign k = 11 %}
+  {% endcase %}
+
+  {% for i in (1..k) %}
+  {% case month %}
+  {% when 'January' %}{% assign previous_month = 'December' %}
+  {% when 'February' %}{% assign previous_month = 'January' %}
+  {% when 'March' %}{% assign previous_month = 'February' %}
+  {% when 'April' %}{% assign previous_month = 'March' %}
+  {% when 'May' %}{% assign previous_month = 'April' %}
+  {% when 'June' %}{% assign previous_month = 'May' %}
+  {% when 'July' %}{% assign previous_month = 'June' %}
+  {% when 'August' %}{% assign previous_month = 'July' %}
+  {% when 'September' %}{% assign previous_month = 'August' %}
+  {% when 'October' %}{% assign previous_month = 'September' %}
+  {% when 'November' %}{% assign previous_month = 'October' %}
+  {% when 'December' %}{% assign previous_month = 'November' %}
+  {% endcase %}
+  <dl>
+    <dt>
+      {% assign blogPresent = 0 %}
+      {% for article in blogs[blog.handle].articles limit: 100 %}
+      {% capture date %}
+      {{ article.published_at | date: "%B %Y" }}
+      {% endcapture %}
+      {% assign checkDate = month | append: ' ' | append: year %}
+      {% if date contains checkDate %}
+      {% assign blogPresent = 1 %}
+      {% endif %}
+      {% endfor %}
+
+      {% if blogPresent == 1 %}
+      {{ month }} {{year}}
+      {% else %}
+
+      {% endif %}
+
+    </dt>
+    <dd>
+      <ul class="blog_links">
+        {% for article in blogs[blog.handle].articles limit: 100 %}
+        {% capture date %}
+        {{ article.published_at | date: "%B %Y" }}
+        {% endcapture %}
+        {% assign checkDate = month | append: ' ' | append: year %}
+        {% if date contains checkDate %}
+        <li>&raquo; <a href="{{ article.url }}">{{ article.title | truncate: 30 }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </dd>
+  </dl>
+  {% assign month = previous_month %}
+  {% endfor %}
+
+  {% assign prevYearsMonths = 'December' %}
+  {% assign year = year | minus: 1 %}
+  {% for y in (1..15) %}
+
+  {% for i in (1..12) %}
+  {% case prevYearsMonths %}
+  {% when 'January' %}{% assign previous_month = 'December' %}
+  {% when 'February' %}{% assign previous_month = 'January' %}
+  {% when 'March' %}{% assign previous_month = 'February' %}
+  {% when 'April' %}{% assign previous_month = 'March' %}
+  {% when 'May' %}{% assign previous_month = 'April' %}
+  {% when 'June' %}{% assign previous_month = 'May' %}
+  {% when 'July' %}{% assign previous_month = 'June' %}
+  {% when 'August' %}{% assign previous_month = 'July' %}
+  {% when 'September' %}{% assign previous_month = 'August' %}
+  {% when 'October' %}{% assign previous_month = 'September' %}
+  {% when 'November' %}{% assign previous_month = 'October' %}
+  {% when 'December' %}{% assign previous_month = 'November' %}
+  {% endcase %}
+  {% assign test = prevYearsMonths | append: ' ' | append: year %}
+  <dl>
+    <dt>
+
+      {% assign blogPresent = 0 %}
+      {% for article in blogs[blog.handle].articles limit: 100 %}
+      {% capture date %}
+      {{ article.published_at | date: "%B %Y" }}
+      {% endcapture %}
+      {% assign checkDate = prevYearsMonths | append: ' ' | append: year %}
+      {% if date contains checkDate %}
+      {% assign blogPresent = 1 %}
+      {% endif %}
+      {% endfor %}
+
+
+      {% if blogPresent == 1 %}
+      {{ prevYearsMonths }} {{year}}
+      {% else %}
+
+      {% endif %}
+
+
+    </dt>
+    <dd>
+      <ul class="blog_links">
+        {% for article in blogs[blog.handle].articles limit: 100 %}
+        {% capture date %}
+        {{ article.published_at | date: "%B %Y" }}
+        {% endcapture %}
+        {% if date contains test %}
+        <li>&raquo; <a href="{{ article.url }}">{{ article.title | truncate: 30 }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </dd>
+  </dl>
+  {% assign prevYearsMonths = previous_month %}
+  {% endfor %}
+
+  {% assign year = year | minus: 1 %}
+  {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+   {% if section.settings.instagram_enable %}
+  <div class="blog-widget mb-35">
+    <h4 class="blog-widget-title mb-30">{{ settings.instagram_title }}</h4>
+    <div class="blog-instagram">
+      {% include 'instafeed' %}
+    </div>
+  </div>
+   {% endif %}
+  {% if section.settings.follow_us_enable %}
+  <div class="blog-widget mb-35">
+    <h4 class="blog-widget-title mb-20">{{ settings.follow_us_title }}</h4>
+    <div class="blog-sidebar-social">
+      <ul>
+        {% include 'social-icon-share-3' %}
+      </ul>
+    </div>
+  </div>
+{% endif %}
+  {% if section.settings.blog_tag_enable %}
+  <div class="blog-widget mb-50">
+    <h4 class="blog-widget-title mb-25">{{ settings.blog_tag_title }}</h4>
+    <div class="blog-tags">
+      <ul>
+        {% assign blog_limit = settings.blog_limit_handle %}
+        {% for tag in blog.all_tags limit: blog_limit %}
+        <li><a href="{{ article.url }}">{{ tag }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+
+</div>

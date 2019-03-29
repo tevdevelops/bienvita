@@ -1,0 +1,91 @@
+<div class="about-text" style="background-color: {{section.settings.cta_bg_color}}; {% if section.settings.cta_bg_img %} background-image: url({{ section.settings.cta_bg_img | img_url: 'master' }}) {% endif %}">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center new-year-offer-content">
+        <h2>{{section.settings.cta_text}}</h2>
+        <a class="btn-outline mt-4" href="{{section.settings.cta_button_url}}">{{section.settings.cta_button}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "About Text",
+    "settings": [
+		{
+            "type": "header",
+            "content": "Section Margin"
+        },
+        {
+            "type": "text",
+            "id": "section_margin_top",
+            "label": "Section Margin Top",
+            "default": "0" ,
+            "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+            "type": "text",
+            "id": "section_margin_bottom",
+            "label": "Section Margin Bottom",
+            "default": "0" ,
+            "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+		{
+            "type": "header",
+            "content": "Banner Wraper Margin"
+        },
+        {
+            "type": "text",
+            "id": "section_margin_top_2",
+            "label": "Section Margin Top",
+            "default": "-75" ,
+            "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+            "type": "header",
+            "content": "Title and Button"
+        },
+        {
+          "type": "color",
+          "id": "cta_bg_color",
+          "label": "Background Color",
+          "default": "#F3FAFE"
+        },
+        {
+          "type": "image_picker",
+          "id": "cta_bg_img",
+          "label": "Background Image"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "Title",
+          "default": "Title Text Here"
+        },
+        {
+          "type": "text",
+          "id": "cta_button",
+          "label": "Button",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "cta_button_url",
+          "label": "URL"
+        }
+	],
+    "presets":[
+        {
+            "name": "About Text",
+            "category": "4. About"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

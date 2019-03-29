@@ -1,0 +1,20 @@
+{% form 'new_comment', article %}
+
+{{ form.errors | default_errors }}
+
+<div class="leave-comment mt-50">
+  <h4 class="blog-section-title border-left mb-30">{{ 'blogs.comments.title' | t }}</h4>
+  <div class="row">
+    <div class="col-md-6">
+      <input type="text" class="{% if form.errors contains 'author' %}error{% endif %}" name="comment[author]" id="commentAuthor" value="{{ form.author }}" placeholder="{{ 'blogs.comments.name' | t }}">
+    </div>
+    <div class="col-md-6">
+      <input type="text" class="{% if form.errors contains 'email' %}error{% endif %}" name="comment[email]" id="commentEmail" value="{{ form.email }}" placeholder="{{ 'blogs.comments.email' | t }}">
+    </div>
+    <div class="col-md-12">
+      <textarea class="custom-textarea" name="comment[body]" id="commentBody"  placeholder="{{ 'blogs.comments.message' | t }}">{{ form.body }}</textarea>
+    </div>
+  </div>
+  <button class="submit-btn-1 mt-30 btn-hover-1" type="submit">{{ 'blogs.comments.post' | t }}</button>
+</div>
+{% endform %}

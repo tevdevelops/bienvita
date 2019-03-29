@@ -1,0 +1,10 @@
+<div class="top-notification-bar">
+  <div class="container">
+    <div class="row">
+      <div class="notification-entry text-center col-xs-12">
+        <p>{{ settings.notification_text }} {% if settings.notification_button_name != '' %}<a href="{{ settings.notification_button_url }}">{{ settings.notification_button_name }}</a>{% endif %}</p>
+        <button class="notification-close-btn"><i class="zmdi zmdi-close"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

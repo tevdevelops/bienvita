@@ -1,0 +1,196 @@
+{% assign related_product_limit_count = section.settings.related_product_limit_handle %}
+{% assign related_product_limit = related_product_limit_count | plus: 1 %}
+
+{% if collection == null or collection.handle == 'frontpage' or collection.handle == 'all' %}
+{% assign product_found = false %}
+
+{% for c in product.collections %}
+{% if product_found == false and c.handle != 'frontpage' and c.handle != 'all' and c.all_products_count > 1 %}
+{% assign product_found = true %}
+{% assign collection = c %}
+{% endif %}
+{% endfor %}
+
+{% endif %}
+
+
+{% if collection and collection.products_count > 1 and section.settings.related_products_enable %}
+
+
+
+<div class="product-area"  id="product-area-{{ section.id }}">
+  <div class="container">
+    {% if section.settings.collection_title != '' %}
+    <div class="product-top-bar section-border mb-35">
+      <div class="section-title-wrap">
+        <h3 class="section-title section-bg-white">{{ section.settings.collection_title }}</h3>
+      </div>
+    </div>
+    {% endif %}
+    <div class="featured-product-active hot-flower owl-carousel product-nav">
+      {% assign current_product = product %}
+      {% assign current_product_count = false %}
+
+      {% for product in collection.products %}
+      {% if product.handle == current_product.handle %}
+      {% assign current_product_count = false %}
+      {% else %}
+      {% unless current_product_count == true and forloop.last %}
+      {% include 'product-grid-item' %}
+      {% endunless %}
+      {% endif %}
+      {% endfor %} 
+    </div>
+  </div>
+</div>
+
+
+{% endif %}
+
+<style>
+
+  #product-area-{{ section.id }}.product-area{
+    padding-top:{{ section.settings.section_padding_top }}px;
+  }
+
+  #product-area-{{ section.id }}.product-area{
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  }
+
+
+</style> 
+
+<script>
+
+  /* Best selling active */
+    $('#product-area-{{ section.id }} .featured-product-active').owlCarousel({
+        loop: true,
+        nav: true,
+        autoplay: false,
+        autoplayTimeout: 5000,
+        navText: ['<i class="ion-ios-arrow-back"></i>', '<i class="ion-ios-arrow-forward"></i>'],
+        item: {{ section.settings.list_product_cursole }},
+        margin: 30,
+        responsive: {
+            0: {
+                items: 1
+            },
+            576: {
+                items: 2
+            },
+            768: {
+                items: 3
+            },
+            992: {
+                items: 3
+            },
+            1100: {
+                items:  {{ section.settings.list_product_cursole }}
+            },
+            1200: {
+                items: {{ section.settings.list_product_cursole }}
+            }
+        }
+    })
+    
+
+</script>
+
+
+{% schema %}
+  {
+    "name": "Related Product",
+    "settings": [
+        {
+          "type": "header",
+          "content": "Section Padding"
+        },
+        {
+          "type": "text",
+          "id": "section_padding_top",
+          "label": "Section Padding Top",
+          "default": "0" ,
+          "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+          "type": "text",
+          "id": "section_padding_bottom",
+          "label": "Section Padding Bottom",
+          "default": "70" ,
+          "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+		{
+            "type": "checkbox",
+            "id": "related_products_enable",
+            "label": "Show Related Products",
+            "default": true
+        },	
+		{
+             "type": "text",
+             "id": "collection_title",
+             "label": "Related Product Title",
+			 "default": "Related Products"
+		},
+		{
+            "type": "header",
+            "content": "Product Cursole"
+        },  
+        {
+            "type": "select",
+            "id": "list_product_cursole",
+            "label": "Product coloum",
+            "options":[
+              {
+                "value":"3",
+                "label": "3 products"
+              },
+              {
+                "value":"4",
+                "label": "4 products"
+              },
+              {
+                "value":"5",
+                "label": "5 products"
+              },
+              {
+                "value":"6",
+                "label": "6 products"
+              },
+              {
+                "value":"7",
+                "label": "7 products"
+              },
+              {
+                "value":"8",
+                "label": "8 products"
+              },
+              {
+                "value":"9",
+                "label": "9 products"
+              },
+              {
+                "value":"10",
+                "label": "10 products"
+              },
+              {
+                "value":"11",
+                "label": "11 products"
+              },
+              {
+                "value":"12",
+                "label": "12 products"
+              }
+
+            ],
+
+            "default": "4"
+        }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

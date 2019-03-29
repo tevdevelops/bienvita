@@ -1,0 +1,14 @@
+
+
+
+<li class="top-hover drodown-show common-currency-picker currency"><a href="#">{{ shop.currency }}<i class="ion-chevron-down"></i></a>
+  {% assign currency = settings.supported_currencies | split: '|' %}
+  <ul>
+    {% for value in currency %}
+    {% assign array = value | split: ',' %}
+    {% assign iso_4217 = array[0] | upcase | strip %}
+    {% assign name = array[1] | strip %}
+    <li data-currency="{{ iso_4217 }}" class="currency__item"><a style="cursor: pointer">{{ name }}</a></li>
+    {% endfor %}
+  </ul>
+</li>

@@ -1,0 +1,24 @@
+
+
+<div class="single-best-selling">
+  <div class="row">
+    <div class="col-lg-6 col-xl-5 col-md-6">
+      <div class="single-best-img">
+        <img class="tilter" src="{% if block.settings.banner_img %}{{ block.settings.banner_img | img_url: 'master' }}{% else %}http:\/\/via.placeholder.com\/620x383{% endif %}" alt="banner">
+      </div>
+    </div>
+    <div class="col-lg-6 col-xl-7 col-md-6">
+      <div class="deals-content text-center deal-mrg">
+        <img alt="hilight" src="{% if block.settings.banner_hilight_img %}{{ block.settings.banner_hilight_img | img_url: 'master' }}{% else %}http:\/\/via.placeholder.com\/250x250{% endif %}">
+        <h2>{{ block.settings.banner_title }}</h2>
+        <p>{{ block.settings.banner_description }}</p>
+        <div class="timer timer-style">
+          <div data-countdown="{{ block.settings.date_number }}"></div>
+        </div>
+        <div class="deals-btn">
+          <a href="{{ block.settings.banner_button_url }}">{{ block.settings.banner_button }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

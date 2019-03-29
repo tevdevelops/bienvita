@@ -1,0 +1,182 @@
+{% if section.settings.testimonial_area_enable %}
+
+
+<div class="testimonials-area bg-img" style="background-image:url({% if section.settings.bg_image %}{{ section.settings.bg_image | img_url: 'master' }}{% else %}http:\/\/via.placeholder.com\/1800x500{% endif %});" id="testimonials-area-{{ section.id }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 col-md-12 ml-auto col-12">
+        <div class="testimonial-active owl-carousel">
+
+          {% for block in section.blocks %}
+          <div class="single-testimonial text-center">
+            <div class="testimonial-img">
+              <img alt="testinonial_image" src="{% if block.settings.author_image %}{{ block.settings.author_image | img_url: 'compact' }}{% else %}http:\/\/via.placeholder.com\/150x150{% endif %}">
+            </div>
+            <p>{{ block.settings.author_description }}</p>
+            <h4>{{ block.settings.author_title }}</h4>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+
+<style>
+ 
+ #testimonials-area-{{ section.id }}.testimonials-area{
+    padding-top:{{ section.settings.section_padding_top }}px;
+  }
+  
+ #testimonials-area-{{ section.id }}.testimonials-area{
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  }
+  
+  
+</style> 
+
+
+
+
+<script>
+  
+      
+    /* Testimonial active */
+    $('#testimonials-area-{{ section.id }} .testimonial-active').owlCarousel({
+        loop: true,
+        nav: false,
+        autoplay: false,
+        autoplayTimeout: 5000,
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        item: {{ section.settings.testimonial_coloum_handle }},
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 1
+            },
+            1000: {
+                items: {{ section.settings.testimonial_coloum_handle }}
+            }
+        }
+    })
+    
+
+</script>
+  
+  
+{% schema %}
+  {
+    "name": "Testimonial",
+    "settings": [
+		 {
+          "type": "header",
+          "content": "Section Padding"
+        },
+        {
+           "type": "text",
+           "id": "section_padding_top",
+           "label": "Section Padding Top",
+           "default": "120" ,
+           "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+           "type": "text",
+           "id": "section_padding_bottom",
+           "label": "Section Padding Bottom",
+           "default": "115" ,
+           "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+          "type": "checkbox",
+          "id": "testimonial_area_enable",
+          "label": "Testimonial Area Enable",
+          "default": true
+        },
+		{
+            "type": "header",
+            "content": "Background Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_image",
+          "label": "Background Image",
+          "info": "Recommended Size: 1800 x 500px"
+        },
+		{
+            "type": "header",
+            "content": "Testimonial Cursole"
+        },
+        {
+          "type": "select",
+          "id": "testimonial_coloum_handle",
+          "label": "Testimonial Cursole",
+          "options":[
+			{
+              "value":"1",
+              "label": "1 products"
+            },
+			{
+              "value":"2",
+              "label": "2 products"
+            },
+            {
+              "value":"3",
+              "label": "3 products"
+            },
+            {
+              "value":"4",
+              "label": "4 products"
+            }
+
+          ],
+
+          "default": "1"
+        }
+	],		
+	"blocks":[
+      {
+         "type": "testimonial",
+         "name": "Testimonial",
+         "settings": [
+			{
+				"type": "image_picker",
+				"id": "author_image",
+				"label": "Author Image",
+				"info": "Recommended Size: 150 x 150px"
+		    },
+            {
+                "type": "textarea",
+                "id": "author_description",
+                "label": "Author Description",
+                "default": "When a beautiful design is combined with powerful technology,<br> it truly is an artwork. I love how my website operates and looks with this theme. <br>Thank you for the awesome product. ",
+				"info": "Use Of <br>"
+            },
+            {
+                "type": "text",
+                "id": "author_title",
+                "label": "Author Title",
+                "default": "Samia Robiul"
+            }
+        ]
+       }
+    ],
+    "presets":[
+        {
+            "name": "Testimonial",
+            "category": "4. About"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

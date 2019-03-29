@@ -1,0 +1,31 @@
+
+
+{% form 'contact' %}
+{{ form.errors | default_errors }}
+{% if form.posted_successfully? %}
+<p class="note form-success">{{ 'contact.form.post_success' | t }}</p>
+{% endif %}
+<div class="row">
+  <div class="col-lg-6">
+    <div class="contact-form-style mb-20">
+      <input type="text" {% if form.error contains 'name' %}error{% endif %} name="contact[name]" id="contactFormName" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ section.settings.name_placeholder }}">
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="contact-form-style mb-20">
+      <input type="text"{% if form.error contains 'email' %}error{% endif %} name="contact[email]" id="contactEmail" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" placeholder="{{ section.settings.email_placeholder }}">
+    </div>
+  </div>
+  <div class="col-lg-12">
+    <div class="contact-form-style mb-20">
+      <input name="contact[subject]" {% if form.error contains 'email' %}error{% endif %} id="contactSubject" placeholder="{{ section.settings.subject_placeholder }}" type="text"  value="{% if form.subject %}{{ form.subject }}{% elsif customer %}{{ customer.subject }}{% endif %}">
+    </div>
+  </div>
+  <div class="col-lg-12">
+    <div class="contact-form-style">
+      <textarea name="contact[body]" {% if form.error contains 'body' %}error{% endif %} placeholder="{{ section.settings.massage_placehoder }}">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+      <button class="submit" type="submit">SEND MESSAGE</button>
+    </div>
+  </div>
+</div>
+{% endform %}

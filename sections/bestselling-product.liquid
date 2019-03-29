@@ -1,0 +1,302 @@
+<div class="best-selling-product gray-bg" id="best-selling-product-{{ section.id }}">
+  <div class="container">
+    <div class="{% if section.settings.border_top_enable %}border-top-3{% endif %} {% if section.settings.border_bottom_enable %}border-bottom-2{% endif %} padding-inside">
+      
+     {% if section.settings.section_title_enable %} 
+    <div class="product-top-bar section-border mb-35">
+      {% include 'section-title-2' %}
+    </div>
+     {% endif %}  
+      
+    <div class="best-selling-wrap">
+      <div class="best-selling-active owl-carousel product-nav">
+		{% for block in section.blocks %}
+        {% include 'product-grid-item-2' %}
+         {% endfor %}
+        
+      </div>
+    </div>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+<style>
+ 
+ #best-selling-product-{{ section.id }}.best-selling-product{
+    padding-top:{{ section.settings.section_padding_top }}px;
+  }
+  
+ #best-selling-product-{{ section.id }}.best-selling-product{
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  }
+  
+   #best-selling-product-{{ section.id }} .padding-inside{
+    padding-top:{{ section.settings.section_padding_top_2 }}px;
+  }
+  
+ #best-selling-product-{{ section.id }} .padding-inside{
+    padding-bottom:{{ section.settings.section_padding_bottom_2 }}px;
+  }
+  
+  #best-selling-product-{{ section.id }}.best-selling-product.gray-bg {
+    background: {{ section.settings.bg_color }};
+}
+  
+</style> 
+
+<script>
+
+      
+    /* Best selling active */
+    $('#best-selling-product-{{ section.id }} .best-selling-active').owlCarousel({
+        loop: true,
+        nav: true,
+        autoplay: false,
+        autoplayTimeout: 5000,
+        navText: ['<i class="ion-ios-arrow-back"></i>', '<i class="ion-ios-arrow-forward"></i>'],
+        item: {{ section.settings.product_coloum }},
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 1
+            },
+            992: {
+                items: 1
+            },
+            1100: {
+                items: {{ section.settings.product_coloum }}
+            },
+            1200: {
+                items: {{ section.settings.product_coloum }}
+            }
+        }
+    })
+    
+
+</script>
+
+
+{% schema %}
+  {
+    "name": "BestSelling Product",
+    "settings": [
+		{
+          "type": "header",
+          "content": "Section Padding"
+        },
+        {
+           "type": "text",
+           "id": "section_padding_top",
+           "label": "Section Padding Top",
+           "default": "70" ,
+           "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+           "type": "text",
+           "id": "section_padding_bottom",
+           "label": "Section Padding Bottom",
+           "default": "75" ,
+           "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+            "type": "header",
+            "content": "Background color"
+        }, 
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background Color",
+            "default": "#f8f9f9"
+        },
+        {
+          "type": "header",
+          "content": "Border Top"
+        },
+        {
+          "type": "checkbox",
+          "id": "border_top_enable",
+          "label": "Border Top Enable",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Border Bottom"
+        },
+        {
+          "type": "checkbox",
+          "id": "border_bottom_enable",
+          "label": "Border Bottom Enable",
+          "default": false
+        },
+		{
+          "type": "header",
+          "content": "Border Inside Padding"
+        },
+        {
+           "type": "text",
+           "id": "section_padding_top_2",
+           "label": "Section Padding Top",
+           "default": "0" ,
+           "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+           "type": "text",
+           "id": "section_padding_bottom_2",
+           "label": "Section Padding Bottom",
+           "default": "0" ,
+           "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+		{
+            "type": "header",
+            "content": "Section Title"
+        },
+        {
+          "type": "checkbox",
+          "id": "section_title_enable",
+          "label": "Section Title Enable",
+          "default": true
+        },
+        {
+            "type": "text",
+            "id": "section_title_2",
+            "label": "Section Title",
+            "default": "Best Selling Products"
+        },
+		{
+            "type": "header",
+            "content": "Banner Cursole"
+        },  
+        {
+            "type": "select",
+            "id": "product_coloum",
+            "label": "Banner coloum",
+            "options":[
+			  {
+                "value":"1",
+                "label": "1 products"
+              },
+			  {
+                "value":"2",
+                "label": "2 products"
+              },
+              {
+                "value":"3",
+                "label": "3 products"
+              },
+              {
+                "value":"4",
+                "label": "4 products"
+              },
+              {
+                "value":"5",
+                "label": "5 products"
+              },
+              {
+                "value":"6",
+                "label": "6 products"
+              },
+              {
+                "value":"7",
+                "label": "7 products"
+              },
+              {
+                "value":"8",
+                "label": "8 products"
+              },
+              {
+                "value":"9",
+                "label": "9 products"
+              },
+              {
+                "value":"10",
+                "label": "10 products"
+              },
+              {
+                "value":"11",
+                "label": "11 products"
+              },
+              {
+                "value":"12",
+                "label": "12 products"
+              }
+
+            ],
+
+            "default": "1"
+        }
+	],		
+	"blocks":[
+      {
+         "type": "banner",
+         "name": "Banner",
+         "settings": [
+			{
+				"type": "image_picker",
+				"id": "banner_img",
+				"label": "Image",
+				"info": "Recommended Size: 620 x 383px"
+		    },
+			{
+                "type": "header",
+                "content": "Banner Content"
+            },
+			{
+				"type": "image_picker",
+				"id": "banner_hilight_img",
+				"label": "Highlight Image",
+				"info": "Recommended Size: 250 x 250px"
+		    },
+            {
+              "type": "text",
+              "id": "banner_title",
+              "label": "Banner Title",
+              "default": "Hot Deal ! Sale Up To <span>20% Off</span>",
+			  "info": "Use Of <span>"
+            },
+            {
+              "type": "text",
+              "id": "banner_description",
+              "label": "Banner Description",
+              "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. "
+            },
+            {
+              "type": "text",
+              "id": "date_number",
+              "label": "Date",
+              "default": "2018/09/01",
+			  "info": "Use Of /"
+            },
+            {
+              "type": "text",
+              "id": "banner_button",
+              "label": "Button",
+              "default": "Shop Now"
+            },
+            {
+              "type": "url",
+              "id": "banner_button_url",
+              "label": "URL"
+            }
+        ]
+       }
+    ],
+    "presets":[
+        {
+            "name": "BestSelling Product",
+            "category": "3. product"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

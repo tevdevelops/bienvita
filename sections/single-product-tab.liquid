@@ -1,0 +1,253 @@
+
+
+{% if section.settings.product_description_tab_enable %}
+<div class="description-review-area" id="description-review-area-{{ section.id }}">
+  <div class="container">
+    <div class="description-review-wrapper">
+      <div class="description-review-topbar nav text-center">
+
+        {% if section.settings.product_info_enable %}
+        {% if product.description contains '[product_description]' %}
+        <a class="active" data-toggle="tab" href="#des-details1">{{ section.settings.more_info_title }}</a>
+        {% endif %}
+        {% endif %}
+        {% if section.settings.review_enable %}
+        <a data-toggle="tab" href="#des-details2">{{ section.settings.review_title }}</a>
+        {% endif %}
+        {% if section.settings.tab_comment_enable %}
+        <a data-toggle="tab" href="#des-details3">{{ section.settings.comment_title }}</a>
+        {% endif %}
+        {% if section.settings.custom_tab_1_enable %}
+        <a data-toggle="tab" href="#des-details4">{{ section.settings.custom_tab_1_title }}</a>
+        {% endif %}
+        {% if section.settings.custom_tab_2_enable %}
+        <a data-toggle="tab" href="#des-details5">{{ section.settings.custom_tab_2_title }}</a>
+        {% endif %}
+      </div>
+      <div class="tab-content description-review-bottom">
+
+        {% if section.settings.product_info_enable %}
+        <div id="des-details1" class="tab-pane active">
+          <div class="product-description-wrapper">
+            {% if product.description contains '[product_description]' %}
+
+            {% assign product_description_first = product.description | split: '[/product_description]' | first  %}
+            {% assign product_description_final = product_description_first | split: '[product_description]' | last  %}
+            {{ product_description_final }}
+
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+        {% if section.settings.review_enable %}
+        <div id="des-details2" class="tab-pane">
+          <div class="review-page-comment">
+            <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+          </div>
+        </div>
+        {% endif %}
+        {% if section.settings.tab_comment_enable %}
+        <div id="des-details3" class="tab-pane">
+          <div class="product-anotherinfo-wrapper">
+            {% if section.settings.product_page_comments_box =='disqus_comment' %}
+            {% include 'disqus-comment' %}
+            {% endif %}
+            <!-- disqus comment box end -->                
+            <!-- facebook comment box start -->
+            {% if section.settings.product_page_comments_box == 'facebook_comment' %}
+            {% include 'facebook-comment' %}
+            {% endif %}
+            <!-- facebook comment box end -->
+
+          </div>
+        </div>
+        {% endif %}
+        {% if section.settings.custom_tab_1_enable %}
+        <div id="des-details4" class="tab-pane">
+          <div class="product-anotherinfo-wrapper">
+
+            {{ pages[section.settings.custom_tab_handle_1].content }}
+          </div>
+        </div>
+        {% endif %}
+        {% if section.settings.custom_tab_2_enable %}
+        <div id="des-details5" class="tab-pane">
+          <div class="product-anotherinfo-wrapper">
+            {{ pages[section.settings.custom_tab_handle_2].content }}
+
+          </div>
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+
+
+
+
+<style>
+
+  #description-review-area-{{ section.id }}.description-review-area{
+    padding-top:{{ section.settings.section_padding_top }}px;
+  }
+
+  #description-review-area-{{ section.id }}.description-review-area{
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  }
+
+
+</style> 
+
+
+
+
+{% schema %}
+  {
+    "name": "Product Tab",
+    "settings": [
+		{
+          "type": "header",
+          "content": "Section Padding"
+        },
+        {
+          "type": "text",
+          "id": "section_padding_top",
+          "label": "Section Padding Top",
+          "default": "0" ,
+          "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+          "type": "text",
+          "id": "section_padding_bottom",
+          "label": "Section Padding Bottom",
+          "default": "70" ,
+          "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+		{
+            "type": "header",
+            "content": "Product Tab"
+        },
+        {
+          "type": "checkbox",
+          "id": "product_description_tab_enable",
+          "label": "Show Tab",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "product_info_enable",
+          "label": "Show Description",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "more_info_title",
+          "label": "Show Description Title",
+          "default": "Description"
+        },  
+        {
+          "type": "text",
+          "id": "review_title",
+          "label": "Show Review Title",
+          "default": "Review" 
+        },
+        {
+          "type": "checkbox",
+          "id": "review_enable",
+          "label": "Show Review",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "comment_title",
+          "label": "Show Comment Title",
+          "default": "Comment" 
+        },
+        {
+          "type": "checkbox",
+          "id": "tab_comment_enable",
+          "label": "Show Comment Box",
+          "default": true
+        },
+        {
+          "type": "radio",
+          "id": "product_page_comments_box",
+          "label": "Select comments box",
+          "options": [
+          {
+          "value": "disqus_comment",
+          "label": "Disqus comments"
+          },
+          {
+          "value": "facebook_comment",
+          "label": "Facebook comments"
+          }
+          ],
+          "default": "disqus_comment"
+        },
+        {
+          "type": "text",
+          "id": "facebook_comments_post_limit",
+          "label": "FacebooK Comment Limit",
+          "default": "10"
+        },
+        {
+          "type": "text",
+          "id": "disqus_shortname",
+          "label": "Your Store Name",
+          "default": "demo-store",
+          "info": "Disqus Shortname (Get your shortname)[disqus.com](http:\/\/disqus.com)"
+        },
+		{
+            "type": "header",
+            "content": "Custom Tab"
+        },
+		{
+            "type": "checkbox",
+            "id": "custom_tab_1_enable",
+            "label": "Show Custom Tab",
+            "default": true
+        },
+        {
+            "type": "text",
+            "id": "custom_tab_1_title",
+            "label": "Custom Tab Title",
+            "default": "Custom Tab"
+        },
+		{
+            "type": "page",
+            "id": "custom_tab_handle_1",
+            "label": "Select Page for information",
+            "info": "[Create a page](\/admin\/pages\/new)"
+        },
+		{
+            "type": "checkbox",
+            "id": "custom_tab_2_enable",
+            "label": "Show Custom Tab",
+            "default": true
+        },
+        {
+            "type": "text",
+            "id": "custom_tab_2_title",
+            "label": "Custom Tab Title",
+            "default": "Custom Tab"
+        },
+		{
+            "type": "page",
+            "id": "custom_tab_handle_2",
+            "label": "Select Page for information",
+            "info": "[Create a page](\/admin\/pages\/new)"
+        }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

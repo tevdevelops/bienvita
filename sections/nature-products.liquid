@@ -1,0 +1,229 @@
+{% for block in section.blocks %}
+  <div class="container-fluid product-container" style="background-image: url({{block.settings.img_main | img_url: 'master'}})">
+
+    {% if block.settings.left_or_right == "left" %}
+    <div class="row align-items-center">
+
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">{{block.settings.product_name}}</h4>
+            <p class="card-text">{{block.settings.product_description}}</p>
+            {% if block.settings.button_text != "" %}
+              <a href="{{block.settings.button_link}}" class="btn btn-primary">{{block.settings.button_text}}</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6"></div>
+
+    </div>
+
+    {% elsif block.settings.left_or_right == "right" %}
+    <div class="row align-items-center">
+
+      <div class="col-sm-6"></div>
+
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">{{block.settings.product_name}}</h4>
+            <p class="card-text">{{block.settings.product_description}}</p>
+            {% if block.settings.button_text != "" %}
+              <a href="{{block.settings.button_link}}" class="btn btn-primary">{{block.settings.button_text}}</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    {% endif %}
+  </div>
+{% endfor %}
+
+<!-- {% for block in section.blocks %} -->
+<style>
+
+  .product-container {
+    background-size: cover;
+  }
+
+  .product-container .row {
+    min-height: 500px;
+    margin: 0 50px;
+  }
+
+
+  @media (min-width: 992px) {
+  {% if block.settings.card_style == "no_bg" %}
+    .card {
+      box-shadow: none !important;
+      background-color: transparent !important;
+    }
+
+  {% elsif block.settings.card_style == "half_transparent" %}
+  .card {
+    background-color: #ffffff7d;
+  }
+
+  {% endif %}
+
+  }
+
+
+  /* Tablet Styling */
+  @media (min-width: 768px) and (max-width: 991px) {
+
+  }
+
+  /* Mobile Styling */
+  @media (max-width: 767px) {
+    .product-container .row {
+      margin: auto !important;
+    }
+    .product-container {
+      background: url({{block.settings.img_mobile}});
+      background-position: center;
+    }
+  }
+
+</style>
+
+<!-- {% endfor %} -->
+
+{% schema %}
+  {
+    "name": "Product Details",
+    "settings": [
+		{
+            "type": "header",
+            "content": "Section Margin"
+        },
+        {
+            "type": "text",
+            "id": "section_margin_top",
+            "label": "Section Margin Top",
+            "default": "0" ,
+            "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+            "type": "text",
+            "id": "section_margin_bottom",
+            "label": "Section Margin Bottom",
+            "default": "0" ,
+            "info": "Defined in pixels. Do not add the 'px' unit."
+        }
+	],
+	"blocks":[
+      {
+         "type": "product",
+         "name": "Product",
+         "settings": [
+         {
+           "type": "header",
+           "content": "Main Product Image"
+         },
+         {
+           "type": "image_picker",
+           "id": "img_main",
+           "label": "Background Product Image",
+           "info": "JPG, and recommended size is 1160 x 580"
+         },
+         {
+           "type": "image_picker",
+           "id": "img_mobile",
+           "label": "Background Product Image",
+           "info": "JPG, and recommended size is 375 x 580"
+         },
+            {
+                 "type": "header",
+                 "content": "Product Details"
+             },
+             {
+               "type": "select",
+               "id": "left_or_right",
+               "label": "Text Left or Right",
+               "options": [
+                 {
+                   "value": "left",
+                   "label": "Left"
+                 },
+                 {
+                   "value": "right",
+                   "label": "Right"
+                 }
+                ],
+               "default": "left"
+             },
+             {
+               "type": "text",
+               "id": "product_id_name",
+               "label": "Product Id",
+               "info": "No Spaces. i.e foam-cleanser",
+               "default": "foam-cleanser"
+             },
+             {
+                 "type": "text",
+                 "id": "product_name",
+                 "label": "Product Name"
+             },
+             {
+               "type": "textarea",
+               "id": "product_description",
+               "label": "Product Description"
+             },
+             {
+               "type": "select",
+               "id": "card_style",
+               "label": "Text Card Style",
+               "options": [
+                 {
+                   "value": "no_bg",
+                   "label": "Transparent Background"
+                 },
+                 {
+                   "value": "half_transparent",
+                   "label": "Half Transparent Background"
+                 },
+                 {
+                   "value": "white_bg",
+                   "label": "White Background"
+                 }
+               ],
+               "default": "white_bg"
+             },
+             {
+               "type": "header",
+               "content": "Product Button"
+             },
+             {
+               "type": "text",
+               "id": "button_text",
+               "label": "Button Text",
+               "default": "View Product",
+               "info": "Leave blank to hide button"
+             },
+             {
+               "type": "url",
+               "id": "button_link",
+               "label": "Button Link"
+             }
+        ]
+       }
+    ],
+    "presets":[
+        {
+            "name": "Product Details Left",
+            "category": "10. Product Section"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

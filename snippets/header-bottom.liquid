@@ -1,0 +1,27 @@
+<div class="header-bottom" id="header-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-6 footer-mobile-hide">
+        {% include 'logo' %}
+      </div>
+      <div class="col-lg-9 col-md-8 col-6 footer-mobile-hide">
+        <div class="header-bottom-right">
+          {% include 'main-menu' %}
+          {% include 'mini-cart' %}
+        </div>
+      </div>
+      <div class="col-3 footer-desktop-hide">
+        {% include 'mini-cart' %}
+      </div>
+      <div class="col-6 footer-desktop-hide">
+        {% include 'logo' %}
+      </div>
+      <div class="col-3 footer-desktop-hide">
+        {% include 'main-menu' %}
+      </div>
+    </div>
+    <div class="mobile-menu-area">
+      {% include 'mobile-menu' %}
+    </div>
+  </div>
+</div>

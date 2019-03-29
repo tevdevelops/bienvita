@@ -1,0 +1,25 @@
+<ul id="instafeed"></ul>
+
+
+<script>
+  
+ 
+  (function ($) {
+    "use strict";
+
+    jQuery(document).ready(function(){
+
+      var userFeed = new Instafeed({
+        get: 'user',
+        userId: '{{ settings.instafeed_user_id }}',
+        limit: '{{ settings.instafeed_limit }}',
+        accessToken: '{{ settings.instafeed_access_token }}'
+      });
+      userFeed.run();
+
+
+    });
+
+  })(jQuery); 
+
+</script>

@@ -1,0 +1,199 @@
+
+
+
+<!-- blog-area start -->
+<div class="blog-area" id="blog-area-{{ section.id }}">
+  <div class="container">
+    <div class="row {% if section.settings.blog_sidebar_position == 'left_sidebar_handle' %}flex-row-reverse{% endif %}">
+      <div class="{% if section.settings.blog_sidebar_position == 'no_sidebar' %} col-lg-12 {% else %} col-lg-9{% endif %}">
+        <div class="blog-wrapper">
+          {% assign single_blog_limit = section.settings.single_blog_limit_handle %}
+          {% paginate blog.articles by single_blog_limit %}
+          {% for article in blog.articles %}
+          {% include 'blog-grid-item' %} 
+          {% endfor %}
+          {% if paginate.pages > 1 %}
+          <div class="pagination-total-pages">
+            {% include 'pagination' %}
+            <div class="total-pages">
+              <p>Showing {{ single_blog_limit }} </p>
+            </div>
+          </div>
+          {% endif %}
+          {% endpaginate %}
+
+        </div>
+      </div>
+      {% unless section.settings.blog_sidebar_position == 'no_sidebar' %}
+      <div class="col-lg-3">
+        {% include 'blog-sidebar' %}
+      </div>
+      {% endunless %}
+    </div>
+  </div>
+</div>
+<!-- blog-area end -->
+
+<style>
+ 
+ #blog-area-{{ section.id }}.blog-area{
+    padding-top:{{ section.settings.section_padding_top }}px;
+  }
+  
+ #blog-area-{{ section.id }}.blog-area{
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  }
+  
+  
+</style> 
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Blog Template",
+    "settings": [
+	  {
+        "type": "header",
+        "content": "Section Padding"
+      },
+      {
+        "type": "text",
+        "id": "section_padding_top",
+        "label": "Section Padding Top",
+        "default": "75" ,
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "text",
+        "id": "section_padding_bottom",
+        "label": "Section Padding Bottom",
+        "default": "75" ,
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+	  {
+		"type": "header",
+		"content": "Post Limit"
+	  },
+      {
+          "type": "select",
+          "id": "single_blog_limit_handle",
+          "label": "Post Limit",
+          "options": [
+            {
+              "label": "4 Posts",
+              "value": "4"
+            },
+            {
+              "label": "6 Posts",
+              "value": "6"
+            },
+            {
+              "label": "8 Posts",
+              "value": "8"
+            },
+            {
+              "label": "9 Posts",
+              "value": "9"
+            },
+            {
+              "label": "10 Posts",
+              "value": "10"
+            },
+            {
+              "label": "12 Posts",
+              "value": "12"
+            },
+            {
+              "label": "14 Posts",
+              "value": "14"
+            },
+            {
+              "label": "16 Posts",
+              "value": "16"
+            }
+          ],
+          "default": "8"
+      },
+	  {
+		"type": "header",
+		"content": "Collection Sidebar"
+	  },
+      {
+        "type": "radio",
+        "id": "blog_sidebar_position",
+        "label": "Sidebar Position",
+        "options": [
+          {
+            "label": "Left",
+            "value": "left_sidebar_handle"
+          },
+          {
+            "label": "Right",
+            "value": "right_sidebar_handle"
+          },
+          {
+            "label": "Without Sidebar",
+            "value": "no_sidebar"
+          }
+        ],
+        "default": "left_sidebar_handle"
+      },
+	  {
+		"type": "paragraph",
+		"content": "Sidebar Widget/List"
+	  },
+	  {
+		"type": "checkbox",
+		"id": "search_enable",
+		"label": "Show Search",
+		"default": true
+	  },
+	  {
+		"type": "checkbox",
+		"id": "blog_author_enable",
+		"label": "Show Blog Author",
+		"default": true
+	  },
+	  {
+		"type": "checkbox",
+		"id": "latest_post_enable",
+		"label": "Show Latest Blog",
+		"default": true
+	  },
+	  {
+		"type": "checkbox",
+		"id": "blog_arcive_enable",
+		"label": "Show Archive",
+		"default": true
+	  },
+	  {
+		"type": "checkbox",
+		"id": "instagram_enable",
+		"label": "Show instagram",
+		"default": true
+	  },
+	  {
+		"type": "checkbox",
+		"id": "follow_us_enable",
+		"label": "Show Follow Us",
+		"default": true
+	  },
+	  {
+		"type": "checkbox",
+		"id": "blog_tag_enable",
+		"label": "Show Tag",
+		"default": true
+	  }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

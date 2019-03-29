@@ -1,0 +1,131 @@
+{% if section.settings.coundown_area_enable %}
+
+<div class="project-count-area gray-bg" id="project-count-area-{{ section.id }}">
+  <div class="container">
+    <div class="row">
+       {% for block in section.blocks %}
+      <div class="col-lg-{{ block.settings.coundown_coloum }} col-md-6 col-sm-6">
+        <div class="single-count text-center mb-30">
+          <div class="count-icon">
+            <span class="ion-{{ block.settings.coundown_icon }}"></span>
+          </div>
+          <div class="count-title">
+            <h2 class="count">{{ block.settings.coundown_number }}</h2>
+            <span>{{ block.settings.Coundown_title }}</span>
+          </div>
+        </div>
+      </div>
+      	{% endfor %}
+      
+    </div>
+  </div>
+</div>
+
+
+{% endif %}
+
+
+
+<style>
+ 
+ #project-count-area-{{ section.id }}.project-count-area{
+    padding-top:{{ section.settings.section_padding_top }}px;
+  }
+  
+ #project-count-area-{{ section.id }}.project-count-area{
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  }
+  
+  
+  #project-count-area-{{ section.id }}.project-count-area.gray-bg {
+    background:{{ section.settings.bg_color }} ;
+}
+  
+</style> 
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Counter Area",
+    "settings": [
+	  {
+        "type": "header",
+        "content": "Section Padding"
+      },
+      {
+        "type": "text",
+        "id": "section_padding_top",
+        "label": "Section Padding Top",
+        "default": "100" ,
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "text",
+        "id": "section_padding_bottom",
+        "label": "Section Padding Bottom",
+        "default": "70" ,
+        "info": "Defined in pixels. Do not add the 'px' unit."
+      },
+      {
+        "type": "checkbox",
+        "id": "coundown_area_enable",
+        "label": "CounDown Area Enable",
+        "default": true
+      },
+	  {
+        "type": "header",
+        "content": "Background Color"
+      }, 
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background Color",
+        "default": "#f8f9f9"
+      }
+	],		
+	"blocks":[
+      {
+         "type": "team",
+         "name": "Team",
+         "settings": [
+			{
+				"type": "text",
+				"id": "coundown_coloum",
+				"label": "CounDown Coloum",
+                "default": "3",
+                "info": "Follow Bootstrap Column"
+			},
+            {
+                "type": "text",
+                "id": "coundown_icon",
+                "label": "Icon",
+                "default": "briefcase-outline"
+            },
+            {
+                "type": "text",
+                "id": "coundown_number",
+                "label": "Number",
+                "default": "360"
+            },
+            {
+                "type": "text",
+                "id": "Coundown_title",
+                "label": "Title",
+                "default": "project done "
+            }
+        ]
+       }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

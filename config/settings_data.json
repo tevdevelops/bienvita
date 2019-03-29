@@ -1,0 +1,1006 @@
+{
+  "current": {
+    "theme_color": "#ff3d2a",
+    "google_analytic_enable": true,
+    "google_tracking_id": "UA-91020528-1",
+    "topbar_notification_enable": false,
+    "notification_text": "All Featured Product 50% off",
+    "notification_button_name": "Buy Now",
+    "notification_button_url": "",
+    "notification_bg_image": "",
+    "notification_text_color": "#fff",
+    "topbar_color_1": "#f3f3f3",
+    "topbar_color_2": "#666666",
+    "notification_overlay_rgb_color": "0, 0, 0",
+    "notification_overlay_opacity": 0.6,
+    "notificaction_button_bg_color": "#666666",
+    "notificaction_button_border_color": "#666666",
+    "notificaction_button_color": "#ffffff",
+    "notificaction_button_hover_bg_color": "#999",
+    "notificaction_button_hover_border_color": "#999",
+    "notificaction_button_hover_color": "#fff",
+    "notificaction_close_button_bg_color": "",
+    "notificaction_close_button_border_color": "#fff",
+    "notificaction_close_button_color": "#fff",
+    "notificaction_close_button_hover_bg_color": "#fff",
+    "notificaction_close_button_hover_border_color": "#fff",
+    "notificaction_close_button_hover_color": "#232323",
+    "enable_preloader": false,
+    "preloader_style": "Style_15",
+    "preloader_bg": "#ffffff",
+    "preloader_color": "#ff7f00",
+    "preloader_border_color": "#ffffff",
+    "preloader_border_width": "4px",
+    "favicon_enable": true,
+    "breadcrumb_banner_enable": true,
+    "breadcrumb_banner_image_enable": false,
+    "breadcrumb_banner_image": "",
+    "breadcrumb_banner_bg": "#f8f9f9",
+    "breadcrumb_banner_overlay_color": "#f6f6f6",
+    "breadcrumb_banner_opacity": 0,
+    "breadcurmb_title_color": "#242424",
+    "breadcurmb_page_title_color": "#242424",
+    "active_breadcurmb_page_title_color": "#ff3d2a",
+    "newsletter_action": "http:\/\/devitems.us11.list-manage.com\/subscribe\/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef",
+    "email_placeholder": "Your email address",
+    "button_name": "Subscribe",
+    "newsletter_popup_enable": true,
+    "one_day_popup_enable": false,
+    "newletter_popup_title": "Newslestter",
+    "newsletter_text": "Join over 1,000 people who get free and fresh content delivered automatically each time we publish",
+    "newsletter_button_name": "Subscribe",
+    "newsletter_img": "shopify:\/\/shop_images\/slider-3.jpg",
+    "newsletter_overlay_color": "#000000",
+    "newsletter_overlay_opacicty": 0,
+    "popup_newsletter_title_color": "#242424",
+    "popup_newsletter_description_color": "#242424",
+    "input_fild_color": "#242424",
+    "newsletter_button_bg_color": "#ff3d2a",
+    "newsletter_button_color": "#ffffff",
+    "close_icon_color": "#ff3d2a",
+    "successfull_note": "Added to cart successfully!",
+    "view_cart_button2": "View Cart",
+    "supported_currencies": "USD, &#036; USD | EUR, &#128; EUR | GBP, &#163; GBP | INR, &#x20B9; INR | JPY, &#165; JPY",
+    "cart_notes_enable": true,
+    "cart_vendor_enable": false,
+    "ajax_cart_method": "drawer",
+    "wishlist_empty_title": "Your wishlist is currently empty!",
+    "login_request_title": "Please login your account",
+    "ajax_search_enable": true,
+    "product_quickview_description_enable": true,
+    "qv_add_to_cart": "Add To Cart",
+    "qv_added": "Added",
+    "qv_wait": "Wait...",
+    "qv_limit_product": "limit products",
+    "discount_bg_color": "#f25961",
+    "discount_text_color": "#ffffff",
+    "hilight_img": "shopify:\/\/shop_images\/deals-2.png",
+    "category_title": "Category",
+    "category_list_limit_handle": "5",
+    "product_limit_handle": "4",
+    "color_title": "By Color",
+    "color_list_limit_handle": "5",
+    "color_picker": "red, green, blue, white, yellow, violet, brown, black, orange, grey, pink, purple, maroon, silver, fuchsia, navy, aqua,",
+    "brand_title": "By Brand",
+    "vendor_list_limit_handle": "5",
+    "product_type": "By Type",
+    "producyt_type_limit_handle": "5",
+    "size_title": "By Size",
+    "size_list_limit_handle": "5",
+    "size_picker": "xl, xs, ml, X, M, L",
+    "tag_title": "Popular Tags",
+    "collection_tag_limit_handle": "15",
+    "author_img": "shopify:\/\/shop_images\/blog-author.png",
+    "author_title": "Kathy Gibson",
+    "author_title_url": "#",
+    "author_description": "Head of Director, SEO",
+    "latest_blog_title": "Recent post",
+    "latest_post_limit": "3",
+    "blog_arcive_title": "Blog Archive",
+    "instagram_title": "instagram",
+    "instafeed_user_id": "6667588161",
+    "instafeed_limit": "6",
+    "instafeed_access_token": "6667588161.1677ed0.705c7b82e16f42b2898cd19e737dc53e",
+    "follow_us_title": "follow us",
+    "social_icon_1_name": "instagram",
+    "socila_icon_1_link": "#",
+    "social_icon_2_name": "skype",
+    "socila_icon_2_link": "#",
+    "social_icon_3_name": "twitter",
+    "socila_icon_3_link": "#",
+    "social_icon_4_name": "facebook",
+    "socila_icon_4_link": "#",
+    "blog_tag_title": "tags",
+    "blog_limit_handle": "12",
+    "section_padding_top": "70",
+    "section_padding_bottom": "70",
+    "opps_404": "shopify:\/\/shop_images\/404_large_a0f8ff21-d981-4c43-ad18-48465c979956.png",
+    "heading_404_sub_title": "Opps! PAGE NOT BE FOUND",
+    "heading_404_description": "Sorry but the page you are looking for does not exist, have been removed, name changed or is temporarily unavailable.",
+    "button_title": "Back to home page",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#ff3d2a",
+    "checkout_button_color": "#ff3d2a",
+    "checkout_error_color": "#ff3d2a",
+    "filter_title": "Shop By Categories",
+    "color_primary": "#747474",
+    "color_secondary": "#bbb",
+    "color_borders": "#e5e5e5",
+    "color_body_bg": "#fff",
+    "color_body_text": "#333333",
+    "color_footer_bg": "#f2f2f2",
+    "color_footer_text": "#636363",
+    "color_footer_social_link": "#bbbbbb",
+    "logo_use_image": "false",
+    "logo_max_width": "450",
+    "checkout_use_storefront_logo": false,
+    "footer_newsletter_enable": true,
+    "footer_social_enable": true,
+    "social_facebook_link": "",
+    "social_twitter_link": "",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "top_menu_title": "My Account",
+          "header_top_menu": "account",
+          "logo": "shopify:\/\/shop_images\/logo.png"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "1533616749928": {
+            "type": "contact_information",
+            "settings": {
+              "footer_info_coloum": "4",
+              "contact_title": "About Us",
+              "contact_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididun",
+              "address_title": "Address: 123 Main Street, Anytown, CA 12345 - USA.",
+              "phone_number": "Telephone: (012) 800 456 789-987",
+              "email": "Email: yourmail@example.com",
+              "social_icon_1_name": "facebook",
+              "socila_icon_1_link": "#",
+              "social_icon_2_name": "twitter",
+              "socila_icon_2_link": "#",
+              "social_icon_3_name": "instagram-outline",
+              "socila_icon_3_link": "#",
+              "social_icon_4_name": "googleplus-outline",
+              "socila_icon_4_link": "#",
+              "social_icon_5_name": "rss",
+              "socila_icon_5_link": "#",
+              "social_icon_6_name": "dribbble-outline",
+              "socila_icon_6_link": "#"
+            }
+          },
+          "1533616774081": {
+            "type": "footer_menu",
+            "settings": {
+              "footer_menu_coloum": "2",
+              "footer_menu_title": "Information",
+              "footer_menu_handle": "information"
+            }
+          },
+          "1533616783543": {
+            "type": "footer_menu",
+            "settings": {
+              "footer_menu_coloum": "2",
+              "footer_menu_title": "My Account",
+              "footer_menu_handle": "my-account"
+            }
+          },
+          "1533616791433": {
+            "type": "newslatter_area",
+            "settings": {
+              "footer_newslatter_coloum": "4",
+              "footer_newslatter_title": "Join Our Newsletter Now",
+              "footer_newslatter_description": "Get E-mail updates about our latest shop and special offers."
+            }
+          }
+        },
+        "block_order": [
+          "1533616749928",
+          "1533616774081",
+          "1533616783543",
+          "1533616791433"
+        ],
+        "settings": {
+          "footer_top_bg_color": "#f6f7f7",
+          "footer_top_enable": true,
+          "footer_bottom_bg_color": "#e7e8e8",
+          "footer_bottom_enable": true,
+          "copy_right": "Copyright © <a href=\"#\">Phuler<\/a>. All Right Reserved.",
+          "payment_logo": "shopify:\/\/shop_images\/payment.png",
+          "payment_logo_url": ""
+        }
+      },
+      "1533618522343": {
+        "type": "slider-area",
+        "blocks": {
+          "1533618529370": {
+            "type": "slider",
+            "settings": {
+              "slider_img": "shopify:\/\/shop_images\/slider-1.jpg",
+              "slider_subtitle": "New Arrivals",
+              "slider_title": "For Mother’s Day!",
+              "slider_description": "Exclusive Offer -10% Off This Week",
+              "slider_button": "shop Now",
+              "slider_button_url": "#"
+            }
+          },
+          "1533618577057": {
+            "type": "slider",
+            "settings": {
+              "slider_img": "shopify:\/\/shop_images\/slider-2.jpg",
+              "slider_subtitle": "New Arrivals",
+              "slider_title": "For Mother’s Day!",
+              "slider_description": "Exclusive Offer -10% Off This Week",
+              "slider_button": "shop Now",
+              "slider_button_url": "#"
+            }
+          }
+        },
+        "block_order": [
+          "1533618529370",
+          "1533618577057"
+        ],
+        "settings": {
+          "section_margin_top": "0",
+          "section_margin_bottom": "0"
+        }
+      },
+      "1533619398218": {
+        "type": "banner-area",
+        "blocks": {
+          "1533619415540": {
+            "type": "banner",
+            "settings": {
+              "multiple_banner_coloum": "4",
+              "banner_img": "shopify:\/\/shop_images\/banner-1.png",
+              "banner_img_url": "#",
+              "banner_title": "Camellias",
+              "banner_button": "shop Now",
+              "banner_button_url": "#"
+            }
+          },
+          "1533619443234": {
+            "type": "banner",
+            "settings": {
+              "multiple_banner_coloum": "4",
+              "banner_img": "shopify:\/\/shop_images\/banner-2.png",
+              "banner_img_url": "#",
+              "banner_title": "Bergamot",
+              "banner_button": "shop Now",
+              "banner_button_url": "#"
+            }
+          },
+          "1533619471164": {
+            "type": "banner",
+            "settings": {
+              "multiple_banner_coloum": "4",
+              "banner_img": "shopify:\/\/shop_images\/banner-3.png",
+              "banner_img_url": "#",
+              "banner_title": "Bottlebrush",
+              "banner_button": "shop Now",
+              "banner_button_url": "#"
+            }
+          }
+        },
+        "block_order": [
+          "1533619415540",
+          "1533619443234",
+          "1533619471164"
+        ],
+        "settings": {
+          "section_margin_top": "0",
+          "section_margin_bottom": "0",
+          "section_margin_top_2": "-75"
+        }
+      },
+      "1533620356040": {
+        "type": "tab-product",
+        "blocks": {
+          "1533620367380": {
+            "type": "tab-product",
+            "settings": {
+              "collection": "winter"
+            }
+          },
+          "1533620374299": {
+            "type": "tab-product",
+            "settings": {
+              "collection": "various"
+            }
+          },
+          "1533620378987": {
+            "type": "tab-product",
+            "settings": {
+              "collection": "greens"
+            }
+          }
+        },
+        "block_order": [
+          "1533620367380",
+          "1533620374299",
+          "1533620378987"
+        ],
+        "settings": {
+          "section_padding_top": "40",
+          "section_padding_bottom": "70",
+          "section_title": "Featured Products",
+          "product_coloum": "4"
+        }
+      },
+      "1533624655374": {
+        "type": "testimonial-area",
+        "blocks": {
+          "1533624696919": {
+            "type": "testimonial",
+            "settings": {
+              "author_image": "shopify:\/\/shop_images\/testi.png",
+              "author_description": "When a beautiful design is combined with powerful technology,<br> it truly is an artwork. I love how my website operates and looks with this theme. <br>Thank you for the awesome product.",
+              "author_title": "UI\/UX Nils"
+            }
+          },
+          "1533624711231": {
+            "type": "testimonial",
+            "settings": {
+              "author_image": "shopify:\/\/shop_images\/testi.png",
+              "author_description": "Thank you for the awesome product,<br> it truly is an artwork. I love how my website operates and looks with this theme. <br>When a beautiful design is combined with powerful technology.",
+              "author_title": "UI\/UX Nils"
+            }
+          },
+          "1533624715686": {
+            "type": "testimonial",
+            "settings": {
+              "author_image": "shopify:\/\/shop_images\/testi.png",
+              "author_description": "When a beautiful design is combined with powerful technology,<br> it truly is an artwork. I love how my website operates and looks with this theme. <br>Thank you for the awesome product.",
+              "author_title": "UI\/UX Nils"
+            }
+          }
+        },
+        "block_order": [
+          "1533624696919",
+          "1533624711231",
+          "1533624715686"
+        ],
+        "settings": {
+          "section_padding_top": "120",
+          "section_padding_bottom": "115",
+          "testimonial_area_enable": true,
+          "bg_image": "shopify:\/\/shop_images\/bg-1.jpg",
+          "testimonial_coloum_handle": "1"
+        }
+      },
+      "1533629933227": {
+        "type": "bestselling-product",
+        "blocks": {
+          "1533817102528": {
+            "type": "banner",
+            "settings": {
+              "banner_img": "shopify:\/\/shop_images\/deal-1.png",
+              "banner_hilight_img": "shopify:\/\/shop_images\/deals-2.png",
+              "banner_title": "Hot Deal ! Sale Up To <span>20% Off<\/span>",
+              "banner_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+              "date_number": "2019\/09\/01",
+              "banner_button": "Shop Now",
+              "banner_button_url": "shopify:\/\/collections\/all"
+            }
+          },
+          "1533817217832": {
+            "type": "banner",
+            "settings": {
+              "banner_img": "shopify:\/\/shop_images\/deal-1.png",
+              "banner_hilight_img": "shopify:\/\/shop_images\/deals-2.png",
+              "banner_title": "Hot Deal ! Sale Up To <span>20% Off<\/span>",
+              "banner_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+              "date_number": "2019\/09\/01",
+              "banner_button": "Shop Now",
+              "banner_button_url": "shopify:\/\/collections\/all"
+            }
+          }
+        },
+        "block_order": [
+          "1533817102528",
+          "1533817217832"
+        ],
+        "settings": {
+          "section_padding_top": "70",
+          "section_padding_bottom": "75",
+          "bg_color": "#f8f9f9",
+          "border_top_enable": false,
+          "border_bottom_enable": false,
+          "section_padding_top_2": "0",
+          "section_padding_bottom_2": "0",
+          "section_title_enable": true,
+          "section_title_2": "Best Selling Products",
+          "product_coloum": "1"
+        }
+      },
+      "1533631286820": {
+        "type": "featured-product",
+        "settings": {
+          "section_padding_top": "70",
+          "section_padding_bottom": "70",
+          "section_title": "Hot Flower",
+          "collection": "hot-flower",
+          "product_coloum": "4"
+        }
+      },
+      "1533631842656": {
+        "type": "banner-area-2",
+        "settings": {
+          "section_padding_top": "0",
+          "section_padding_bottom": "75",
+          "section_padding_top_2": "70",
+          "section_padding_bottom_2": "75",
+          "banner_img": "shopify:\/\/shop_images\/banner-4.png",
+          "banner_subtitle": "New Year Offer",
+          "banner_title": "Fresh flowers for any special occasion",
+          "banner_button": "Discover now",
+          "banner_button_url": "#"
+        }
+      },
+      "1533632498382": {
+        "type": "brand-area",
+        "disabled": true,
+        "blocks": {
+          "1533632503460": {
+            "type": "brand",
+            "settings": {
+              "brand_image": "shopify:\/\/shop_images\/logo-1.png",
+              "brand_image_url": "#"
+            }
+          },
+          "1533632527098": {
+            "type": "brand",
+            "settings": {
+              "brand_image": "shopify:\/\/shop_images\/logo-2.png",
+              "brand_image_url": "#"
+            }
+          },
+          "1533632543975": {
+            "type": "brand",
+            "settings": {
+              "brand_image": "shopify:\/\/shop_images\/logo-3.png",
+              "brand_image_url": "#"
+            }
+          },
+          "1533632557508": {
+            "type": "brand",
+            "settings": {
+              "brand_image": "shopify:\/\/shop_images\/logo-4.png",
+              "brand_image_url": "#"
+            }
+          },
+          "1533632572530": {
+            "type": "brand",
+            "settings": {
+              "brand_image": "shopify:\/\/shop_images\/logo-5.png",
+              "brand_image_url": "#"
+            }
+          }
+        },
+        "block_order": [
+          "1533632503460",
+          "1533632527098",
+          "1533632543975",
+          "1533632557508",
+          "1533632572530"
+        ],
+        "settings": {
+          "section_padding_top": "65",
+          "section_padding_bottom": "65",
+          "brand_area_enable": true,
+          "border_top_enable": true,
+          "border_bottom_enable": true,
+          "brand_limit_handle": "5"
+        }
+      },
+      "1533632987216": {
+        "type": "bestselling-product",
+        "disabled": true,
+        "settings": {
+          "section_padding_top": "0",
+          "section_padding_bottom": "0",
+          "bg_color": "#ffffff",
+          "border_top_enable": true,
+          "border_bottom_enable": true,
+          "section_padding_top_2": "70",
+          "section_padding_bottom_2": "75",
+          "section_title_enable": false,
+          "section_title_2": "Best Selling Products",
+          "product_coloum": "1"
+        }
+      },
+      "1533636483569": {
+        "type": "slider-with-banner",
+        "disabled": true,
+        "blocks": {
+          "1533636525625": {
+            "type": "slider",
+            "settings": {
+              "slider_img": "shopify:\/\/shop_images\/slider-3.jpg",
+              "slider_subtitle": "New Arrivals",
+              "slider_title": "For Mother’s Day!",
+              "slider_description": "Exclusive Offer -10% Off This Week",
+              "slider_button": "shop Now",
+              "slider_button_url": "#"
+            }
+          },
+          "1533636534126": {
+            "type": "slider",
+            "settings": {
+              "slider_img": "shopify:\/\/shop_images\/slider-4.jpg",
+              "slider_subtitle": "New Arrivals",
+              "slider_title": "For Mother’s Day!",
+              "slider_description": "Exclusive Offer -10% Off This Week",
+              "slider_button": "shop Now",
+              "slider_button_url": "#"
+            }
+          }
+        },
+        "block_order": [
+          "1533636525625",
+          "1533636534126"
+        ],
+        "settings": {
+          "section_margin_top": "0",
+          "section_margin_bottom": "0",
+          "banner_img": "shopify:\/\/shop_images\/banner-5.png",
+          "banner_img_url": "#",
+          "banner_title": "Camellias",
+          "banner_button": "shop Now",
+          "banner_button_url": "#",
+          "banner_img_2": "shopify:\/\/shop_images\/banner-6.png",
+          "banner_img_url_2": "#",
+          "banner_title_2": "Bergamot",
+          "banner_button_2": "shop Now",
+          "banner_button_url_2": "#",
+          "banner_img_3": "shopify:\/\/shop_images\/banner-7.png",
+          "banner_img_url_3": "#",
+          "banner_title_3": "Bottlebrush",
+          "banner_button_3": "shop Now",
+          "banner_button_url_3": "#"
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "section_padding_top": "70",
+          "section_padding_bottom": "75",
+          "banner_img_enable": true,
+          "banner_img": "shopify:\/\/shop_images\/banner-49.jpg",
+          "banner_img_url": "#",
+          "product_limit_count": "12",
+          "collection_sidebar_position": "left_sidebar_handle",
+          "category_enable": true,
+          "color_enable": true,
+          "brand_enable": true,
+          "product_type_enable": true,
+          "size_enable": true,
+          "tag_enable": true
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "section_padding_top": "75",
+          "section_padding_bottom": "75",
+          "single_blog_limit_handle": "6",
+          "blog_sidebar_position": "left_sidebar_handle",
+          "search_enable": true,
+          "blog_author_enable": true,
+          "latest_post_enable": true,
+          "blog_arcive_enable": true,
+          "instagram_enable": true,
+          "follow_us_enable": true,
+          "blog_tag_enable": true
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "section_padding_top": "75",
+          "section_padding_bottom": "75",
+          "blog_sidebar_position": "right_sidebar_handle",
+          "article_comment_title": "COMMENTS",
+          "user": "shopify:\/\/shop_images\/blog-administrator.png",
+          "comment_post_limit_handle": "2",
+          "article_form_title": "POST A COMMENT",
+          "name_placeholder": "Your Name",
+          "email_placeholder_2": "Your Email",
+          "massage_placehoder": "Your Massage",
+          "search_enable": true,
+          "blog_author_enable": true,
+          "latest_post_enable": true,
+          "blog_arcive_enable": true,
+          "instagram_enable": true,
+          "follow_us_enable": true,
+          "blog_tag_enable": true
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "section_padding_top": "60",
+          "section_padding_bottom": "65",
+          "section_title": "Your cart items",
+          "product_image": "Image",
+          "product_title": "Product Name",
+          "price_title": "Until Price",
+          "quantity_title": "Qty",
+          "totle_title": "Subtotal",
+          "remove_title": "Delete",
+          "continue_shopping_title": "Continue Shopping",
+          "update_button_title": "Update Shopping Cart",
+          "total_title": "Cart Total",
+          "subtotal": "Total products",
+          "grand_total": "Grand Total",
+          "checkout_button_title": "Proceed to Checkout"
+        }
+      },
+      "contact-template": {
+        "type": "contact-template",
+        "settings": {
+          "section_padding_top": "70",
+          "section_padding_bottom": "55",
+          "contact_title": "Hi, Howdy <br> Let’s Connect us",
+          "contact_us_title": "Contact us",
+          "address_title": "Address",
+          "address_description": "You address will be here Lorem Ipsum text",
+          "phone_title": "Phone",
+          "phone_description": "01234 567 890",
+          "phone_description_2": "01234 567 891",
+          "web_title": "Web",
+          "web_description": "info@example.com",
+          "web_description_2": "www.example.com",
+          "contact_form_title": "Leave us a message",
+          "name_placeholder": "Name",
+          "email_placeholder": "Email",
+          "subject_placeholder": "Subject",
+          "massage_placehoder": "Message",
+          "our_location_title": "Our location",
+          "map_icon": "shopify:\/\/shop_images\/map.png",
+          "api_key": "AIzaSyBmGmeot5jcjdaJTvfCmQPfzeoG_pABeWo",
+          "latlong": "40.709896, -73.995481"
+        }
+      },
+      "testimonial-area": {
+        "type": "testimonial-area",
+        "blocks": {
+          "1533722998960": {
+            "type": "testimonial",
+            "settings": {
+              "author_image": "shopify:\/\/shop_images\/testi.png",
+              "author_description": "When a beautiful design is combined with powerful technology,<br> it truly is an artwork. I love how my website operates and looks with this theme. <br>Thank you for the awesome product.",
+              "author_title": "UI\/UX Nils"
+            }
+          },
+          "1533723024695": {
+            "type": "testimonial",
+            "settings": {
+              "author_image": "shopify:\/\/shop_images\/testi.png",
+              "author_description": "When a beautiful design is combined with powerful technology,<br> it truly is an artwork. I love how my website operates and looks with this theme. <br>Thank you for the awesome product.",
+              "author_title": "UI\/UX Nils"
+            }
+          },
+          "1533723044151": {
+            "type": "testimonial",
+            "settings": {
+              "author_image": "shopify:\/\/shop_images\/testi.png",
+              "author_description": "When a beautiful design is combined with powerful technology,<br> it truly is an artwork. I love how my website operates and looks with this theme. <br>Thank you for the awesome product.",
+              "author_title": "UI\/UX Nils"
+            }
+          }
+        },
+        "block_order": [
+          "1533722998960",
+          "1533723024695",
+          "1533723044151"
+        ],
+        "settings": {
+          "section_padding_top": "120",
+          "section_padding_bottom": "115",
+          "testimonial_area_enable": true,
+          "bg_image": "shopify:\/\/shop_images\/bg-1.jpg",
+          "testimonial_coloum_handle": "1"
+        }
+      },
+      "brand-area": {
+        "type": "brand-area",
+        "blocks": {
+          "1533722942991": {
+            "type": "brand",
+            "settings": {
+              "brand_image": "shopify:\/\/shop_images\/logo-1.png",
+              "brand_image_url": "#"
+            }
+          },
+          "1533722954159": {
+            "type": "brand",
+            "settings": {
+              "brand_image": "shopify:\/\/shop_images\/logo-2.png",
+              "brand_image_url": "#"
+            }
+          },
+          "1533722961814": {
+            "type": "brand",
+            "settings": {
+              "brand_image": "shopify:\/\/shop_images\/logo-3.png",
+              "brand_image_url": "#"
+            }
+          },
+          "1533722969890": {
+            "type": "brand",
+            "settings": {
+              "brand_image": "shopify:\/\/shop_images\/logo-4.png",
+              "brand_image_url": "#"
+            }
+          },
+          "1533722977405": {
+            "type": "brand",
+            "settings": {
+              "brand_image": "shopify:\/\/shop_images\/logo-5.png",
+              "brand_image_url": "#"
+            }
+          }
+        },
+        "block_order": [
+          "1533722942991",
+          "1533722954159",
+          "1533722961814",
+          "1533722969890",
+          "1533722977405"
+        ],
+        "settings": {
+          "section_padding_top": "75",
+          "section_padding_bottom": "75",
+          "brand_area_enable": true,
+          "border_top_enable": false,
+          "border_bottom_enable": false,
+          "brand_limit_handle": "5"
+        }
+      },
+      "team-area": {
+        "type": "team-area",
+        "blocks": {
+          "1533723907139": {
+            "type": "team",
+            "settings": {
+              "team_coloum": "3",
+              "team_image": "shopify:\/\/shop_images\/team-1.jpg",
+              "team_image_url": "#",
+              "member_title": "Mr.Mike Banding",
+              "member_position": "Manager",
+              "social_icon_1_name": "facebook",
+              "socila_icon_1_link": "#",
+              "social_icon_2_name": "twitter",
+              "socila_icon_2_link": "#",
+              "social_icon_3_name": "instagram",
+              "socila_icon_3_link": "#"
+            }
+          },
+          "1533723980845": {
+            "type": "team",
+            "settings": {
+              "team_coloum": "3",
+              "team_image": "shopify:\/\/shop_images\/team-2.jpg",
+              "team_image_url": "#",
+              "member_title": "Mr.Peter Pan",
+              "member_position": "Developer",
+              "social_icon_1_name": "facebook",
+              "socila_icon_1_link": "#",
+              "social_icon_2_name": "twitter",
+              "socila_icon_2_link": "#",
+              "social_icon_3_name": "instagram",
+              "socila_icon_3_link": "#"
+            }
+          },
+          "1533724090300": {
+            "type": "team",
+            "settings": {
+              "team_coloum": "3",
+              "team_image": "shopify:\/\/shop_images\/team-3.jpg",
+              "team_image_url": "#",
+              "member_title": "Ms.Sophia",
+              "member_position": "Designer",
+              "social_icon_1_name": "facebook",
+              "socila_icon_1_link": "#",
+              "social_icon_2_name": "twitter",
+              "socila_icon_2_link": "#",
+              "social_icon_3_name": "instagram",
+              "socila_icon_3_link": "#"
+            }
+          },
+          "1533724123512": {
+            "type": "team",
+            "settings": {
+              "team_coloum": "3",
+              "team_image": "shopify:\/\/shop_images\/team-4.jpg",
+              "team_image_url": "#",
+              "member_title": "Mr.John Lee",
+              "member_position": "Chairmen",
+              "social_icon_1_name": "facebook",
+              "socila_icon_1_link": "#",
+              "social_icon_2_name": "twitter",
+              "socila_icon_2_link": "#",
+              "social_icon_3_name": "instagram",
+              "socila_icon_3_link": "#"
+            }
+          }
+        },
+        "block_order": [
+          "1533723907139",
+          "1533723980845",
+          "1533724090300",
+          "1533724123512"
+        ],
+        "settings": {
+          "section_padding_top": "75",
+          "section_padding_bottom": "50",
+          "team_area_enable": true,
+          "section_title": "Team Members"
+        }
+      },
+      "counter-area": {
+        "type": "counter-area",
+        "blocks": {
+          "1533724716109": {
+            "type": "team",
+            "settings": {
+              "coundown_coloum": "3",
+              "coundown_icon": "ios-briefcase-outline",
+              "coundown_number": "360",
+              "Coundown_title": "project done"
+            }
+          },
+          "1533724719946": {
+            "type": "team",
+            "settings": {
+              "coundown_coloum": "3",
+              "coundown_icon": "ios-wineglass-outline",
+              "coundown_number": "690",
+              "Coundown_title": "cups of coffee"
+            }
+          },
+          "1533724743844": {
+            "type": "team",
+            "settings": {
+              "coundown_coloum": "3",
+              "coundown_icon": "ios-lightbulb-outline",
+              "coundown_number": "420",
+              "Coundown_title": "branding"
+            }
+          },
+          "1533724768250": {
+            "type": "team",
+            "settings": {
+              "coundown_coloum": "3",
+              "coundown_icon": "happy-outline",
+              "coundown_number": "100",
+              "Coundown_title": "happy clients"
+            }
+          }
+        },
+        "block_order": [
+          "1533724716109",
+          "1533724719946",
+          "1533724743844",
+          "1533724768250"
+        ],
+        "settings": {
+          "section_padding_top": "100",
+          "section_padding_bottom": "70",
+          "coundown_area_enable": true,
+          "bg_color": "#f8f9f9"
+        }
+      },
+      "about-main": {
+        "type": "about-main",
+        "settings": {
+          "section_padding_top": "80",
+          "section_padding_bottom": "80",
+          "about_main_enable": true,
+          "about_img": "shopify:\/\/shop_images\/about-us.jpg",
+          "about_img_url": "#",
+          "about_title": "Welcome To <span>Phuler<\/span> Store !",
+          "about_description": "Phuler Shop is a premium HTML template designed and develoved from the ground up with the sole purpose of helping you create an astonishing, the beautiful and user friendly website that will boost your product’s sales.",
+          "about_description_2": "The theme design package provides a complete Magento theme set for your online store according to your desired theme. This includes all Magento themes that are required for your online store's successful implementation.",
+          "about_button_title": "Shop now!",
+          "about_button_url": ""
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "section_padding_top": "75",
+          "section_padding_bottom": "65",
+          "discount_percent_enable": true,
+          "thum_product_cursole": "3",
+          "swatch_color_enable": true,
+          "category_list_enable": true,
+          "category_title": "Categories:",
+          "category_tag_enable": true,
+          "tag_title": "Tags:",
+          "share_enable": true
+        }
+      },
+      "single-product-tab": {
+        "type": "single-product-tab",
+        "settings": {
+          "section_padding_top": "0",
+          "section_padding_bottom": "70",
+          "product_description_tab_enable": true,
+          "product_info_enable": true,
+          "more_info_title": "Description",
+          "review_title": "Review",
+          "review_enable": true,
+          "comment_title": "Comment",
+          "tab_comment_enable": true,
+          "product_page_comments_box": "disqus_comment",
+          "facebook_comments_post_limit": "10",
+          "disqus_shortname": "demo-store",
+          "custom_tab_1_enable": true,
+          "custom_tab_1_title": "Custom Tab",
+          "custom_tab_handle_1": "shipping-policy",
+          "custom_tab_2_enable": true,
+          "custom_tab_2_title": "Custom Tab",
+          "custom_tab_handle_2": "size-chart"
+        }
+      },
+      "related-product": {
+        "type": "related-product",
+        "settings": {
+          "section_padding_top": "0",
+          "section_padding_bottom": "70",
+          "related_products_enable": true,
+          "collection_title": "Related Products",
+          "list_product_cursole": "4"
+        }
+      }
+    },
+    "content_for_index": [
+      "1533618522343",
+      "1533619398218",
+      "1533620356040",
+      "1533624655374",
+      "1533629933227",
+      "1533631286820",
+      "1533631842656",
+      "1533632498382",
+      "1533632987216",
+      "1533636483569"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "ajax_cart_method": "drawer",
+      "cart_notes_enable": true,
+      "color_body_bg": "#fff",
+      "color_body_text": "#333333",
+      "color_borders": "#e5e5e5",
+      "color_footer_bg": "#f2f2f2",
+      "color_footer_social_link": "#bbbbbb",
+      "color_footer_text": "#636363",
+      "color_primary": "#747474",
+      "color_secondary": "#bbb",
+      "favicon_enable": false,
+      "footer_newsletter_enable": true,
+      "footer_social_enable": true,
+      "logo_use_image": false,
+      "social_facebook_link": "",
+      "social_twitter_link": ""
+    }
+  }
+}

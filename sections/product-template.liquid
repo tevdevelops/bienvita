@@ -1,0 +1,412 @@
+
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+{% assign on_sale = true %}
+{% endif %}
+
+
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+
+<div class="product-details" id="product-details-{{ section.id }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+
+
+        <div class="product-details-img">
+
+          {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+          <img id="ProductPhotoImg" class="zoompro" src="{{ featured_image | img_url: '1024x1024' }}" data-zoom-image="{{ featured_image | img_url: '1024x1024' }}" alt="zoom"/>
+
+
+
+          {% if product.images.size > 1 %}
+          <div id="gallery" class="mt-20 product-dec-slider owl-carousel">
+
+            {% for image in product.images %}
+            <a class="product-single__thumbnail" data-image="{{ image | img_url: 'master' }}" data-zoom-image="{{ image | img_url: 'master' }}">
+              <img src="{{ image | img_url: 'compact' }}" alt="">
+            </a>
+            {% endfor %}
+
+          </div>
+          {% endif %}
+
+          {% if on_sale and section.settings.discount_percent_enable %}
+          <span>-{{ product.price | times: 100 | divided_by: product.compare_at_price | minus: 100 | abs }}%</span>
+          {% endif %}
+
+
+
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <form action="/cart/add" method="post" enctype="multipart/form-data" id="add-item-form">
+
+
+          <div class="product-details-content">
+
+            <h4>{{ product.title }}</h4>
+            <div class="rating-review">
+              <div class="pro-dec-rating">
+                <span id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</span>
+                {% if product.compare_at_price_max > product.price %}
+                <span class="product-price-old" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+                {% endif %}
+                <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+              </div>
+            </div>
+
+
+            <div class="in-stock">
+              <p>Available: <span>{% if product.available %}In Stock{% else %}Out of Stock{% endif %}</span></p>
+            </div>
+            <div class="pro-dec-feature">
+              {% if product.description %}
+
+
+
+              {{ product.description }}
+
+              {% endif %}
+            </div>
+
+
+            <div class="quality-add-to-cart">
+
+              <div class="swatch-color">
+
+                <select name="id" id="productSelect" class="product-single__variants email s-email s-wid" style="display:none;">
+                  {% for variant in product.variants %}
+                  {% if variant.available %}
+                  <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+                  {% else %}
+                  <option disabled="disabled">
+                    {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                  </option>
+                  {% endif %}
+                  {% endfor %}
+                </select>
+                {% if section.settings.swatch_color_enable %}
+                {% if product.available and product.variants.size > 1 %}
+                {% for option in product.options %}
+                {% include 'swatch' with option %}
+                {% endfor %}
+                {% endif %}
+                <script>
+                  jQuery(function() {
+                    jQuery('.swatch :radio').change(function() {
+                      var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+                      var optionValue = jQuery(this).val();
+                      jQuery(this)
+                      .closest('form')
+                      .find('.single-option-selector')
+                      .eq(optionIndex)
+                      .val(optionValue)
+                      .trigger('change');
+                    });
+                  });
+                </script>
+
+                {% endif %}
+              </div>
+
+
+
+              {% if product.description contains '[affiliate_link]' %}
+              {% assign affiliate_link_first = product.description | split:'[/affiliate_link]' | first %}
+              {% assign affiliate_link_final = affiliate_link_first | split:'[affiliate_link]' | last %}
+
+              <div class="shop-list-cart-wishlist">
+                <a title="Add To Cart" href="{{ affiliate_link_final }}">
+                  <i class="icon-handbag"></i>
+                </a>
+                {% include 'wishlist-button' %}
+              </div>
+
+              {% else %}
+              <div class="quality">
+                <label>Qty:</label>
+                <input class="cart-plus-minus-box" type="text" name="quantity" value="1">
+              </div>
+
+
+              <div class="shop-list-cart-wishlist">
+                <a href="javascript:void(0);" class="action-btn cart cart-item action-cart addtocart" onclick="{{ func }}; return false;" title="{{ 'products.product.add_to_cart' | t }}">
+                  <i class="icon-handbag"></i>
+                  <i class="icon-settings fa-spin"></i>
+                  <i class="fa fa-check"></i>
+                  <i class="fa fa-times"></i>
+                </a>
+                <script>
+                  jQuery('.addtocart').click(function(e) {
+                    e.preventDefault();
+                    Shopify.addItemFromFormStart('add-item-form', {{ product.id }});
+                                                 });
+                </script>
+
+
+                {% include 'wishlist-button' %}
+              </div>
+
+
+              {% endif %}
+
+            </div>
+
+            {% if section.settings.category_list_enable %}
+            <div class="pro-dec-categories">
+              <ul>
+                <li class="categories-title">{{ section.settings.category_title }}</li>
+
+
+                {% for category in collections limit: 5 %}
+                <li><a href="{{ category.url }}">{{ category.title }}</a></li>
+                {% endfor %}
+
+              </ul>
+            </div>
+            {% endif %}
+            {% if section.settings.category_tag_enable and product.tags.size > 0 %}
+            <div class="pro-dec-categories">
+              <ul>
+                <li class="categories-title">{{ section.settings.tag_title }} </li>
+
+
+                {% for tag in product.tags limit: 5 %}
+                <li><a href="/collections/all/{{ tag | handle }}">{{ tag }}{% unless forloop.last %},{% endunless %}</a></li>
+                {% endfor %}
+
+
+              </ul>
+            </div>
+            {% endif %}
+            {% if section.settings.share_enable %}
+            <div class="pro-dec-social">
+              <ul>
+                {% include 'social-icon-share-5' %}
+
+              </ul>
+            </div>
+            {% endif %}
+          </div>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+
+  #product-details-{{ section.id }}.product-details{
+    padding-top:{{ section.settings.section_padding_top }}px;
+  }
+
+  #product-details-{{ section.id }}.product-details{
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  }
+
+
+</style>
+
+
+<script>
+
+      /*---------------------
+        Product dec slider
+    --------------------- */
+    $('#product-details-{{ section.id }} .product-dec-slider').slick({
+        infinite: true,
+        slidesToShow: {{ section.settings.thum_product_cursole }},
+        slidesToScroll: 1,
+        centerPadding: '60px',
+        prevArrow: '<span class="product-dec-icon product-dec-prev"><i class="fa fa-angle-left"></i></span>',
+        nextArrow: '<span class="product-dec-icon product-dec-next"><i class="fa fa-angle-right"></i></span>',
+        responsive: [{
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 479,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+
+
+</script>
+
+
+{% schema %}
+  {
+    "name": "Product Template",
+    "settings": [
+		{
+          "type": "header",
+          "content": "Section Padding"
+        },
+        {
+          "type": "text",
+          "id": "section_padding_top",
+          "label": "Section Padding Top",
+          "default": "75" ,
+          "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+          "type": "text",
+          "id": "section_padding_bottom",
+          "label": "Section Padding Bottom",
+          "default": "65" ,
+          "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+		{
+            "type": "header",
+            "content": "Discount Price"
+        },
+		{
+            "type": "checkbox",
+            "id": "discount_percent_enable",
+            "label": "Show Discount",
+            "default": true
+        },
+		{
+            "type": "header",
+            "content": "Thum Product Cursole"
+        },
+        {
+            "type": "select",
+            "id": "thum_product_cursole",
+            "label": "Product Cursole",
+            "options":[
+			  {
+                "value":"1",
+                "label": "1 products"
+              },
+			  {
+                "value":"2",
+                "label": "2 products"
+              },
+              {
+                "value":"3",
+                "label": "3 products"
+              },
+              {
+                "value":"4",
+                "label": "4 products"
+              },
+              {
+                "value":"5",
+                "label": "5 products"
+              },
+              {
+                "value":"6",
+                "label": "6 products"
+              },
+              {
+                "value":"7",
+                "label": "7 products"
+              },
+              {
+                "value":"8",
+                "label": "8 products"
+              },
+              {
+                "value":"9",
+                "label": "9 products"
+              },
+              {
+                "value":"10",
+                "label": "10 products"
+              },
+              {
+                "value":"11",
+                "label": "11 products"
+              },
+              {
+                "value":"12",
+                "label": "12 products"
+              }
+
+            ],
+
+            "default": "4"
+        },
+		{
+            "type": "header",
+            "content": "Swatch Color"
+        },
+		{
+            "type": "checkbox",
+            "id": "swatch_color_enable",
+            "label": "Swatch Color Enable",
+            "default": false
+        },
+		{
+            "type": "header",
+            "content": "Category"
+        },
+		{
+            "type": "checkbox",
+            "id": "category_list_enable",
+            "label": "Category Enable",
+            "default": true
+        },
+        {
+          "type": "text",
+          "id": "category_title",
+          "label": "Category Title",
+          "default": "Categories:"
+        },
+		{
+            "type": "header",
+            "content": "Tag"
+        },
+		{
+            "type": "checkbox",
+            "id": "category_tag_enable",
+            "label": "Tag Enable",
+            "default": true
+        },
+        {
+          "type": "text",
+          "id": "tag_title",
+          "label": "Tag Title",
+          "default": "Tags: "
+        },
+		{
+            "type": "header",
+            "content": "Share"
+        },
+		{
+            "type": "checkbox",
+            "id": "share_enable",
+            "label": "Share Enable",
+            "default": true
+        }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

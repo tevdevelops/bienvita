@@ -1,0 +1,67 @@
+
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+{% assign on_sale = true %}
+{% endif %}
+
+
+{% assign on_out = true %}
+{% if product.available %}
+{% assign on_out = false %}
+{% endif %}
+
+{% assign variant = product.selected_or_first_available_variant %}
+{% if product.available %}
+{% assign func = "Shopify.addItem(" | append: variant.id | append: ", 1)" %}
+{% endif %}
+
+
+
+<div class="product-wrapper" style="padding-bottom:15px;">
+  <div class="product-img">
+    <a href="{{ product.url | within: 'collection' }}">
+      <div class="reveal">
+        <img alt="product_image" src="{{ product.featured_image.src | img_url : 'grande' }}">
+        <img class="hidden" src="{{ product.images.last | img_url: '450x450' }}" alt="{{ product.images.last.alt | escape }}" />
+      </div>
+    </a>
+      {% if on_sale and settings.discount_percent_enable %}
+    <span>-{{ product.price | times: 100 | divided_by: product.compare_at_price | minus: 100 | abs }}%</span>
+    {% endif %}
+
+    {% if product.description contains '[new_products]' %}
+    {% assign new_products_first = product.description | split:'[/new_products]' | first %}
+    {% assign new_products_final = new_products_first | split:'[new_products]' | last %}
+
+    {% comment %}Date calculate{% endcomment %}
+    {% assign date_pub_y = product.published_at | date:'%Y' %}
+    {% assign date_pub_d = product.published_at | date:'%j' %}
+    {% assign date_now_y = 'now' | date:'%Y' %}
+    {% assign date_now_d = 'now' | date:'%j' %}
+    {% assign dates_diff_y = date_now_y | minus: date_pub_y | times: 365 %}
+    {% assign dates_diff_d = date_now_d | minus: date_pub_d %}
+    {% assign dates_diff = dates_diff_y | plus: dates_diff_d %}
+    {% assign new_products_period = new_products_final | plus: 0 %}
+
+    {% if dates_diff <= new_products_period %}
+    <span>{{ 'products.product.new' | t }}</span>
+    {% endif %}
+    {% endif %}
+
+
+  </div>
+  <div class="product-content text-center">
+    <h4>
+      <a href="{{ product.url }}">{{ product.title }}</a>
+    </h4>
+    <div class="product-price-wrapper">
+      {% if on_sale %}
+      <span>{{ product.price | money }}</span>
+      <span class="product-price-old">{{ product.compare_at_price | money }}</span>
+      {% else %}
+      <span>{{ product.price | money }}</span>
+      {% endif %}
+    </div>
+    <a class="btn btn-primary" href="{{ product.url }}">Shop Now</a>
+  </div>
+</div>

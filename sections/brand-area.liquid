@@ -1,0 +1,246 @@
+{% if section.settings.brand_area_enable %}
+
+<div class="brand-logo-area " id="brand-logo-area-{{ section.id }}">
+  <div class="container">
+    <div class="brand-logo-active owl-carousel {% if section.settings.border_top_enable %}border-top-3{% endif %} {% if section.settings.border_bottom_enable %}border-bottom-2{% endif %}">
+       {% for block in section.blocks %}
+      <div class="single-brand-logo">
+        <img alt="brand" src="{% if block.settings.brand_image %}{{ block.settings.brand_image | img_url: 'compact' }}{% else %}http:\/\/via.placeholder.com\/170x110{% endif %}">
+      </div>
+      {% endfor %}
+      
+      
+    </div>
+  </div>
+</div>
+
+{% endif %}
+
+<style>
+ 
+ #brand-logo-area-{{ section.id }} .brand-logo-active{
+    padding-top:{{ section.settings.section_padding_top }}px;
+  }
+  
+ #brand-logo-area-{{ section.id }} .brand-logo-active{
+    padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  }
+
+  
+</style> 
+
+
+<script>
+
+
+    /* Brand logo active */
+    $('#brand-logo-area-{{ section.id }} .brand-logo-active').owlCarousel({
+        loop: true,
+        nav: false,
+        autoplay: false,
+        autoplayTimeout: 5000,
+        item: {{ section.settings.brand_limit_handle }},
+        margin: 80,
+        responsive: {
+            0: {
+                items: 1,
+                margin: 0,
+            },
+            480: {
+                items: 2,
+                margin: 30,
+            },
+            768: {
+                items: 4,
+                margin: 30,
+            },
+            992: {
+                items: 4,
+                margin: 100,
+            },
+            1200: {
+                items: {{ section.settings.brand_limit_handle }}
+            }
+        }
+    })
+
+</script>
+
+    
+    
+{% schema %}
+  {
+    "name": "Brand Area",
+    "settings": [
+		{
+          "type": "header",
+          "content": "Section Padding"
+        },
+        {
+           "type": "text",
+           "id": "section_padding_top",
+           "label": "Section Padding Top",
+           "default": "65" ,
+           "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+           "type": "text",
+           "id": "section_padding_bottom",
+           "label": "Section Padding Bottom",
+           "default": "65" ,
+           "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        {
+          "type": "checkbox",
+          "id": "brand_area_enable",
+          "label": "Brand Area Enable",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Border Top"
+        },
+        {
+          "type": "checkbox",
+          "id": "border_top_enable",
+          "label": "Border Top Enable",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Border Bottom"
+        },
+        {
+          "type": "checkbox",
+          "id": "border_bottom_enable",
+          "label": "Border Bottom Enable",
+          "default": true
+        },
+		{
+            "type": "header",
+            "content": "Brand Cursole"
+        },
+        {
+           "type": "select",
+           "id": "brand_limit_handle",
+           "label": "Brand Cursole",
+           "options":[
+			   {
+                  "value":"1",
+                  "label": "1 brand"
+               },
+               {
+                  "value":"2",
+                  "label": "2 brand"
+               },
+               {
+                  "value":"3",
+                  "label": "3 brand"
+               },
+               {
+                  "value":"4",
+                  "label": "4 brand"
+               },
+               {
+                  "value":"5",
+                  "label": "5 brand"
+               },
+               {
+                  "value":"6",
+                  "label": "6 brand"
+               },
+               {
+                  "value":"7",
+                  "label": "7 brand"
+               },
+               {
+                  "value":"8",
+                  "label": "8 brand"
+               },
+               {
+                  "value":"9",
+                  "label": "9 brand"
+               },
+               {
+                  "value":"10",
+                  "label": "10 brand"
+               },
+               {
+                  "value":"11",
+                  "label": "11 brand"
+               },
+               {
+                  "value":"12",
+                  "label": "12 brand"
+               },
+               {
+                  "value":"13",
+                  "label": "13 brand"
+               },
+               {
+                  "value":"14",
+                  "label": "14 brand"
+               },
+               {
+                  "value":"15",
+                  "label": "15 brand"
+               },
+               {
+                  "value":"16",
+                  "label": "16 brand"
+               },
+               {
+                  "value":"17",
+                  "label": "17 brand"
+               },
+               {
+                  "value":"18",
+                  "label": "18 brand"
+               },
+               {
+                  "value":"19",
+                  "label": "19 brand"
+               },
+               {
+                  "value":"20",
+                  "label": "20 brand"
+               }
+
+            ],
+
+            "default": "5"
+        }
+	 ],		
+	"blocks":[
+      {
+         "type": "brand",
+         "name": "Brand",
+         "settings": [
+			{
+				"type": "image_picker",
+				"id": "brand_image",
+				"label": "Brand Image",
+				"info": "Recommended Size: 170 x 110px"
+		    },
+			{
+				"type": "url",
+				"id": "brand_image_url",
+				"label": "URL"
+		    }
+        ]
+       }
+    ],
+    "presets":[
+        {
+            "name": "Brand",
+            "category": "5. brand"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
